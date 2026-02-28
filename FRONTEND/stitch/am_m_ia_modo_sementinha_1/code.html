@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html class="light" lang="pt-BR">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Amém IA</title>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+    <meta name="apple-mobile-web-app-title" content="Amém IA">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Playfair+Display:ital,wght@0,700;1,700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script src="/FRONTEND/stitch/theme-switcher.js" type="module"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "deep-navy": "#0A1128",
+                        "premium-gold": "#C8A951",
+                        "light-champagne": "#F9F6EE",
+                        "soft-grey": "#F2F2F7",
+                        "chat-white": "#FFFFFF",
+                    },
+                    fontFamily: {
+                        "sans": ["Inter", "sans-serif"],
+                        "serif": ["Playfair Display", "serif"]
+                    }
+                },
+            },
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .material-symbols-outlined {
+                font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            }
+            .fill-icon {
+                font-variation-settings: 'FILL' 1;
+            }
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FAF7F0;
+            color: #050B18;
+            transition: background-color 0.3s ease;
+        }
+        .dark body {
+            background-color: #05070A;
+            color: #FFFFFF;
+        }
+        .chat-container::-webkit-scrollbar {
+            width: 4px;
+        }
+        .chat-container::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .chat-container::-webkit-scrollbar-thumb {
+            background: #E5E7EB;
+            border-radius: 10px;
+        }
+        .ios-shadow {
+            box-shadow: 0 4px 30px rgba(5, 11, 24, 0.3);
+        }
+    </style>
+
+<body class="antialiased font-sans">
+    <div class="relative flex h-screen w-full max-w-[430px] mx-auto flex-col bg-[#050B18] overflow-hidden shadow-2xl">
+        <div class="h-10 w-full flex justify-between px-8 pt-2 items-center bg-[#050B18] sticky top-0 z-30">
+            <span class="text-[15px] font-black text-white/80">9:41</span>
+            <div class="flex gap-1.5 items-center">
+                <span class="material-symbols-outlined text-[18px]">signal_cellular_4_bar</span>
+                <span class="material-symbols-outlined text-[18px]">wifi</span>
+                <span class="material-symbols-outlined text-[18px]">battery_full</span>
+            </div>
+        </div>
+        <header
+            class="flex flex-col items-center pt-10 pb-6 px-6 sticky top-10 z-20 bg-[#050B18]/80 backdrop-blur-md border-b border-white/5">
+            <div class="flex items-center justify-between w-full">
+                <a href="/stitch/am_m_ia_modo_sementinha_2/code.html"
+                    class="size-10 flex items-center justify-center rounded-full bg-white/5 text-white active:scale-95 transition-transform">
+                    <span class="material-symbols-outlined text-3xl font-black">chevron_left</span>
+                </a>
+                <div class="flex flex-col items-center">
+                    <h1
+                        class="text-2xl font-black text-white drop-shadow-[0_2px_10px_rgba(200,169,81,0.3)] tracking-tight uppercase">
+                        Amém IA</h1>
+                    <div class="flex items-center gap-1.5">
+                        <span class="w-1.5 h-1.5 rounded-full bg-green-400"></span>
+                        <span class="text-[10px] font-black text-white/50 uppercase tracking-widest">Pastor IA</span>
+                    </div>
+                </div>
+                <button onclick="toggleTheme()"
+                    class="size-10 flex items-center justify-center rounded-full bg-white/5 text-premium-gold active:scale-95 transition-transform">
+                    <span class="material-symbols-outlined font-black dark:hidden">dark_mode</span>
+                    <span class="material-symbols-outlined font-black hidden dark:block">light_mode</span>
+                </button>
+            </div>
+        </header>
+        <main id="chat-messages"
+            class="flex-1 overflow-y-auto bg-transparent px-5 py-6 space-y-8 chat-container relative z-10 scroll-smooth">
+            <div class="flex justify-center mb-4">
+                <span class="text-[11px] font-black text-slate-400 uppercase tracking-widest">Hoje</span>
+            </div>
+            <div class="flex flex-col items-start max-w-[85%] space-y-2">
+                <div
+                    class="bg-light-champagne px-5 py-4 rounded-[1.4rem] rounded-tl-sm ios-shadow border border-[#F3EDDB]">
+                    <p class="text-[15px] leading-relaxed text-deep-navy/80 font-normal">
+                        Olá! Sou seu Mentor Bíblico. Estou aqui para ajudar você a aprofundar seu conhecimento na
+                        Palavra. Sobre o que gostaria de refletir hoje?
+                    </p>
+                </div>
+                <span class="text-[10px] text-slate-400 ml-2 font-bold">09:41</span>
+            </div>
+            <div class="flex flex-col items-end max-w-[85%] ml-auto space-y-2">
+                <div class="bg-soft-grey px-5 py-4 rounded-[1.4rem] rounded-br-sm ios-shadow">
+                    <p class="text-[15px] leading-relaxed text-deep-navy">
+                        Gostaria de entender melhor a parábola do semeador e como aplicá-la na minha rotina de trabalho.
+                    </p>
+                </div>
+                <div class="flex items-center gap-1 mr-2">
+                    <span class="text-[10px] text-slate-400 font-bold">09:42</span>
+                    <span class="material-symbols-outlined text-[14px] text-premium-gold font-bold">done_all</span>
+                </div>
+            </div>
+            <div class="flex flex-col items-start max-w-[90%] space-y-4">
+                <div
+                    class="bg-light-champagne px-5 py-4 rounded-[1.4rem] rounded-tl-sm ios-shadow border border-[#F3EDDB]">
+                    <p class="text-[15px] leading-relaxed text-deep-navy/80">
+                        Uma excelente escolha. Mateus 13 nos ensina sobre a receptividade do nosso coração. Como prefere
+                        começar?
+                    </p>
+                </div>
+                <div class="flex flex-col gap-2 w-full">
+                    <button onclick="sendMessage('Explicar Contexto')"
+                        class="bg-white/5 backdrop-blur-md px-5 py-4 rounded-2xl border border-white/10 text-left hover:border-premium-gold/50 transition-all ios-shadow active:scale-98 group flex items-center justify-between">
+                        <div>
+                            <span class="text-sm font-bold text-white block">Explicar Contexto</span>
+                            <span class="text-[11px] text-white/40 block">História e significado espiritual</span>
+                        </div>
+                        <span
+                            class="material-symbols-outlined text-premium-gold opacity-40 group-hover:opacity-100">chevron_right</span>
+                    </button>
+                    <button onclick="sendMessage('Aplicação Prática')"
+                        class="bg-white/5 backdrop-blur-md px-5 py-4 rounded-2xl border border-white/10 text-left hover:border-premium-gold/50 transition-all ios-shadow active:scale-98 group flex items-center justify-between">
+                        <div>
+                            <span class="text-sm font-bold text-white block">Aplicação Prática</span>
+                            <span class="text-[11px] text-white/40 block">Foco em produtividade e ética</span>
+                        </div>
+                        <span
+                            class="material-symbols-outlined text-premium-gold opacity-40 group-hover:opacity-100">chevron_right</span>
+                    </button>
+                </div>
+            </div>
+        </main>
+        <div class="px-6 py-4 bg-[#050B18] border-t border-white/5">
+            <div class="relative flex items-center gap-3">
+                <div class="flex-1 bg-white/5 rounded-3xl flex items-center px-5 py-1 border border-white/10">
+                    <input id="chat-input"
+                        class="w-full bg-transparent border-none focus:ring-0 text-[15px] py-4 text-white placeholder-white/20"
+                        placeholder="Mensagem..." type="text" />
+                </div>
+                <button id="send-btn"
+                    class="w-14 h-14 flex items-center justify-center rounded-full bg-premium-gold text-white shadow-[0_0_20px_rgba(200,169,81,0.4)] transition-all active:scale-90">
+                    <span class="material-symbols-outlined fill-icon text-[24px]">send</span>
+                </button>
+            </div>
+        </div>
+
+
+
+        </div>
+
+        <!-- Premium Navigation Footer -->
+        <nav class="relative bottom-0 w-full bg-white/5 backdrop-blur-lg border-t border-white/5 px-8 pt-4 pb-8 flex justify-between items-center z-40">
+            <a href="/stitch/am_m_ia_modo_sementinha_2/code.html" class="flex flex-col items-center gap-1 opacity-40">
+                <span class="material-symbols-outlined text-white">home</span>
+                <span class="text-[8px] font-black uppercase tracking-widest text-white">Início</span>
+            </a>
+            <a href="/stitch/am_m_ia_di_rio_de_ora_es/code.html" class="flex flex-col items-center gap-1 opacity-40">
+                <span class="material-symbols-outlined text-white">volunteer_activism</span>
+                <span class="text-[8px] font-black uppercase tracking-widest text-white">Diário</span>
+            </a>
+            <a href="#" class="flex flex-col items-center gap-1 text-premium-gold font-bold">
+                <span class="material-symbols-outlined filled-icon" style="font-variation-settings: 'FILL' 1;">chat_bubble</span>
+                <span class="text-[8px] font-black uppercase tracking-widest">Mentor</span>
+            </a>
+            <a href="/stitch/am_m_ia_conquistas_espirituais/code.html" class="flex flex-col items-center gap-1 opacity-40">
+                <span class="material-symbols-outlined text-white">workspace_premium</span>
+                <span class="text-[8px] font-black uppercase tracking-widest text-white">Perfil</span>
+            </a>
+        </nav>
+    </div>
+
+    <script src="/auth.js"></script>
+    <script src="/chat-pastor.js"></script>
+</body>
+
+</html>
+

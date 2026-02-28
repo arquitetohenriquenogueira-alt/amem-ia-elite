@@ -1,0 +1,239 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap");
+
+:root {
+  /* Design System Global - Amém IA */
+  --color-bg-primary: #0b0f19;
+  --color-bg-secondary: #111827;
+  --color-card: #1f2937;
+  --color-primary: #d4af37;
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #9ca3af;
+
+  /* Modo Escuro (Principal) - Mantendo compatibilidade com nomes antigos se necessário */
+  --bg-main: var(--color-bg-primary);
+  --bg-secondary: var(--color-bg-secondary);
+  --bg-card: var(--color-card);
+  --primary-gold: var(--color-primary);
+  --secondary-blue: #3b82f6;
+  --text-primary: var(--color-text-primary);
+  --text-secondary: var(--color-text-secondary);
+  --border-subtle: rgba(255, 255, 255, 0.08);
+
+  /* Espaçamento e Bordas */
+  --radius-premium: 16px;
+  --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.light-theme {
+  --color-bg-primary: #ffffff;
+  --color-bg-secondary: #f9fafb;
+  --color-card: #f9fafb;
+  --color-text-primary: #111827;
+  --color-text-secondary: #4b5563;
+  --border-subtle: rgba(0, 0, 0, 0.05);
+
+  /* Nomes antigos para compatibilidade */
+  --bg-main: var(--color-bg-primary);
+  --bg-secondary: var(--color-bg-secondary);
+  --bg-card: var(--color-card);
+  --text-primary: var(--color-text-primary);
+  --text-secondary: var(--color-text-secondary);
+}
+
+body {
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  font-family: "Inter", sans-serif;
+  transition: background-color 0.3s, color 0.3s;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+.font-poppins {
+  font-family: "Poppins", sans-serif;
+}
+
+/* Tipografia */
+.text-32 {
+  font-size: 32px;
+  font-weight: 700;
+}
+.text-24 {
+  font-size: 24px;
+  font-weight: 600;
+}
+.text-18 {
+  font-size: 18px;
+  font-weight: 500;
+}
+.text-16 {
+  font-size: 16px;
+  font-weight: 400;
+}
+.text-14 {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+/* Tipografia e Contraste Global */
+* {
+    font-family: 'Inter', sans-serif;
+    -webkit-tap-highlight-color: transparent;
+}
+
+h1, h2, h3, h4, .text-premium {
+    color: var(--color-text-primary) !important;
+}
+
+p, span:not(.material-symbols-outlined):not([style*="color"]), .text-secondary {
+    color: var(--color-text-secondary);
+}
+
+/* Feedback Visual Global */
+button, a, .clickable, .premium-card[onclick] {
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+button:hover, a:hover, .premium-card[onclick]:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.1);
+}
+
+button:active, a:active, .premium-card[onclick]:active {
+    transform: translateY(0);
+    scale: 0.98;
+}
+
+/* Botão Premium Padronizado */
+.btn-premium {
+    background-color: var(--color-primary);
+    color: #111827;
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-weight: 600;
+    border: none;
+    box-shadow: 0 4px 12px rgba(212, 175, 55, 0.2);
+}
+
+.btn-premium:hover {
+    box-shadow: 0 6px 16px rgba(212, 175, 55, 0.3);
+}
+
+/* Premium Animations */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.shimmer-gold {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer-gold::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(212, 175, 55, 0.2),
+    transparent
+  );
+  background-size: 50% 100%;
+  animation: shimmer 3s infinite;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+/* Navegação Inferior Premium */
+.tab-bar-premium {
+    position: absolute;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 48px);
+    max-width: 382px;
+    height: 72px;
+    background: rgba(31, 41, 55, 0.85); /* var(--color-card) com transparência */
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 16px;
+    z-index: 999;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+}
+
+.tab-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    flex: 1;
+    align-items: center;
+}
+
+.tab-item span {
+    font-size: 24px;
+}
+
+.tab-item p {
+    font-size: 10px;
+    font-weight: 600;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.tab-item.active {
+    color: var(--color-primary);
+}
+
+.tab-item.active span {
+    font-variation-settings: 'FILL' 1;
+}
+
+.tab-item:active {
+    scale: 0.9;
+}
+
+/* Heart Clip Branding */
+.heart-clip {
+    clip-path: url(#heart-path);
+    -webkit-clip-path: url(#heart-path);
+}
+
+/* Contrast Utilities */
+.text-high-contrast {
+    color: #FFFFFF !important;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.bg-premium-glass {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+

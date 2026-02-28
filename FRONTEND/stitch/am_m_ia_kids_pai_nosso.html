@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <title>Pai Nosso - Amém IA Kids</title>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <script type="module" src="/FRONTEND/stitch/theme-switcher.js"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary-gold": "#C8A951",
+                        "deep-navy": "#050B18",
+                    }
+                },
+            },
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer base {
+            body { font-family: 'Lexend', sans-serif; @apply bg-[#050B18] text-white; }
+        }
+        .prayer-text { line-height: 1.6; }
+    </style>
+</head>
+<body class="bg-[#050B18]">
+    <div class="relative min-h-screen w-full flex flex-col max-w-[430px] mx-auto bg-[#050B18] shadow-2xl">
+        <header class="flex items-center justify-between p-6 pt-12">
+            <button onclick="window.history.back()" class="size-10 flex items-center justify-center rounded-full bg-white/5 text-white active:scale-95 transition-transform">
+                <span class="material-symbols-outlined text-2xl font-black">chevron_left</span>
+            </button>
+            <h1 class="text-xl font-black uppercase tracking-widest text-primary-gold">Pai Nosso</h1>
+            <div class="size-10"></div>
+        </header>
+
+        <main class="flex-1 px-8 flex flex-col items-center justify-center text-center -mt-10 overflow-y-auto">
+            <div class="relative size-40 mb-6 shrink-0">
+                <div class="absolute inset-0 bg-primary-gold/20 rounded-full blur-3xl animate-pulse"></div>
+                <div class="relative flex items-center justify-center h-full">
+                    <span class="material-symbols-outlined text-7xl text-primary-gold" style="font-variation-settings: 'FILL' 1">auto_awesome</span>
+                </div>
+            </div>
+
+            <h2 class="text-2xl font-black mb-6 uppercase tracking-tight">Oração do Pai Nosso</h2>
+            
+            <div id="prayer-content" class="text-lg font-medium text-white/90 prayer-text italic mb-10 space-y-4">
+                <p>"Pai nosso, que estás nos céus, santificado seja o Teu nome."</p>
+                <p>"Venha o Teu Reino, seja feita a Tua vontade, assim na terra como no céu."</p>
+                <p>"O pão nosso de cada dia nos dá hoje."</p>
+                <p>"Perdoa as nossas dívidas, assim como perdoamos aos nossos devedores."</p>
+                <p>"E não nos deixes cair em tentação, mas livra-nos do mal."</p>
+                <p>"Porque Teu é o Reino, o Poder e a Glória para sempre. Amém!"</p>
+            </div>
+
+            <button onclick="speakPrayer()" class="w-full h-16 bg-primary-gold rounded-2xl flex items-center justify-center gap-3 text-white font-black shadow-lg shadow-primary-gold/20 active:scale-[0.98] transition-all mb-8">
+                <span class="material-symbols-outlined text-2xl">volume_up</span>
+                <span>OUVIR ORAÇÃO</span>
+            </button>
+        </main>
+    </div>
+
+    <script>
+        function speakPrayer() {
+            const text = document.getElementById('prayer-content').innerText;
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+                const utterance = new SpeechSynthesisUtterance(text);
+                utterance.lang = 'pt-BR';
+                const voices = window.speechSynthesis.getVoices();
+                const preferred = ['Microsoft Maria Online (Natural) - Portuguese (Brazil)', 'Google português do Brasil', 'Luciana'];
+                let selectedVoice = voices.find(v => preferred.includes(v.name));
+                if (!selectedVoice) selectedVoice = voices.find(v => v.lang === 'pt-BR' && v.name.includes('Female'));
+                if (selectedVoice) utterance.voice = selectedVoice;
+                utterance.pitch = 1.15;
+                utterance.rate = 0.82; // Slightly slower for deeper prayer
+                window.speechSynthesis.speak(utterance);
+            }
+        }
+        window.speechSynthesis.onvoiceschanged = () => {};
+    </script>
+</body>
+</html>
+

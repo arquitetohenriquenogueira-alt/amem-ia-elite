@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html class="light" lang="pt-BR">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Comunidade Amém - Amém IA</title>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+    <script src="/FRONTEND/stitch/theme-switcher.js" type="module"></script>
+    <style type="text/tailwindcss">
+        @layer base {
+            body { @apply bg-[#FAF7F0] text-[#050B18] transition-colors duration-300; }
+            .dark body { @apply bg-[#050B18] text-white; }
+        }
+        .post-card {
+            @apply bg-white dark:bg-white/5 rounded-3xl border border-[#050B18]/5 dark:border-white/10 overflow-hidden shadow-sm;
+        }
+        .img-standard {
+            @apply w-full aspect-square object-cover;
+        }
+    </style>
+</head>
+
+<body class="antialiased">
+    <div
+        class="relative flex h-screen w-full max-w-[430px] mx-auto flex-col bg-[#FAF7F0] dark:bg-[#050B18] overflow-hidden">
+        <header
+            class="sticky top-0 z-40 bg-[#FAF7F0]/80 dark:bg-[#050B18]/80 backdrop-blur-md border-b border-[#050B18]/5 dark:border-white/5 px-6 py-8 flex items-center justify-between">
+            <button onclick="window.history.back()"
+                class="size-10 flex items-center justify-center rounded-full bg-[#050B18]/5 dark:bg-white/5 text-[#050B18] dark:text-white">
+                <span class="material-symbols-outlined font-black">arrow_back</span>
+            </button>
+            <div class="text-center">
+                <h1 class="text-lg font-black uppercase tracking-widest text-[#050B18] dark:text-white">Comunidade</h1>
+                <span class="text-[9px] font-black uppercase text-premium-gold tracking-[0.3em]">Networking de Fé</span>
+            </div>
+            <button
+                class="size-10 flex items-center justify-center rounded-full bg-[#050B18]/5 dark:bg-white/5 text-premium-gold">
+                <span class="material-symbols-outlined font-black">add_circle</span>
+            </button>
+        </header>
+
+        <main class="flex-1 overflow-y-auto no-scrollbar p-6 space-y-6">
+            <!-- Post 1 -->
+            <div class="post-card">
+                <div class="p-4 flex items-center gap-3">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=100"
+                        class="size-10 rounded-full object-cover border-2 border-premium-gold">
+                    <div>
+                        <h4 class="text-sm font-black dark:text-white leading-tight">Irmão Ricardo</h4>
+                        <p class="text-[9px] font-black uppercase tracking-widest text-premium-gold">Culto de Domingo •
+                            2h atrás</p>
+                    </div>
+                </div>
+                <!-- Standard Image Size -->
+                <div class="w-full aspect-square bg-slate-200">
+                    <img src="https://images.unsplash.com/photo-1438232992991-995b7058bbb3?q=80&w=1000"
+                        class="img-standard">
+                </div>
+                <div class="p-4">
+                    <p class="text-xs font-bold leading-relaxed text-[#050B18]/70 dark:text-white/70 mb-4">
+                        "Que manhã gloriosa na minha igreja hoje! A palavra sobre perseverança tocou profundamente."
+                    </p>
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-4">
+                            <button class="flex items-center gap-1.5 text-premium-gold">
+                                <span class="material-symbols-outlined text-sm font-black filled-icon">favorite</span>
+                                <span class="text-[10px] font-black uppercase">Amém (42)</span>
+                            </button>
+                            <button class="flex items-center gap-1.5 text-navy/40 dark:text-white/40">
+                                <span class="material-symbols-outlined text-sm">chat_bubble</span>
+                                <span class="text-[10px] font-black uppercase">Comentar</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Post 2 (Text/Verse Only) -->
+            <div class="post-card p-6 bg-premium-gold/5 border-premium-gold/20">
+                <div class="flex items-center gap-3 mb-4">
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=100"
+                        class="size-10 rounded-full object-cover border-2 border-premium-gold">
+                    <div>
+                        <h4 class="text-sm font-black dark:text-white leading-tight">Irmã Sarah</h4>
+                        <p class="text-[9px] font-black uppercase tracking-widest text-premium-gold">Versículo
+                            Inspirador</p>
+                    </div>
+                </div>
+                <h3 class="font-serif text-xl font-black italic dark:text-white leading-snug mb-4">"Posso todas as
+                    coisas naquele que me fortalece."</h3>
+                <div class="flex items-center justify-between pt-4 border-t border-premium-gold/10">
+                    <button class="flex items-center gap-1.5 text-premium-gold">
+                        <span class="material-symbols-outlined text-sm font-black">favorite</span>
+                        <span class="text-[10px] font-black uppercase">Amém (128)</span>
+                    </button>
+                    <button class="size-8 rounded-full bg-white/10 flex items-center justify-center text-premium-gold">
+                        <span class="material-symbols-outlined text-base">share</span>
+                    </button>
+                </div>
+            </div>
+        </main>
+
+        <!-- Post Input (Fixed) -->
+        <div class="p-4 bg-white dark:bg-[#050B18] border-t border-[#050B18]/5 dark:border-white/5">
+            <div class="flex items-center gap-3 bg-[#FAF7F0] dark:bg-white/5 rounded-2xl px-4 py-2">
+                <span class="material-symbols-outlined text-premium-gold">add_a_photo</span>
+                <input type="text" placeholder="Compartilhe seus passos de fé..."
+                    class="bg-transparent border-none focus:ring-0 text-xs w-full py-2 font-bold placeholder-[#050B18]/30">
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+

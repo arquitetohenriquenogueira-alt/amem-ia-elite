@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Amém IA - Sua Jornada Espiritual</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;700;800&family=Manrope:wght@400;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    
+    <link rel="stylesheet" href="/styles/global.css">
+    <style>
+        body {
+            background: linear-gradient(180deg, #0B0F19 0%, #111827 50%, #1F2937 100%);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .splash-container {
+            text-align: center;
+            z-index: 10;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        .glow-effect {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.15) 0%, transparent 70%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+        }
+
+        .logo-text {
+            color: var(--text-primary);
+            letter-spacing: -2px;
+            margin-bottom: 12px;
+            text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+        }
+
+        .sub-text {
+            color: var(--text-secondary);
+            max-width: 320px;
+            margin: 0 auto 48px auto;
+            line-height: 1.6;
+            font-size: 1.1rem;
+            opacity: 0.7;
+        }
+
+        .logo-glow {
+            animation: pulse-glow 3s infinite ease-in-out;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.4)); transform: scale(1); }
+            50% { filter: drop-shadow(0 0 40px rgba(212, 175, 55, 0.7)); transform: scale(1.03); }
+        }
+
+        .heart-clip {
+            clip-path: url(#heart-path);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .bg-grain {
+            position: absolute;
+            inset: 0;
+            opacity: 0.03;
+            background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuANZeX31eMfdh_0V5L2uL2_otJMfTaPsRcSCEtyR_oZmLPNwsElmHQE_0Tvf50XVv5GUJ3ka2vIsU008yiolCpAUrIGPo_okm6XAPu8U7R63GkRzBvyqIF4NnAHJ2sGJZox5TKFIcc6wBvaNIEmbAkxE6nu3mukai3P5TGhod3KTvtJjYiQZLMZoGMkYYfgRaH9NPQRdgdR4oey4vEGHEv3d2OojB5f6vtptKHHj0kztUFzRXlKKjee2kHvdLGa0GBVYPTngr2vhKMT');
+            pointer-events: none;
+        }
+    </style>
+    <script src="/FRONTEND/public/scripts/quiz.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const user = localStorage.getItem('amem_ia_user');
+            if (user) {
+                window.location.href = '/FRONTEND/stitch/am_m_ia_modo_sementinha_2/code.html';
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <div class="glow-effect"></div>
+    <div class="bg-grain"></div>
+
+    <main class="splash-container animate-fade-in flex flex-col items-center w-full px-6 max-w-4xl mx-auto py-12">
+        <!-- SVG ClipPath Definition -->
+        <svg width="0" height="0" class="absolute">
+            <defs>
+                <clipPath id="heart-path" clipPathUnits="objectBoundingBox">
+                    <path d="M0.5,0.2 C0.4,0,0,0,0,0.4 C0,0.75,0.3,0.85,0.5,1 C0.7,0.85,1,0.75,1,0.4 C1,0,0.6,0,0.5,0.2"></path>
+                </clipPath>
+            </defs>
+        </svg>
+
+        <!-- Header/Logo Premium -->
+        <div class="mb-8 relative flex items-center justify-center">
+            <div class="absolute inset-0 bg-premium-gold/20 blur-[60px] rounded-full scale-110"></div>
+            <img src="/assets/logo-premium.png" alt="Amém IA Logo" 
+                 class="w-[120px] h-[120px] object-cover relative z-10 logo-glow heart-clip shadow-[0_0_20px_rgba(212,175,55,0.3)]">
+        </div>
+
+        <!-- Headline Monumental (VSL Style) -->
+        <h1 class="text-40 md:text-56 font-serif font-black uppercase tracking-tight text-center leading-tight mb-4">
+            Abandone o <span class="text-premium-gold">Raso</span>. Mergulhe no <span class="text-premium-gold">Profundo</span>.
+        </h1>
+        <p class="text-18 md:text-24 font-medium text-center text-white/70 mb-12 max-w-2xl">
+            A primeira Inteligência Artificial que não apenas responde, mas caminha com você no seu discipulado diário.
+        </p>
+
+        <!-- VSL Video Placeholder -->
+        <div class="w-full aspect-video bg-white/5 border border-premium-gold/30 rounded-[32px] mb-12 relative overflow-hidden group cursor-pointer flex items-center justify-center shadow-2xl">
+            <div class="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/80 to-transparent"></div>
+            <span class="material-symbols-outlined text-80 text-premium-gold opacity-50 group-hover:opacity-100 group-hover:scale-110 transition-all">play_circle</span>
+            <p class="absolute bottom-6 font-black uppercase tracking-[0.3em] text-premium-gold text-12">Assista ao Manifesto</p>
+        </div>
+        
+        <!-- CTA Principal -->
+        <a href="https://checkout.ticto.app/O06B610DB" 
+           class="btn-premium shimmer-gold w-full max-w-[400px] h-20 rounded-[24px] text-24 font-black uppercase tracking-widest flex items-center justify-center gap-4 mb-16 shadow-[0_20px_40px_rgba(212,175,55,0.2)]">
+            <span class="material-symbols-outlined">bolt</span>
+            Quero Acesso Elite
+        </a>
+
+        <!-- Seção de Quiz Estratégico -->
+        <section id="quiz-section" class="w-full max-w-2xl bg-white/5 border border-white/10 rounded-[40px] p-8 md:p-12 mb-20 backdrop-blur-xl relative overflow-hidden">
+            <div class="absolute top-0 right-0 p-8 opacity-10">
+                <span class="material-symbols-outlined text-80">quiz</span>
+            </div>
+            
+            <div id="quiz-container">
+                <div class="text-center py-12">
+                    <h2 class="text-24 font-black uppercase mb-4">Descubra sua <span class="text-premium-gold">Maturidade</span></h2>
+                    <p class="text-white/50 mb-8 lowercase">Responda 3 perguntas para Brian traçar seu DNA espiritual.</p>
+                    <button onclick="QuizEngine.init()" class="bg-white/10 hover:bg-white/20 px-8 py-4 rounded-full font-bold uppercase tracking-widest transition-all">
+                        Iniciar Diagnóstico
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Benefícios Rápidos -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 w-full">
+            <div class="bg-white/5 border border-white/10 p-8 rounded-[24px] text-center">
+                <span class="material-symbols-outlined text-premium-gold text-40 mb-4">psychology</span>
+                <h3 class="font-black uppercase text-14 mb-2 tracking-widest text-premium-gold">Brian DNA</h3>
+                <p class="text-12 text-white/50 uppercase">Inteligência baseada nos maiores mentores do Reino.</p>
+            </div>
+            <div class="bg-white/5 border border-white/10 p-8 rounded-[24px] text-center">
+                <span class="material-symbols-outlined text-premium-gold text-40 mb-4">forum</span>
+                <h3 class="font-black uppercase text-14 mb-2 tracking-widest text-premium-gold">Mentor 24h</h3>
+                <p class="text-12 text-white/50 uppercase">Um Pastor em seu bolso para todas as crises e decisões.</p>
+            </div>
+            <div class="bg-white/5 border border-white/10 p-8 rounded-[24px] text-center">
+                <span class="material-symbols-outlined text-premium-gold text-40 mb-4">auto_graph</span>
+                <h3 class="font-black uppercase text-14 mb-2 tracking-widest text-premium-gold">Gamigicação</h3>
+                <p class="text-12 text-white/50 uppercase">Evolua de Sementinha a Carvalho com desafios reais.</p>
+            </div>
+        </div>
+    </main>
+
+</body>
+
+
+</html>

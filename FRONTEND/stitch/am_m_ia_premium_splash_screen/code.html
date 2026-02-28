@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html class="light" lang="pt-br">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&amp;family=Inter:wght@500&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "deep-navy": "#0A1229",
+                        "slate-grey": "#050B18",
+                        "premium-gold": "#C8A951",
+                        "pure-white": "#FFFFFF"
+                    },
+                    fontFamily: {
+                        "serif-title": ["'Playfair Display'", "serif"],
+                        "sans-tagline": ["'Inter'", "sans-serif"]
+                    },
+                },
+            },
+        }
+    </script>
+    <style type="text/tailwindcss">
+        :root {
+            --rose-gold: #b78b71;
+            --deep-navy: #0A2540;
+        }
+        .editorial-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            grid-template-rows: repeat(12, 1fr);
+            height: 100dvh;
+            width: 100%;
+        }
+        .divider-v {
+            width: 1px;
+            background: linear-gradient(180deg, transparent, var(--rose-gold), transparent);
+            opacity: 0.15;
+        }
+        .divider-h {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--rose-gold), transparent);
+            opacity: 0.15;
+        }
+    </style>
+    <style>
+        body {
+            min-height: max(844px, 100dvh);
+            background-color: #050B18;
+        }
+    </style>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+
+<body class="bg-[#050B18] text-white font-sans-tagline overflow-hidden select-none flex flex-col items-center">
+    <div class="absolute inset-0 pointer-events-none">
+        <div class="absolute left-[12%] top-0 bottom-0 divider-v"></div>
+        <div class="absolute left-[88%] top-0 bottom-0 divider-v"></div>
+        <div class="absolute top-[15%] left-0 right-0 divider-h"></div>
+        <div class="absolute top-[85%] left-0 right-0 divider-h"></div>
+    </div>
+    <main class="relative z-10 editorial-grid p-6">
+        <div class="col-start-2 col-span-12 row-start-3 row-span-2 flex flex-col justify-center items-center">
+            <div class="text-center">
+                <h1
+                    class="font-serif-title text-white text-6xl tracking-tighter leading-none uppercase font-black drop-shadow-[0_2px_15px_rgba(5,11,24,0.4)]">
+                    Amém IA
+                </h1>
+                <div class="w-20 h-1.5 bg-premium-gold mx-auto mt-6 shadow-lg shadow-premium-gold/20"></div>
+                <p class="text-premium-gold text-[10px] font-black tracking-[0.5em] uppercase mt-4">Sua Jornada
+                    Espiritual</p>
+            </div>
+        </div>
+        <div class="col-start-4 col-span-8 row-start-5 row-span-4 flex items-center justify-center">
+            <div class="relative">
+                <div class="absolute -top-10 -right-10 w-20 h-20 border-[0.5px] border-rose-gold/20 rounded-full"></div>
+                <div class="absolute -bottom-6 -left-6 w-12 h-12 border-[0.5px] border-rose-gold/20"></div>
+                <div
+                    class="relative z-10 p-10 border-4 border-white/5 rounded-full flex items-center justify-center bg-white/5 backdrop-blur-xl shadow-2xl">
+                    <span class="material-symbols-outlined text-premium-gold text-8xl"
+                        style="font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 48;">
+                        auto_awesome
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="col-start-5 col-span-7 row-start-10 row-span-2 flex flex-col justify-end items-end text-right">
+            <div class="border-r-[1px] border-rose-gold/30 pr-6 py-2">
+                <p
+                    class="font-sans-tagline font-black text-white/50 tracking-[0.2em] text-base uppercase leading-loose">
+                    Conecte.<br />
+                    Inspire.<br />
+                    Eleve.
+                </p>
+            </div>
+        </div>
+        <div class="col-start-2 col-span-10 row-start-11 flex items-end justify-between">
+            <div class="flex flex-col items-center gap-4">
+                <span
+                    class="text-[10px] tracking-[0.6em] uppercase text-premium-gold font-bold [writing-mode:vertical-lr] rotate-180">Jornada
+                    Espiritual</span>
+                <div class="w-[1px] h-12 bg-premium-gold/20"></div>
+            </div>
+            <a href="/stitch/am_m_ia_modo_sementinha_2/code.html"
+                class="bg-premium-gold text-white px-12 py-5 rounded-full font-sans-tagline font-black text-sm uppercase tracking-[0.3em] shadow-[0_10px_30px_rgba(200,169,81,0.4)] active:scale-95 transition-all mb-10 w-full text-center max-w-[280px]">
+                Iniciar Jornada
+            </a>
+        </div>
+    </main>
+    <div class="absolute inset-0 pointer-events-none opacity-[0.03]"
+        style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuANZeX31eMfdh_0V5L2uL2_otJMfTaPsRcSCEtyR_oZmLPNwsElmHQE_0Tvf50XVv5GUJ3ka2vIsU008yiolCpAUrIGPo_okm6XAPu8U7R63GkRzBvyqIF4NnAHJ2sGJZox5TKFIcc6wBvaNIEmbAkxE6nu3mukai3P5TGhod3KTvtJjYiQZLMZoGMkYYfgRaH9NPQRdgdR4oey4vEGHEv3d2OojB5f6vtptKHHj0kztUFzRXlKKjee2kHvdLGa0GBVYPTngr2vhKMT');">
+    </div>
+
+</body>
+
+</html>

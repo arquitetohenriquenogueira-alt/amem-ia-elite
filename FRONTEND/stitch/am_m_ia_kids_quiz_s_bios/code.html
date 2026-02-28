@@ -1,0 +1,305 @@
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script src="/FRONTEND/stitch/theme-switcher.js" type="module"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "deep-navy": "#1A2332",
+                        "premium-gold": "#C8A951",
+                        "soft-gray": "#F8F9FA",
+                        "border-light": "#E5E7EB",
+                        "primary-blue": "#257BF4"
+                    },
+                    fontFamily: {
+                        "sans": ["Plus Jakarta Sans", "sans-serif"],
+                        "serif": ["Playfair Display", "serif"]
+                    },
+                    borderRadius: {
+                        "standard": "12px",
+                    },
+                },
+            },
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer base {
+            body {
+            @apply font-sans antialiased text-white bg-[#050B18];
+            -webkit-tap-highlight-color: transparent;
+        }
+    }
+        .bento-card {
+            @apply bg-white/5 backdrop-blur-md border border-white/10 shadow-sm transition-all duration-200;
+            border-radius: 12px;
+        }
+        .bento-card:active {
+            @apply scale-[0.97] bg-white/10;
+        }
+        .speech-bubble {
+            @apply relative bg-white/5 backdrop-blur-md border border-white/10 p-6 shadow-sm;
+            border-radius: 12px;
+        }
+        .speech-bubble::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-width: 10px 10px 0;
+            border-style: solid;
+            border-color: rgba(255,255,255,0.05) transparent transparent;
+        }
+        .speech-bubble::before {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-width: 10px 10px 0;
+            border-style: solid;
+            border-color: rgba(255,255,255,0.05) transparent transparent;
+            z-index: 1;
+        }
+    </style>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+
+<body class="flex justify-center items-center min-h-screen">
+    <div
+        class="relative flex h-screen w-full max-w-[430px] mx-auto flex-col bg-[#FAF7F0] dark:bg-[#050B18] overflow-hidden shadow-2xl border-[8px] border-[#050B18]/5 dark:border-white/5 rounded-[3rem] transition-colors">
+        <div
+            class="flex items-center bg-[#FAF7F0] dark:bg-[#050B18] px-6 pt-12 pb-4 justify-between sticky top-0 z-20 transition-colors">
+            <button
+                class="flex size-10 items-center justify-center bg-[#050B18]/5 dark:bg-white/5 rounded-[12px] text-[#050B18] dark:text-white"
+                onclick="window.history.back()">
+                <span class="material-symbols-outlined font-bold">arrow_back</span>
+            </button>
+            <div class="flex flex-col items-center">
+                <h2 class="text-[#050B18] dark:text-white font-serif text-lg font-bold uppercase tracking-tight">Amém IA
+                    Master</h2>
+                <span class="text-[10px] font-bold uppercase tracking-widest text-premium-gold">Desafio da Fé</span>
+            </div>
+            <button onclick="toggleTheme()"
+                class="flex size-10 items-center justify-center bg-[#050B18]/5 dark:bg-white/5 rounded-[12px] text-premium-gold shadow-[0_0_15px_rgba(200,169,81,0.2)]">
+                <span class="material-symbols-outlined font-black dark:hidden">dark_mode</span>
+                <span class="material-symbols-outlined font-black hidden dark:block">light_mode</span>
+            </button>
+        </div>
+        <div class="px-6 py-2">
+            <div class="flex items-center gap-3">
+                <div class="flex-1 h-2 bg-[#050B18]/10 dark:bg-white/5 rounded-full overflow-hidden">
+                    <div id="progress-bar" class="h-full bg-premium-gold rounded-full transition-all duration-500"
+                        style="width: 10%;"></div>
+                </div>
+                <span id="question-counter" class="text-[#050B18] dark:text-white font-black text-xs">01/10</span>
+            </div>
+        </div>
+        <div id="quiz-content" class="flex-1 flex flex-col items-center justify-center px-6 gap-8">
+            <div class="speech-bubble w-full">
+                <p id="question-text"
+                    class="text-[#050B18] dark:text-white text-lg font-black text-center leading-snug drop-shadow-sm uppercase">
+                    Carregando...
+                </p>
+            </div>
+            <div class="relative">
+                <div id="lamb-label"
+                    class="absolute -top-3 -right-2 bg-premium-gold text-white text-[10px] font-bold px-3 py-1 rounded-[12px] shadow-sm z-10 uppercase">
+                    DISCÍPULO
+                </div>
+                <div class="w-32 h-32 flex items-center justify-center text-premium-gold">
+                    <span class="material-symbols-outlined text-8xl font-black">menu_book</span>
+                </div>
+            </div>
+        </div>
+
+        <div id="options-grid" class="px-6 pb-6 grid grid-cols-2 gap-4">
+            <!-- Options will be injected here -->
+        </div>
+
+        <div id="feedback-area" class="px-6 pb-8 opacity-0 pointer-events-none transition-all">
+            <div
+                class="bg-white/5 border border-white/10 dark:bg-white/5 backdrop-blur-md rounded-[12px] p-4 flex items-center justify-between shadow-sm">
+                <div class="flex items-center gap-3">
+                    <div id="feedback-emoji"
+                        class="size-10 bg-premium-gold text-white rounded-[12px] flex items-center justify-center">
+                        <span class="text-xl">🥳</span>
+                    </div>
+                    <div>
+                        <h4 id="feedback-title" class="text-[#050B18] dark:text-white font-black text-sm uppercase">
+                            Parabéns!</h4>
+                        <p id="feedback-subtitle"
+                            class="text-[#050B18]/40 dark:text-white/40 text-[10px] font-black uppercase">Você acertou
+                            essa!</p>
+                    </div>
+                </div>
+                <span id="feedback-points" class="text-premium-gold font-bold">+10 pts</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const quizData = [
+            // Nível 1: Discípulo (Fácil)
+            { lvl: "DISCÍPULO", q: "Quem criou o mundo em 6 dias?", o: [{ t: "Anjos", e: "👼" }, { t: "Homens", e: "👨" }, { t: "Deus", e: "✨", c: true }, { t: "Sol", e: "☀️" }] },
+            { lvl: "DISCÍPULO", q: "Quem foi colocado num cestinho no rio?", o: [{ t: "Davi", e: "🎯" }, { t: "Moisés", e: "🧺", c: true }, { t: "Jonas", e: "🐋" }, { t: "Noé", e: "🚢" }] },
+            { lvl: "DISCÍPULO", q: "Quantos discípulos Jesus tinha?", o: [{ t: "5", e: "🖐️" }, { t: "12", e: "👥", c: true }, { t: "10", e: "🔟" }, { t: "7", e: "7️⃣" }] },
+            { lvl: "DISCÍPULO", q: "Qual o nome da mãe de Jesus?", o: [{ t: "Marta", e: "🧹" }, { t: "Maria", e: "🌸", c: true }, { t: "Rute", e: "🌾" }, { t: "Sara", e: "👵" }] },
+            { lvl: "DISCÍPULO", q: "Quem foi o homem mais forte da Bíblia?", o: [{ t: "Sansão", e: "💪", c: true }, { t: "Golias", e: "👹" }, { t: "Pedro", e: "⚓" }, { t: "João", e: "📜" }] },
+
+            // Nível 2: Guerreiro (Médio)
+            { lvl: "GUERREIRO", q: "Qual o primeiro livro da Bíblia?", o: [{ t: "Êxodo", e: "🚶" }, { t: "Mateus", e: "📖" }, { t: "Gênesis", e: "🌱", c: true }, { t: "Apocalipse", e: "🎺" }] },
+            { lvl: "GUERREIRO", q: "Quem foi vendido pelos irmãos como escravo?", o: [{ t: "Benjamim", e: "👦" }, { t: "José", e: "🧥", c: true }, { t: "Judá", e: "🦁" }, { t: "Levi", e: "⚖️" }] },
+            { lvl: "GUERREIRO", q: "Onde Moisés recebeu os 10 Mandamentos?", o: [{ t: "No Egito", e: "🏺" }, { t: "No Monte Sinai", e: "⛰️", c: true }, { t: "No Mar", e: "🌊" }, { t: "No Deserto", e: "🌵" }] },
+            { lvl: "GUERREIRO", q: "Quantos anos o povo de Israel andou no deserto?", o: [{ t: "10 anos", e: "🔟" }, { t: "40 anos", e: "⏳", c: true }, { t: "100 anos", e: "💯" }, { t: "7 anos", e: "7️⃣" }] },
+            { lvl: "GUERREIRO", q: "Quem negou Jesus três vezes?", o: [{ t: "Judas", e: "💰" }, { t: "Pedro", e: "🐓", c: true }, { t: "Tomé", e: "❓" }, { t: "André", e: "🐟" }] },
+
+            // Nível 3: Mestre (Difícil)
+            { lvl: "MESTRE", q: "Quem escreveu a maioria das cartas do Novo Testamento?", o: [{ t: "Pedro", e: "🗝️" }, { t: "João", e: "🦅" }, { t: "Paulo", e: "✍️", c: true }, { t: "Lucas", e: "🩺" }] },
+            { lvl: "MESTRE", q: "Qual o nome do jardim onde Jesus orou antes de ser preso?", o: [{ t: "Éden", e: "🍎" }, { t: "Getsemani", e: "🌳", c: true }, { t: "Canaã", e: "🍇" }, { t: "Jordão", e: "💧" }] },
+            { lvl: "MESTRE", q: "Quem foi o sucessor de Moisés para guiar o povo?", o: [{ t: "Arão", e: "🥖" }, { t: "Calebe", e: "🛡️" }, { t: "Josué", e: "⚔️", c: true }, { t: "Gideão", e: "🏺" }] },
+            { lvl: "MESTRE", q: "Em qual cidade os discípulos foram chamados de cristãos?", o: [{ t: "Jerusalém", e: "🕍" }, { t: "Antioquia", e: "🏛️", c: true }, { t: "Roma", e: "🏟️" }, { t: "Éfeso", e: "🕍" }] },
+            { lvl: "MESTRE", q: "Quantos dias Lázaro estava morto quando Jesus o ressuscitou?", o: [{ t: "2 dias", e: "2️⃣" }, { t: "4 dias", e: "4️⃣", c: true }, { t: "3 dias", e: "3️⃣" }, { t: "7 dias", e: "7️⃣" }] }
+        ];
+
+        let shuffledQuestions = [];
+        let currentIdx = 0;
+        let score = 0;
+
+        function shuffle(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+
+        function initQuiz() {
+            shuffledQuestions = shuffle([...quizData]).slice(0, 10); // Pick 10 random
+            currentIdx = 0;
+            score = 0;
+            renderQuestion();
+        }
+
+        function renderQuestion() {
+            const data = shuffledQuestions[currentIdx];
+            if (!data) {
+                showResults();
+                return;
+            }
+
+            const feedbackArea = document.getElementById('feedback-area');
+            if (feedbackArea) feedbackArea.classList.add('opacity-0', 'pointer-events-none');
+
+            const questionText = document.getElementById('question-text');
+            if (questionText) questionText.innerText = `"${data.q}"`;
+
+            const lambLabel = document.getElementById('lamb-label');
+            if (lambLabel) {
+                lambLabel.innerText = data.lvl;
+                let colorClass = 'bg-premium-gold';
+                if (data.lvl === 'GUERREIRO') colorClass = 'bg-orange-600';
+                if (data.lvl === 'MESTRE') colorClass = 'bg-indigo-700';
+                lambLabel.className = `absolute -top-3 -right-2 ${colorClass} text-white text-[10px] font-bold px-3 py-1 rounded-[12px] shadow-sm z-10 uppercase`;
+            }
+
+            const progressBar = document.getElementById('progress-bar');
+            if (progressBar) progressBar.style.width = `${((currentIdx) / shuffledQuestions.length) * 100}%`;
+
+            const grid = document.getElementById('options-grid');
+            if (grid) {
+                grid.innerHTML = '';
+                data.o.forEach((opt) => {
+                    const btn = document.createElement('button');
+                    btn.className = "bento-card flex flex-col items-center justify-center gap-2 py-6 text-[#050B18] dark:text-white";
+                    btn.innerHTML = `<span class="text-3xl">${opt.e}</span><span class="font-black text-sm uppercase tracking-tighter">${opt.t}</span>`;
+                    btn.onclick = () => handleChoice(opt, btn);
+                    grid.appendChild(btn);
+                });
+            }
+        }
+
+        function handleChoice(opt, btn) {
+            document.querySelectorAll('#options-grid button').forEach(b => b.disabled = true);
+
+            const feedbackArea = document.getElementById('feedback-area');
+            const fbEmoji = document.getElementById('feedback-emoji');
+            const fbTitle = document.getElementById('feedback-title');
+            const fbSub = document.getElementById('feedback-subtitle');
+            const fbPts = document.getElementById('feedback-points');
+
+            if (feedbackArea) feedbackArea.classList.remove('opacity-0', 'pointer-events-none');
+
+            if (opt.c) {
+                btn.classList.add('border-green-500', 'bg-green-500/10', 'ring-2', 'ring-green-500/20');
+                if (fbEmoji) {
+                    fbEmoji.innerHTML = '<span class="text-xl">🥳</span>';
+                    fbEmoji.className = "size-10 bg-green-500 text-white rounded-[12px] flex items-center justify-center";
+                }
+                if (fbTitle) fbTitle.innerText = "Parabéns!";
+                if (fbSub) fbSub.innerText = "Você acertou essa!";
+                if (fbPts) {
+                    fbPts.innerText = "+10 pts";
+                    fbPts.className = "text-green-500 font-bold";
+                }
+                score += 10;
+            } else {
+                btn.classList.add('border-red-500', 'bg-red-500/10', 'ring-2', 'ring-red-500/20');
+                if (fbEmoji) {
+                    fbEmoji.innerHTML = '<span class="text-xl">🥺</span>';
+                    fbEmoji.className = "size-10 bg-red-500 text-white rounded-[12px] flex items-center justify-center";
+                }
+                if (fbTitle) fbTitle.innerText = "Ops!";
+                if (fbSub) fbSub.innerText = "Tente na próxima!";
+                if (fbPts) {
+                    fbPts.innerText = "+0 pts";
+                    fbPts.className = "text-red-500 font-bold";
+                }
+            }
+
+            setTimeout(() => {
+                currentIdx++;
+                renderQuestion();
+            }, 2000);
+        }
+
+        function showResults() {
+            const quizContent = document.getElementById('quiz-content');
+            if (quizContent) {
+                quizContent.innerHTML = `
+                    <div class="text-center space-y-4">
+                        <h3 class="text-4xl font-black text-premium-gold uppercase">Fim do Quiz!</h3>
+                        <p class="text-[#050B18] dark:text-white text-xl font-bold">Você fez ${score} pontos!</p>
+                        <button onclick="location.reload()" class="mt-4 bg-premium-gold text-white px-8 py-4 rounded-xl font-black uppercase tracking-widest shadow-lg">Tentar Novamente</button>
+                    </div>
+                `;
+            }
+            const grid = document.getElementById('options-grid');
+            if (grid) grid.innerHTML = '';
+            const feedbackArea = document.getElementById('feedback-area');
+            if (feedbackArea) feedbackArea.classList.add('hidden');
+        }
+
+        window.onload = initQuiz;
+    </script>
+</body>
+
+</html>
+

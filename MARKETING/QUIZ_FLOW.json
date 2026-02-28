@@ -1,0 +1,50 @@
+{
+    "quiz_id": "maturidade_espiritual_v1",
+    "title": "Descubra seu Nível de Maturidade Espiritual",
+    "questions": [
+        {
+            "id": 1,
+            "text": "Com que frequência você lê a Bíblia?",
+            "options": [
+                { "text": "Raramente", "value": "sementinha" },
+                { "text": "Algumas vezes por semana", "value": "broto" },
+                { "text": "Todos os dias", "value": "arvore" }
+            ]
+        },
+        {
+            "id": 2,
+            "text": "Como está sua vida de oração?",
+            "options": [
+                { "text": "Apenas quando preciso de algo", "value": "sementinha" },
+                { "text": "Tenho momentos constantes", "value": "broto" },
+                { "text": "Vivo em espírito de oração", "value": "arvore" }
+            ]
+        },
+        {
+            "id": 3,
+            "text": "Você compartilha sua fé com outros?",
+            "options": [
+                { "text": "Tenho vergonha/medo", "value": "sementinha" },
+                { "text": "Falo quando surge a oportunidade", "value": "broto" },
+                { "text": "Busco ativamente discipular", "value": "arvore" }
+            ]
+        }
+    ],
+    "results": {
+        "sementinha": {
+            "title": "Nível Sementinha",
+            "description": "Você está no início de uma jornada poderosa. O Amém IA vai te ajudar a criar raízes profundas.",
+            "cta": "Começar Fundamentação"
+        },
+        "broto": {
+            "title": "Nível Broto",
+            "description": "Você já tem vida, mas precisa de estrutura para suportar os ventos. Vamos fortalecer seu caule.",
+            "cta": "Acessar Mentoria Avançada"
+        },
+        "arvore": {
+            "title": "Nível Carvalho de Justiça",
+            "description": "Você é uma referência. O Amém IA será sua ferramenta de gestão espiritual e discipulado.",
+            "cta": "Liderar com Amém IA"
+        }
+    }
+}

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="light">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+    <title>Masterclasses - Amém IA</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Manrope:wght@400;700;800&display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script src="/FRONTEND/stitch/theme-switcher.js" type="module"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "royal-navy": "#050B18",
+                        "premium-gold": "#C8A951",
+                        "gold-glow": "#E5D296",
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer base {
+            body { @apply bg-[#FAF7F0] text-[#050B18] transition-colors duration-300; }
+            .dark body { @apply bg-[#050B18] text-white; }
+        }
+        .bento-card {
+            @apply bg-white/40 dark:bg-white/5 backdrop-blur-xl rounded-[24px] border border-[#050B18]/5 dark:border-white/10 p-5 transition-all duration-300;
+        }
+    </style>
+</head>
+
+<body class="antialiased font-sans">
+    <div
+        class="relative flex h-screen w-full max-w-[430px] mx-auto flex-col bg-[#FAF7F0] dark:bg-[#050B18] overflow-hidden shadow-2xl transition-colors">
+
+        <!-- Header -->
+        <header
+            class="bg-[#FAF7F0]/80 dark:bg-[#050B18]/80 backdrop-blur-md px-6 pt-12 pb-4 flex flex-col items-center border-b border-[#050B18]/5 dark:border-white/5 sticky top-0 z-20">
+            <div class="flex items-center justify-between w-full mb-4">
+                <button onclick="window.history.back()"
+                    class="size-10 flex items-center justify-center bg-[#050B18]/5 dark:bg-white/5 rounded-xl text-[#050B18] dark:text-white">
+                    <span class="material-symbols-outlined font-bold">arrow_back</span>
+                </button>
+                <div class="flex flex-col items-center">
+                    <h2
+                        class="text-[#050B18] dark:text-white font-serif text-lg font-bold uppercase tracking-tight text-center">
+                        Masterclasses IA</h2>
+                    <span class="text-[10px] font-bold uppercase tracking-widest text-premium-gold">Sabedoria em
+                        Módulos</span>
+                </div>
+                <button onclick="toggleTheme()"
+                    class="size-10 flex items-center justify-center rounded-full bg-[#050B18]/5 dark:bg-white/5 text-premium-gold">
+                    <span class="material-symbols-outlined font-black dark:hidden">dark_mode</span>
+                    <span class="material-symbols-outlined font-black hidden dark:block">light_mode</span>
+                </button>
+            </div>
+        </header>
+
+        <main class="flex-1 overflow-y-auto px-6 pt-6 pb-32 space-y-6">
+
+            <!-- AI Generator CTA -->
+            <div
+                class="bento-card bg-gradient-to-br from-premium-gold to-gold-glow border-none shadow-lg shadow-premium-gold/20">
+                <div class="flex items-start justify-between mb-4">
+                    <div class="size-12 bg-white/20 rounded-2xl flex items-center justify-center text-white">
+                        <span class="material-symbols-outlined text-3xl font-black">psychology</span>
+                    </div>
+                    <span
+                        class="bg-white/20 px-3 py-1 rounded-full text-[8px] font-black uppercase text-white tracking-widest">Inédito</span>
+                </div>
+                <h3 class="text-xl font-black text-white leading-tight mb-2">Gerador de Curso IA</h3>
+                <p class="text-white/80 text-xs font-medium leading-relaxed mb-6">Escolha um tema bíblico e a IA criará
+                    uma Masterclass personalizada para você agora.</p>
+                <button onclick="openGenerator()"
+                    class="w-full h-12 bg-royal-navy text-white rounded-xl font-black uppercase tracking-widest text-[10px] active:scale-95 transition-all">Começar
+                    Geração</button>
+            </div>
+
+            <!-- Categories -->
+            <div class="flex gap-3 overflow-x-auto no-scrollbar pb-2" id="categories-container">
+                <button onclick="filterCategory(this, 'Todos')"
+                    class="cat-btn active px-5 py-2.5 rounded-full bg-premium-gold text-white font-black text-[10px] uppercase tracking-widest transition-all">Todos</button>
+                <button onclick="filterCategory(this, 'Liderança')"
+                    class="cat-btn px-5 py-2.5 rounded-full bg-white/40 dark:bg-white/5 text-[#050B18] dark:text-white font-black text-[10px] uppercase tracking-widest border border-white/10 transition-all">Liderança</button>
+                <button onclick="filterCategory(this, 'Família')"
+                    class="cat-btn px-5 py-2.5 rounded-full bg-white/40 dark:bg-white/5 text-[#050B18] dark:text-white font-black text-[10px] uppercase tracking-widest border border-white/10 transition-all">Família</button>
+                <button onclick="filterCategory(this, 'Finanças')"
+                    class="cat-btn px-5 py-2.5 rounded-full bg-white/40 dark:bg-white/5 text-[#050B18] dark:text-white font-black text-[10px] uppercase tracking-widest border border-white/10 transition-all">Finanças</button>
+            </div>
+
+            <!-- Course Grid -->
+            <div id="courses-grid" class="space-y-4">
+                <h4 class="text-[10px] font-black uppercase tracking-[0.3em] text-premium-gold ml-2">Cursos Populares
+                </h4>
+
+                <!-- Course Card 1 -->
+                <div
+                    class="bento-card flex gap-4 items-center cursor-pointer active:scale-[0.98] hover:border-premium-gold/30">
+                    <div class="size-20 rounded-2xl bg-royal-navy overflow-hidden flex-shrink-0">
+                        <img src="https://images.unsplash.com/photo-1519781542704-957ff19000db?q=80&w=2600&auto=format&fit=crop"
+                            class="w-full h-full object-cover">
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex items-center gap-2 mb-1">
+                            <span
+                                class="text-[8px] font-black text-premium-gold uppercase tracking-widest">Liderança</span>
+                            <span class="text-[8px] font-black text-[#050B18]/40 dark:text-white/40 lowercase">• 45
+                                min</span>
+                        </div>
+                        <h5 class="text-sm font-black dark:text-white leading-snug">Liderança segundo o coração de
+                            Neemias</h5>
+                        <div class="mt-2 w-full h-1 bg-premium-gold/10 rounded-full overflow-hidden">
+                            <div class="w-1/2 h-full bg-premium-gold"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Course Card 2 -->
+                <div
+                    class="bento-card flex gap-4 items-center cursor-pointer active:scale-[0.98] hover:border-premium-gold/30">
+                    <div class="size-20 rounded-2xl bg-royal-navy overflow-hidden flex-shrink-0">
+                        <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=2640&auto=format&fit=crop"
+                            class="w-full h-full object-cover">
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex items-center gap-2 mb-1">
+                            <span
+                                class="text-[8px] font-black text-premium-gold uppercase tracking-widest">Família</span>
+                            <span class="text-[8px] font-black text-[#050B18]/40 dark:text-white/40 lowercase">• 30
+                                min</span>
+                        </div>
+                        <h5 class="text-sm font-black dark:text-white leading-snug">Restauração e Harmonia no Lar</h5>
+                        <div class="mt-2 text-[8px] font-black text-white/40 uppercase tracking-widest">Começar agora
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+
+        <!-- AI Generator Modal -->
+        <div id="genModal"
+            class="fixed inset-0 z-[100] hidden flex items-center justify-center p-6 bg-royal-navy/90 backdrop-blur-xl">
+            <div class="relative w-full max-w-sm bento-card border-white/10 p-8 flex flex-col items-center text-center">
+                <button onclick="closeGenerator()"
+                    class="absolute top-4 right-4 text-white/40 hover:text-white transition-colors">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+                <div class="mb-6">
+                    <h3 class="text-2xl font-black text-white uppercase mb-2">IA Criadora</h3>
+                    <p class="text-white/60 text-xs">Sobre o que deseja aprender hoje?</p>
+                </div>
+                <div class="w-full space-y-4 mb-8">
+                    <input type="text" placeholder="Ex: Paciência com os filhos..."
+                        class="w-full h-14 rounded-2xl bg-white/5 border-white/10 text-white placeholder-white/20 px-4 focus:ring-premium-gold focus:border-premium-gold">
+                    <div class="grid grid-cols-2 gap-2">
+                        <button
+                            class="px-4 h-12 rounded-xl bg-white/5 border border-white/10 text-[10px] font-black text-white uppercase tracking-widest">Liderança</button>
+                        <button
+                            class="px-4 h-12 rounded-xl bg-white/5 border border-white/10 text-[10px] font-black text-white uppercase tracking-widest">Propósito</button>
+                    </div>
+                </div>
+                <button onclick="simulateGeneration()"
+                    class="w-full h-14 rounded-full bg-premium-gold text-white font-black uppercase tracking-widest shadow-lg shadow-premium-gold/20 flex items-center justify-center gap-2">
+                    <span class="material-symbols-outlined">auto_awesome</span>
+                    Gerar Masterclass
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function filterCategory(btn, category) {
+            // Reset all buttons
+            document.querySelectorAll('.cat-btn').forEach(b => {
+                b.classList.remove('bg-premium-gold', 'text-white', 'shadow-lg', 'shadow-premium-gold/30');
+                b.classList.add('bg-white/40', 'dark:bg-white/5', 'text-[#050B18]', 'dark:text-white');
+            });
+
+            // Set active button
+            btn.classList.remove('bg-white/40', 'dark:bg-white/5', 'text-[#050B18]', 'dark:text-white');
+            btn.classList.add('bg-premium-gold', 'text-white', 'shadow-lg', 'shadow-premium-gold/30');
+
+            // Simulate filtering with smooth transition
+            const grid = document.getElementById('courses-grid');
+            grid.classList.add('opacity-0', 'translate-y-2');
+
+            setTimeout(() => {
+                // In a real app, this is where we would filter the data
+                grid.classList.remove('opacity-0', 'translate-y-2');
+                grid.classList.add('transition-all', 'duration-500');
+            }, 300);
+        }
+
+        function openGenerator() {
+            document.getElementById('genModal').classList.remove('hidden');
+        }
+        function closeGenerator() {
+            document.getElementById('genModal').classList.add('hidden');
+        }
+        function simulateGeneration() {
+            const btn = event.currentTarget;
+            const originalContent = btn.innerHTML;
+            const input = document.querySelector('#genModal input').value || "Tema Personalizado";
+
+            btn.disabled = true;
+            btn.innerHTML = `<span class="material-symbols-outlined animate-spin">sync</span> Processando...`;
+
+            setTimeout(() => {
+                btn.innerHTML = `<span class="material-symbols-outlined">check_circle</span> Concluído!`;
+
+                setTimeout(() => {
+                    const grid = document.querySelector('.space-y-4');
+                    const newCard = document.createElement('div');
+                    newCard.className = "bento-card flex gap-4 items-center cursor-pointer active:scale-[0.98] border-premium-gold bg-premium-gold/5 animate-pulse";
+                    newCard.innerHTML = `
+                        <div class="size-20 rounded-2xl bg-royal-navy overflow-hidden flex-shrink-0 flex items-center justify-center text-premium-gold">
+                            <span class="material-symbols-outlined text-4xl">auto_awesome</span>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex items-center gap-2 mb-1">
+                                <span class="bg-premium-gold text-white text-[6px] px-2 py-0.5 rounded-full font-black uppercase tracking-widest">Gerado por IA</span>
+                                <span class="text-[8px] font-black text-[#050B18]/40 dark:text-white/40 lowercase">• Novo</span>
+                            </div>
+                            <h5 class="text-sm font-black dark:text-white leading-snug">${input}</h5>
+                            <div class="mt-2 text-[8px] font-black text-premium-gold uppercase tracking-widest">Começar Agora</div>
+                        </div>
+                    `;
+
+                    grid.insertBefore(newCard, grid.children[1]);
+                    btn.innerHTML = originalContent;
+                    btn.disabled = false;
+                    closeGenerator();
+
+                    setTimeout(() => newCard.classList.remove('animate-pulse'), 2000);
+                }, 500);
+            }, 2000);
+        }
+    </script>
+</body>
+
+</html>
+

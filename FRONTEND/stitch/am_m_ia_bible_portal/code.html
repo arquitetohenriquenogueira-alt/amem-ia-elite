@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+    <title>Bíblia Sagrada - Amém IA</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Manrope:wght@400;700;800&display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script src="/FRONTEND/stitch/theme-switcher.js" type="module"></script>
+    <link rel="stylesheet" href="/public/styles/global.css">
+    <svg width="0" height="0" class="absolute">
+        <defs>
+            <clipPath id="heart-path" clipPathUnits="objectBoundingBox">
+                <path d="M0.5,0.2 C0.4,0,0,0,0,0.4 C0,0.75,0.3,0.85,0.5,1 C0.7,0.85,1,0.75,1,0.4 C1,0,0.6,0,0.5,0.2"></path>
+            </clipPath>
+        </defs>
+    </svg>
+    <script id="tailwind-config">
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        "royal-navy": "#050B18",
+                        "premium-gold": "#C8A951",
+                        "gold-glow": "#E5D296",
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer base {
+            body {
+                @apply bg-[#FAF7F0] text-[#050B18] transition-colors duration-300;
+            }
+            .dark body {
+                @apply bg-[#050B18] text-white;
+            }
+        }
+        .main-container {
+            @apply flex-1 bg-[#FAF7F0] p-6 shadow-inner relative z-10;
+        }
+        .dark .main-container {
+            @apply bg-[#050B18];
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 24px;
+        }
+        .gold-gradient {
+            background: linear-gradient(135deg, #C8A951 0%, #E5D296 100%);
+        }
+    </style>
+</head>
+
+<body class="antialiased">
+    <div
+        class="relative flex h-screen w-full max-w-[430px] mx-auto flex-col bg-[#FAF7F0] dark:bg-[#050B18] overflow-hidden shadow-2xl border-[8px] border-[#050B18]/5 dark:border-white/5 rounded-[3rem]">
+        <header
+            class="bg-[#FAF7F0] dark:bg-[#050B18] px-6 pt-12 pb-4 flex flex-col items-center border-b border-[#050B18]/5 dark:border-white/5 sticky top-0 z-20 transition-colors">
+            <div class="flex items-center justify-between w-full mb-4">
+                <button
+                    class="flex size-10 items-center justify-center bg-[#050B18]/5 dark:bg-white/5 rounded-[12px] text-[#050B18] dark:text-white transition-colors"
+                    onclick="window.location.href='/stitch/am_m_ia_modo_sementinha_2/code.html'">
+                    <span class="material-symbols-outlined font-bold">arrow_back</span>
+                </button>
+                <div class="flex flex-col items-center">
+                    <div class="size-10 bg-premium-gold/10 heart-clip flex items-center justify-center mb-1">
+                        <span class="material-symbols-outlined text-premium-gold text-xl font-black"
+                            style="font-variation-settings: 'FILL' 1">cross</span>
+                    </div>
+                    <h2 class="text-[#050B18] dark:text-white font-serif text-lg font-bold uppercase tracking-tight leading-none">
+                        Amém IA</h2>
+                    <span class="text-[10px] font-bold uppercase tracking-widest text-premium-gold mt-1">Portal da
+                        Bíblia</span>
+                </div>
+                <button onclick="toggleTheme()"
+                    class="size-10 flex items-center justify-center rounded-full bg-[#050B18]/5 dark:bg-white/5 text-[#050B18] dark:text-white transition-colors">
+                    <span class="material-symbols-outlined font-black dark:hidden">dark_mode</span>
+                    <span class="material-symbols-outlined font-black hidden dark:block">light_mode</span>
+                </button>
+            </div>
+        </header>
+
+        <main class="flex-1 p-6 space-y-8 flex flex-col items-stretch">
+            <div
+                class="bg-[#FAF7F0] dark:bg-white/5 rounded-[32px] p-8 text-center space-y-6 shadow-2xl border border-premium-gold/10">
+                <div
+                    class="size-20 gold-gradient rounded-full mx-auto flex items-center justify-center shadow-[0_10px_30px_rgba(200,169,81,0.3)]">
+                    <span class="material-symbols-outlined text-royal-navy text-4xl"
+                        style="font-variation-settings: 'FILL' 1">auto_stories</span>
+                </div>
+                <div class="space-y-2">
+                    <h2 class="text-2xl font-black text-royal-navy dark:text-white leading-tight">Alimente seu espírito
+                        hoje</h2>
+                    <div class="w-12 h-1 bg-premium-gold/30 mx-auto rounded-full"></div>
+                </div>
+                <p class="text-royal-navy/70 dark:text-white/60 text-base leading-relaxed font-medium">
+                    Em breve, uma experiência imersiva para o estudo da Palavra com auxílio da IA.
+                </p>
+                <div class="pt-2">
+                    <span
+                        class="bg-premium-gold/10 px-5 py-2.5 rounded-full text-[10px] font-black uppercase tracking-widest text-premium-gold border border-premium-gold/20">Evoluindo
+                        sua jornada</span>
+                </div>
+            </div>
+
+            <!-- Grid with better symmetry -->
+            <div class="grid grid-cols-2 gap-4 w-full" id="books-grid">
+                <div onclick="openBook('gn', 'Gênesis')"
+                    class="glass-card p-6 flex flex-col items-center justify-center text-center gap-4 active:scale-95 transition-all cursor-pointer hover:border-premium-gold/30">
+                    <div
+                        class="size-12 rounded-2xl bg-white/5 flex items-center justify-center text-premium-gold border border-premium-gold/10">
+                        <span class="material-symbols-outlined text-2xl font-black">book</span>
+                    </div>
+                    <div>
+                        <h3 class="font-black text-sm dark:text-white">Gênesis</h3>
+                        <p
+                            class="text-[9px] font-bold uppercase tracking-widest text-[#050B18]/40 dark:text-white/40 mt-1">
+                            50 Capítulos</p>
+                    </div>
+                </div>
+                <div onclick="openBook('sl', 'Salmos')"
+                    class="glass-card p-6 flex flex-col items-center justify-center text-center gap-4 active:scale-95 transition-all cursor-pointer hover:border-premium-gold/30">
+                    <div
+                        class="size-12 rounded-2xl bg-white/5 flex items-center justify-center text-premium-gold border border-premium-gold/10">
+                        <span class="material-symbols-outlined text-2xl font-black">book</span>
+                    </div>
+                    <div>
+                        <h3 class="font-black text-sm dark:text-white">Salmos</h3>
+                        <p
+                            class="text-[9px] font-bold uppercase tracking-widest text-[#050B18]/40 dark:text-white/40 mt-1">
+                            150 Capítulos</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <!-- Reading View (Hidden by default) -->
+        <div id="reading-view"
+            class="hidden fixed inset-0 z-[60] bg-[#FAF7F0] dark:bg-[#050B18] flex flex-col max-w-[430px] mx-auto">
+            <header
+                class="px-6 pt-12 pb-4 flex items-center justify-between border-b border-[#050B18]/5 dark:border-white/5">
+                <button onclick="closeBook()"
+                    class="size-10 flex items-center justify-center bg-[#050B18]/5 dark:bg-white/5 rounded-xl text-royal-navy dark:text-white">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+                <div class="text-center">
+                    <h2 id="reading-book-title"
+                        class="font-serif text-lg font-bold uppercase tracking-tight text-royal-navy dark:text-white">
+                    </h2>
+                    <div id="chapter-selector" class="flex gap-2 overflow-x-auto py-1 no-scrollbar"></div>
+                </div>
+                <div class="size-10"></div>
+            </header>
+            <div id="verses-container" class="flex-1 overflow-y-auto p-6 space-y-4 pb-24">
+                <!-- Verses will be injected here -->
+            </div>
+        </div>
+        </main>
+        <!-- Premium Navigation Footer -->
+        <nav class="tab-bar-premium">
+            <a href="/stitch/am_m_ia_modo_sementinha_2/code.html" class="tab-item">
+                <span class="material-symbols-outlined">home</span>
+                <p>Início</p>
+            </a>
+            <a href="/stitch/am_m_ia_di_rio_de_ora_es/code.html" class="tab-item">
+                <span class="material-symbols-outlined">volunteer_activism</span>
+                <p>Diário</p>
+            </a>
+            <a href="/stitch/am_m_ia_modo_sementinha_1/code.html" class="tab-item">
+                <span class="material-symbols-outlined">chat_bubble</span>
+                <p>Mentor</p>
+            </a>
+            <a href="/stitch/am_m_ia_conquistas_espirituais/code.html" class="tab-item">
+                <span class="material-symbols-outlined">workspace_premium</span>
+                <p>Perfil</p>
+            </a>
+        </nav>
+    </div>
+
+    <script>
+        let bibleData = null;
+        let currentBook = null;
+
+        async function loadBible() {
+            if (bibleData) return;
+            try {
+                const response = await fetch('../../data/bible-nvi.json');
+                bibleData = await response.json();
+            } catch (err) {
+                console.error("Erro ao carregar Bíblia:", err);
+            }
+        }
+
+        async function openBook(abbrev, title) {
+            await loadBible();
+            currentBook = bibleData.find(b => b.abbrev === abbrev);
+            if (!currentBook) return;
+
+            document.getElementById('reading-book-title').innerText = title;
+            document.getElementById('reading-view').classList.remove('hidden');
+
+            // Generate chapter selector
+            const selector = document.getElementById('chapter-selector');
+            selector.innerHTML = '';
+            currentBook.chapters.forEach((_, idx) => {
+                const btn = document.createElement('button');
+                btn.className = "px-4 py-2 rounded-lg bg-[#050B18]/5 dark:bg-white/5 text-xs font-bold whitespace-nowrap";
+                btn.innerText = `Cap ${idx + 1}`;
+                btn.onclick = () => showChapter(idx);
+                selector.appendChild(btn);
+            });
+
+            showChapter(0);
+        }
+
+        function showChapter(idx) {
+            const container = document.getElementById('verses-container');
+            container.innerHTML = `<h3 class="text-premium-gold font-bold mb-4">Capítulo ${idx + 1}</h3>`;
+
+            currentBook.chapters[idx].forEach((verse, vIdx) => {
+                const p = document.createElement('p');
+                p.className = "text-royal-navy dark:text-white/80 leading-relaxed text-sm";
+                p.innerHTML = `<span class="text-premium-gold font-bold mr-2">${vIdx + 1}</span>${verse}`;
+                container.appendChild(p);
+            });
+            container.scrollTop = 0;
+        }
+
+        function closeBook() {
+            document.getElementById('reading-view').classList.add('hidden');
+        }
+    </script>
+</body>
+
+</html>
+

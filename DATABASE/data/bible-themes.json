@@ -1,0 +1,113 @@
+{
+    "themes": [
+        {
+            "id": "financial",
+            "keywords": [
+                "dinheiro",
+                "financeiro",
+                "dívida",
+                "contas",
+                "trabalho",
+                "pobreza",
+                "falta",
+                "provisão",
+                "escassos",
+                "desemprego",
+                "miséria",
+                "necessidade"
+            ],
+            "verses": [
+                {
+                    "reference": "Filipenses 4:19",
+                    "text": "O meu Deus suprirá todas as vossas necessidades, conforme as suas gloriosas riquezas em Cristo Jesus.",
+                    "theme": "Provisão Divina"
+                },
+                {
+                    "reference": "Mateus 6:33",
+                    "text": "Busquem, pois, em primeiro lugar o Reino de Deus e a sua justiça, e todas essas coisas lhes serão acrescentadas.",
+                    "theme": "Prioridade do Reino"
+                },
+                {
+                    "reference": "Salmos 37:25",
+                    "text": "Fui moço e agora sou velho; no entanto, nunca vi o justo desamparado, nem seus filhos a mendigar o pão.",
+                    "theme": "Segurança no Justo"
+                }
+            ]
+        },
+        {
+            "id": "family",
+            "keywords": [
+                "família",
+                "pai",
+                "mãe",
+                "filho",
+                "esposa",
+                "marido",
+                "brigas",
+                "conflitos",
+                "perdão",
+                "mansidão",
+                "paciência",
+                "irmão",
+                "casa",
+                "lar"
+            ],
+            "verses": [
+                {
+                    "reference": "Colossenses 3:13",
+                    "text": "Suportem-se uns aos outros e perdoem as queixas que tiverem uns contra os outros. Perdoem como o Senhor lhes perdoou.",
+                    "theme": "Perdão Mútuo"
+                },
+                {
+                    "reference": "Efésios 4:32",
+                    "text": "Sejam bondosos e compassivos uns para com os outros, perdoando-se mutuamente, assim como Deus os perdoou em Cristo.",
+                    "theme": "Compaixão"
+                },
+                {
+                    "reference": "Provérbios 15:1",
+                    "text": "A resposta calma desvia a fúria, mas a palavra ríspida desperta a ira.",
+                    "theme": "Sabedoria no Falar"
+                }
+            ]
+        },
+        {
+            "id": "mental_health",
+            "keywords": [
+                "triste",
+                "depressão",
+                "ansiedade",
+                "medo",
+                "solidão",
+                "esperança",
+                "consolo",
+                "angústia",
+                "aflito",
+                "pânico",
+                "desespero",
+                "vazio"
+            ],
+            "verses": [
+                {
+                    "reference": "Salmos 34:18",
+                    "text": "O Senhor está perto dos que têm o coração quebrantado e salva os de espírito abatido.",
+                    "theme": "Consolo do Senhor"
+                },
+                {
+                    "reference": "Filipenses 4:6-7",
+                    "text": "Não andem ansiosos por coisa alguma, mas em tudo, pela oração e súplicas, e com ação de graças, apresentem seus pedidos a Deus. E a paz de Deus, que excede todo o entendimento, guardará o coração e a mente de vocês em Cristo Jesus.",
+                    "theme": "Paz que Excede Entendimento"
+                },
+                {
+                    "reference": "Mateus 11:28",
+                    "text": "Venham a mim, todos os que estão cansados e sobrecarregados, e eu lhes darei descanso.",
+                    "theme": "Descanso em Cristo"
+                },
+                {
+                    "reference": "Isaías 41:10",
+                    "text": "Por isso não tema, pois estou com você; não tenha medo, pois sou o seu Deus. Eu o fortalecerei e o ajudarei; eu o segurarei com a minha mão direita vitoriosa.",
+                    "theme": "Fortaleza e Ajuda"
+                }
+            ]
+        }
+    ]
+}
