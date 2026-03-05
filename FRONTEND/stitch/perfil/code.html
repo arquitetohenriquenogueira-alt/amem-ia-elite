@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Amém - Conquistas Espirituais</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800&family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script src="/FRONTEND/stitch/theme-switcher.js" type="module"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        "perolado": "#050B18",
+                        "deep-navy": "#0A2540",
+                        "grey-body": "#4A5568",
+                        "premium-gold": "#C8A951",
+                        "soft-border": "#FFFFFF",
+                    },
+                    fontFamily: {
+                        "playfair": ["Poppins", "sans-serif"],
+                        "inter": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "button": "12px",
+                    },
+                },
+            },
+        }
+    </script>
+    <style type="text/tailwindcss">
+        :root {
+            --perolado: #050B18;
+            --deep-navy: #0A2540;
+            --grey-body: #4A5568;
+            --premium-gold: #C8A951;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--perolado);
+            color: var(--grey-body);
+            -webkit-tap-highlight-color: transparent;
+        }
+        .title-text {
+            font-family: 'Poppins', sans-serif;
+            color: var(--premium-gold);
+        }
+        .gold-gradient {
+            background: linear-gradient(135deg, #C8A951, #A68A3D, #C8A951);
+        }
+        .progress-gradient {
+            background: linear-gradient(90deg, #C8A951 0%, #E5D296 100%);
+        }
+
+        body {
+            background-color: #FAF7F0;
+            color: #050B18;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .dark body {
+            background-color: #050B18;
+            color: white;
+        }
+        .bento-card {
+            background-color: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(5, 11, 24, 0.1);
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+        }
+        .dark .bento-card {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.05);
+        }
+        .medal-card {
+            background: rgba(255, 255, 255, 0.03);
+            -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+        .medal-card:hover {
+            border-color: var(--premium-gold);
+            transform: translateY(-2px);
+        }
+    </style>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+        .symbol-filled {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+</head>
+
+<body class="antialiased">
+    <div
+        class="relative flex h-screen w-full flex-col overflow-hidden max-w-[430px] mx-auto bg-[#FAF7F0] dark:bg-[#050B18] shadow-2xl transition-colors">
+        <header
+            class="sticky top-0 z-40 bg-[#FAF7F0]/80 dark:bg-[#050B18]/80 backdrop-blur-md border-b border-[#050B18]/5 dark:border-white/5 px-6 py-10 flex flex-col items-center">
+            <div class="flex items-center justify-between w-full mb-4">
+                <button
+                    class="size-10 flex items-center justify-center rounded-full bg-[#050B18]/5 dark:bg-white/5 text-[#050B18] dark:text-white"
+                    onclick="window.history.back()">
+                    <span class="material-symbols-outlined font-black">arrow_back</span>
+                </button>
+                <div class="flex flex-col items-center">
+                    <h1
+                        class="text-3xl font-black tracking-tight text-[#050B18] dark:text-white drop-shadow-[0_2px_10px_rgba(200,169,81,0.3)] uppercase">
+                        Amém</h1>
+                    <span class="text-[10px] font-black uppercase tracking-[0.4em] text-premium-gold">Conquistas</span>
+                </div>
+                <button onclick="toggleTheme()"
+                    class="size-10 flex items-center justify-center rounded-full bg-[#050B18]/5 dark:bg-white/5 text-[#050B18] dark:text-white">
+                    <span class="material-symbols-outlined font-black dark:hidden">dark_mode</span>
+                    <span class="material-symbols-outlined font-black hidden dark:block">light_mode</span>
+                </button>
+            </div>
+        </header>
+        <section class="flex px-6 mb-6 justify-end items-center">
+            <button
+                class="flex items-center justify-center rounded-full h-10 w-10 bg-white/5 text-[#050B18] dark:text-white active:scale-90 border border-[#050B18]/5 dark:border-white/5">
+                <span class="material-symbols-outlined font-black">share</span>
+            </button>
+        </section>
+        <section class="flex p-8 flex-col items-center">
+            <div class="relative mb-6">
+                <div class="relative p-1.5 rounded-full border-2 border-premium-gold/30">
+                    <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-28 w-28 border-2 border-[#FAF7F0] dark:border-white shadow-xl"
+                        style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCj2UZTob2EAdOl6kq4KuDkD7P8PhpndJo-pZSb3IqJwlbo1GUdfpkKkpEvAnqqNBeA266pF9uNA0wPKOsLSyhEEs1mfMro7JXUdKIx9w0009p3XU_muYsn6i3HLlQsuXLOG7d-T2zC3Koi2JMBxRMrhgdp3-bIDTHNK120X0aWfUJ9DP6bCtDOSsODEhMu3N-CbEICZOnBY_bSw_3IE5tb55fBvoapv5K5-W2Gy2zZ0c896YBxmjm8vU-pdBqro8wPsqfqzyH3rW_E');">
+                    </div>
+                    <div
+                        class="absolute -bottom-1 -right-1 gold-gradient p-2 rounded-full shadow-lg border-2 border-[#FAF7F0] dark:border-white">
+                        <span class="material-symbols-outlined text-deep-navy text-sm font-bold block symbol-filled">workspace_premium</span>
+                    </div>
+                </div>
+            </div>
+            <div class="flex flex-col items-center text-center">
+                <h2 class="text-[#050B18] dark:text-white text-2xl font-black mb-1 uppercase tracking-tight">Discípulo de Ouro</h2>
+                <span class="text-premium-gold font-black text-xs tracking-widest uppercase mb-2">Nível 12</span>
+                <p class="text-[#050B18]/60 dark:text-white/60 text-sm font-black uppercase tracking-tighter">Faltam apenas <span
+                        class="text-premium-gold font-black">650 XP</span>
+                    para o próximo nível</p>
+            </div>
+        </section>
+        <section class="px-5 mb-10">
+            <div class="bg-white/5 backdrop-blur-md rounded-2xl p-6 space-y-6 border border-white/10">
+                <div class="flex justify-between items-end mb-4">
+                    <div class="space-y-1">
+                        <p class="text-grey-body text-[10px] font-bold uppercase tracking-wider opacity-60">Progresso na
+                            Jornada</p>
+                        <p class="text-deep-navy text-lg font-bold">1.850 <span
+                                class="text-sm font-normal text-grey-body/60">/ 2.500 XP</span></p>
+                    </div>
+                    <div class="bg-premium-gold/10 px-3 py-1 rounded-full">
+                        <p class="text-premium-gold text-[11px] font-bold">75% Concluído</p>
+                    </div>
+                </div>
+                <div class="relative h-2 w-full bg-white/10 rounded-full overflow-hidden">
+                    <div class="absolute top-0 left-0 h-full progress-gradient rounded-full" style="width: 75%;"></div>
+                </div>
+            </div>
+        </section>
+        <section class="px-5 flex items-center justify-between mb-5">
+            <h3 class="title-text text-lg font-bold">Galeria de Honra</h3>
+            <button class="text-premium-gold text-xs font-bold uppercase tracking-wide">Ver Todas</button>
+        </section>
+        <section class="px-5 grid grid-cols-2 gap-4">
+            <div class="medal-card rounded-2xl p-5 flex flex-col items-center text-center group">
+                <div class="relative w-20 h-20 mb-4 flex items-center justify-center">
+                    <div class="absolute inset-0 gold-gradient rounded-full blur-xl opacity-20 group-hover:opacity-40">
+                    </div>
+                    <div
+                        class="w-16 h-16 rounded-full gold-gradient shadow-md flex items-center justify-center border-2 border-[#FAF7F0]/50 dark:border-white/50 relative">
+                        <span class="material-symbols-outlined text-deep-navy text-3xl symbol-filled">auto_awesome</span>
+                    </div>
+                </div>
+                <p class="text-deep-navy font-bold text-sm leading-tight">Guerreiro de Oração</p>
+                <p class="text-grey-body text-[10px] mt-2 font-medium">30 dias consecutivos</p>
+            </div>
+            <div class="medal-card rounded-2xl p-5 flex flex-col items-center text-center group">
+                    <div
+                        class="w-16 h-16 rounded-full bg-gradient-to-tr from-emerald-500 to-emerald-200 shadow-md flex items-center justify-center border-2 border-[#FAF7F0]/50 dark:border-white/50 relative">
+                        <span class="material-symbols-outlined text-white text-3xl symbol-filled">eco</span>
+                    </div>
+                <p class="text-[#050B18] dark:text-white font-black text-sm leading-tight uppercase tracking-tighter">Semeador Mirim</p>
+                <p class="text-premium-gold/60 text-[10px] mt-2 font-black uppercase tracking-widest">Primeira contribuição</p>
+            </div>
+            <div class="medal-card rounded-2xl p-5 flex flex-col items-center text-center group">
+                    <div
+                        class="w-16 h-16 rounded-full bg-gradient-to-tr from-blue-500 to-blue-200 shadow-md flex items-center justify-center border-2 border-[#FAF7F0]/50 dark:border-white/50 relative">
+                        <span class="material-symbols-outlined text-white text-3xl symbol-filled">devices</span>
+                    </div>
+                <p class="text-deep-navy font-bold text-sm leading-tight">Discípulo Digital</p>
+                <p class="text-grey-body text-[10px] mt-2 font-medium">10 compartilhamentos</p>
+            </div>
+            <div
+                class="medal-card rounded-2xl p-5 flex flex-col items-center text-center opacity-50 bg-slate-50/50 border-dashed">
+                <div class="relative w-20 h-20 mb-4 flex items-center justify-center">
+                    <div
+                        class="w-16 h-16 rounded-full bg-slate-200 flex items-center justify-center border-2 border-white relative">
+                        <span class="material-symbols-outlined text-slate-400 text-2xl">lock</span>
+                    </div>
+                </div>
+                <p class="text-slate-400 font-bold text-sm leading-tight">Bloqueado</p>
+                <p class="text-slate-400 text-[10px] mt-2 font-medium">Nível 15</p>
+            </div>
+        </section>
+        <section class="px-5 mt-10">
+            <div class="glass-card rounded-2xl p-6 relative overflow-hidden active:scale-95 transition-transform">
+                <div class="absolute right-0 top-0 opacity-20 pointer-events-none">
+                    <span class="material-symbols-outlined text-[100px] text-premium-gold symbol-filled">grade</span>
+                </div>
+                <div class="relative z-10 max-w-[75%]">
+                    <h4 class="text-white text-lg font-black mb-1 uppercase tracking-tight">Torne-se Amém Premium</h4>
+                    <p class="text-white/40 text-[10px] mb-5 leading-relaxed font-black uppercase tracking-widest">Ganhe
+                        XP em dobro e conquiste medalhas
+                        exclusivas de platina.</p>
+                    <button
+                        class="bg-premium-gold text-white font-black text-xs uppercase tracking-widest px-6 py-4 rounded-button shadow-lg shadow-premium-gold/30 active:scale-95 transition-transform w-full sm:w-auto">
+                        Experimentar Grátis
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        </section>
+
+        <!-- Premium Navigation Footer -->
+        <nav class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[430px] bg-white/95 dark:bg-[#050B18]/95 backdrop-blur-lg border-t border-black/5 px-8 pt-4 pb-8 flex justify-between items-center z-40">
+            <a href="/stitch/dashboard/code.html" class="flex flex-col items-center gap-1 opacity-40">
+                <span class="material-symbols-outlined">home</span>
+                <span class="text-[8px] font-black uppercase tracking-widest">Início</span>
+            </a>
+            <a href="/stitch/oracoes/code.html" class="flex flex-col items-center gap-1 opacity-40">
+                <span class="material-symbols-outlined">volunteer_activism</span>
+                <span class="text-[8px] font-black uppercase tracking-widest">Diário</span>
+            </a>
+            <a href="/stitch/pastor_ia/code.html" class="flex flex-col items-center gap-1 opacity-40">
+                <span class="material-symbols-outlined">chat_bubble</span>
+                <span class="text-[8px] font-black uppercase tracking-widest">Mentor</span>
+            </a>
+            <a href="/stitch/perfil/code.html" class="flex flex-col items-center gap-1 text-premium-gold font-bold">
+                <span class="material-symbols-outlined filled-icon" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+                <span class="text-[8px] font-black uppercase tracking-widest">Perfil</span>
+            </a>
+        </nav>
+    </div>
+
+    <script src="/auth.js"></script>
+</body>
+
+</html>
+
+
+

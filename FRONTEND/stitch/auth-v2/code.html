@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Amém</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta name="apple-mobile-web-app-title" content="Amém">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script src="/FRONTEND/stitch/theme-switcher.js" type="module"></script>
+    <link rel="stylesheet" href="/public/styles/global.css">
+    <svg width="0" height="0" class="absolute">
+        <defs>
+            <clipPath id="heart-path" clipPathUnits="objectBoundingBox">
+                <path d="M0.5,0.2 C0.4,0,0,0,0,0.4 C0,0.75,0.3,0.85,0.5,1 C0.7,0.85,1,0.75,1,0.4 C1,0,0.6,0,0.5,0.2"></path>
+            </clipPath>
+        </defs>
+    </svg>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#C8A951", // Premium Gold
+                        "deep-navy": "#0A2540",
+                        "background-dark": "#050a14",
+                    },
+                    fontFamily: {
+                        "display": ["Poppins", "sans-serif"],
+                        "sans": ["Inter", "sans-serif"]
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            min-height: 100dvh;
+        }
+        .symbol-filled {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+    <script src="/auth.js"></script>
+</head>
+
+<body class="antialiased bg-[#FAF7F0] dark:bg-[#050B18] transition-colors">
+    <div
+        class="relative flex h-screen w-full max-w-[430px] mx-auto flex-col bg-[#FAF7F0] dark:bg-[#050B18] overflow-hidden shadow-2xl border-[8px] border-[#050B18]/5 dark:border-white/5 rounded-[3rem] p-6 pb-32">
+        <div class="flex items-center justify-between w-full mb-10">
+            <button onclick="window.location.href='/stitch/kids-modo-2/code.html'"
+                class="size-10 flex items-center justify-center rounded-full bg-[#050B18]/5 dark:bg-white/5 text-[#050B18] dark:text-white active:scale-90 transition-transform">
+                <span class="material-symbols-outlined font-black">chevron_left</span>
+            </button>
+            <div class="flex flex-col items-center">
+                <div class="size-12 bg-premium-gold/10 heart-clip flex items-center justify-center mb-1">
+                    <span class="material-symbols-outlined text-premium-gold text-2xl font-black symbol-filled">church</span>
+                </div>
+                <h1
+                    class="text-4xl font-black text-[#050B18] dark:text-white tracking-tight uppercase drop-shadow-[0_2px_10px_rgba(200,169,81,0.3)]">
+                    Amém</h1>
+                <p class="text-premium-gold text-[10px] font-black tracking-[0.4em] uppercase mt-2">Ungidos Launch
+                </p>
+            </div>
+            <button onclick="toggleTheme()"
+                class="size-10 flex items-center justify-center rounded-full bg-[#050B18]/5 dark:bg-white/5 text-[#050B18] dark:text-white active:scale-90 transition-transform">
+                <span class="material-symbols-outlined font-black dark:hidden">dark_mode</span>
+                <span class="material-symbols-outlined font-black hidden dark:block">light_mode</span>
+            </button>
+        </div>
+
+        <div id="login-form">
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">E-mail</label>
+                    <input type="email"
+                        class="w-full bg-background-dark/5 dark:bg-white/5 text-[#050B18] dark:text-white border border-slate-700 rounded-xl px-4 py-3 text-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all placeholder:text-slate-500"
+                        placeholder="seu@email.com">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Senha</label>
+                    <input type="password"
+                        class="w-full bg-background-dark/5 dark:bg-white/5 text-[#050B18] dark:text-white border border-slate-700 rounded-xl px-4 py-3 text-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all placeholder:text-slate-500"
+                        placeholder="••••••••">
+                </div>
+                <button onclick="simulateLogin()"
+                    class="w-full bg-primary text-deep-navy font-bold py-4 rounded-xl shadow-[0_0_20px_rgba(200,169,81,0.3)] active:scale-[0.98] transition-all">Entrar</button>
+            </div>
+            <p class="mt-6 text-center text-sm text-slate-400">
+                Não tem uma conta? <button onclick="toggleForm()" class="text-primary font-bold">Cadastre-se</button>
+            </p>
+        </div>
+
+        <div id="signup-form" class="hidden">
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Nome
+                        Completo</label>
+                    <input id="signup-name" type="text"
+                        class="w-full bg-background-dark/50 border border-slate-700 rounded-xl px-4 py-3 text-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all"
+                        placeholder="Seu nome">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">E-mail</label>
+                    <input type="email"
+                        class="w-full bg-background-dark/50 border border-slate-700 rounded-xl px-4 py-3 text-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all"
+                        placeholder="seu@email.com">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Senha</label>
+                    <input type="password"
+                        class="w-full bg-background-dark/50 border border-slate-700 rounded-xl px-4 py-3 text-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all"
+                        placeholder="••••••••">
+                </div>
+                <button onclick="simulateSignup()"
+                    class="w-full bg-primary text-deep-navy font-bold py-4 rounded-xl shadow-[0_0_20px_rgba(200,169,81,0.3)] active:scale-[0.98] transition-all">Criar
+                    Conta</button>
+            </div>
+            <p class="mt-6 text-center text-sm text-slate-400">
+                Já tem uma conta? <button onclick="toggleForm()" class="text-primary font-bold">Login</button>
+            </p>
+        </div>
+
+        <div id="profile-view" class="hidden text-center">
+            <div id="profile-photo-container"
+                class="size-24 bg-primary/20 rounded-full mx-auto mb-4 flex items-center justify-center border-2 border-primary overflow-hidden">
+                <span id="profile-icon" class="material-symbols-outlined text-5xl text-primary">person</span>
+                <img id="profile-img" src="" alt="Foto de perfil" class="hidden w-full h-full object-cover">
+            </div>
+            <h2 id="profile-name" class="text-2xl font-black text-navy dark:text-white mb-1">Usuário</h2>
+            <p id="profile-email" class="text-slate-500 dark:text-slate-400 text-sm mb-6">user@example.com</p>
+
+            <div id="premium-badge"
+                class="hidden mb-6 bg-primary/20 border border-primary text-primary px-4 py-2 rounded-full text-xs font-black uppercase tracking-widest">
+                Plano Abençoado Ativo
+            </div>
+
+            <div class="space-y-3">
+                <a href="/stitch/planos-assinatura/code.html"
+                    class="block w-full bg-primary text-deep-navy font-bold py-3 rounded-xl">Mudar de Plano</a>
+                <button onclick="logout()"
+                    class="w-full bg-red-500/10 text-red-500 border border-red-500/20 font-bold py-3 rounded-xl">Sair da
+                    Conta</button>
+            </div>
+
+            <div id="admin-section" class="mt-8 pt-8 border-t border-slate-700 text-left">
+                <h3 class="text-xs font-black text-primary uppercase tracking-[0.2em] mb-4">Painel de Leads (Admin)</h3>
+                <div id="leads-list" class="space-y-2 max-h-[150px] overflow-y-auto pr-2 custom-scrollbar">
+                    <!-- Leads will be injected here -->
+                </div>
+            </div>
+        </div>
+
+
+        <script>
+            function openShareModal() {
+                document.getElementById('shareModal').classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            }
+            function closeShareModal() {
+                document.getElementById('shareModal').classList.add('hidden');
+                document.body.style.overflow = '';
+            }
+        </script>
+</body>
+
+</html>
+
+
+

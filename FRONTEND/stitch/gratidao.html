@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <title>Oração de Gratidão - Amém</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <script type="module" src="/FRONTEND/stitch/theme-switcher.js"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary-gold": "#C8A951",
+                        "deep-navy": "#050B18",
+                    }
+                },
+            },
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer base {
+            body { font-family: 'Inter', sans-serif; @apply bg-[#050B18] text-white; }
+        }
+        .prayer-text { line-height: 1.6; }
+        .symbol-filled { font-variation-settings: 'FILL' 1; }
+    </style>
+</head>
+<body class="bg-[#050B18]">
+    <div class="relative min-h-screen w-full flex flex-col max-w-[430px] mx-auto bg-[#050B18] shadow-2xl">
+        <header class="flex items-center justify-between p-6 pt-12">
+            <button onclick="window.history.back()" class="size-10 flex items-center justify-center rounded-full bg-white/5 text-white active:scale-95 transition-transform">
+                <span class="material-symbols-outlined text-2xl font-black">chevron_left</span>
+            </button>
+            <h1 class="text-xl font-black uppercase tracking-widest text-primary-gold">Gratidão</h1>
+            <div class="size-10"></div>
+        </header>
+
+        <main class="flex-1 px-8 flex flex-col items-center justify-center text-center -mt-10">
+            <div class="relative size-48 mb-8">
+                <div class="absolute inset-0 bg-primary-gold/20 rounded-full blur-3xl animate-pulse"></div>
+                <div class="relative flex items-center justify-center h-full">
+                    <span class="material-symbols-outlined text-8xl text-primary-gold symbol-filled">volunteer_activism</span>
+                </div>
+            </div>
+
+            <h2 class="text-2xl font-black mb-6 uppercase tracking-tight">Obrigado, Papai do Céu!</h2>
+            
+            <p id="prayer-content" class="text-xl font-medium text-white/90 prayer-text italic mb-12">
+                "Querido Papai do Céu, muito obrigado por este dia lindo. Obrigado pela minha família, pelos meus amiguinhos e por todo o amor que o Senhor me dá. Amém!"
+            </p>
+
+            <button onclick="speakPrayer()" class="w-full h-16 bg-primary-gold rounded-2xl flex items-center justify-center gap-3 text-white font-black shadow-lg shadow-primary-gold/20 active:scale-[0.98] transition-all">
+                <span class="material-symbols-outlined text-2xl">volume_up</span>
+                <span>OUVIR ORAÇÃO</span>
+            </button>
+        </main>
+
+        <footer class="p-8 text-center opacity-30">
+            <p class="text-[10px] font-black uppercase tracking-[0.3em]">Amém Kids</p>
+        </footer>
+    </div>
+
+    <script>
+        function speakPrayer() {
+            const text = document.getElementById('prayer-content').innerText;
+            if ('speechSynthesis' in window) {
+                // Cancel any ongoing speech
+                window.speechSynthesis.cancel();
+                
+                const utterance = new SpeechSynthesisUtterance(text);
+                utterance.lang = 'pt-BR';
+                
+                const voices = window.speechSynthesis.getVoices();
+                const preferred = [
+                    'Microsoft Maria Online (Natural) - Portuguese (Brazil)',
+                    'Google português do Brasil',
+                    'Luciana',
+                    'Heloisa'
+                ];
+                
+                let selectedVoice = voices.find(v => preferred.includes(v.name));
+                if (!selectedVoice) {
+                    selectedVoice = voices.find(v => v.lang === 'pt-BR' && (v.name.includes('Female') || v.name.includes('Maria')));
+                }
+                
+                if (selectedVoice) utterance.voice = selectedVoice;
+                utterance.pitch = 1.15; // Sweet kids tone
+                utterance.rate = 0.88;  // Calm pace
+                
+                window.speechSynthesis.speak(utterance);
+            }
+        }
+        
+        // Ensure voices are loaded
+        window.speechSynthesis.onvoiceschanged = () => {};
+    </script>
+</body>
+</html>
+
+
+

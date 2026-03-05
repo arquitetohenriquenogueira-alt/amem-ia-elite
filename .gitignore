@@ -1,32 +1,39 @@
 
-
-# Environment & Secrets (AIOS)
+# Environment & Secrets
 .env
 .env.local
 .env.*.local
 *.key
 *.pem
 
-# Dependencies (AIOS)
+# Dependencies
 node_modules/
 node_modules
 
-# Build & Logs (AIOS)
+# Build & Logs
 dist/
+dist_stale_backup/
 build/
 *.log
 logs/
 
-# IDE & OS (AIOS)
+# IDE & OS
 .DS_Store
 Thumbs.db
 .idea/
 *.swp
 
-# AIOS Local (AIOS)
+# AIOS Local
 .aios-core/local/
 .claude/settings.local.json
 .aios/install-log.txt
+
+# Assets & Media (GIGANTE)
+MARKETING/
+*.mp4
+*.mov
+*.zip
+*.img
 
 .vercel
 .env*.local

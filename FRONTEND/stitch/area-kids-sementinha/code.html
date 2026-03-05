@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Amém</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta name="apple-mobile-web-app-title" content="Amém">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@700&display=swap" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script src="/FRONTEND/stitch/theme-switcher.js" type="module"></script>
+    <link rel="stylesheet" href="/public/styles/global.css">
+    <svg width="0" height="0" class="absolute">
+        <defs>
+            <clipPath id="heart-path" clipPathUnits="objectBoundingBox">
+                <path d="M0.5,0.2 C0.4,0,0,0,0,0.4 C0,0.75,0.3,0.85,0.5,1 C0.7,0.85,1,0.75,1,0.4 C1,0,0.6,0,0.5,0.2"></path>
+            </clipPath>
+        </defs>
+    </svg>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary-gold": "#C8A951",
+                        "deep-navy": "#1A233A",
+                        "soft-blue": "#E3F2FD",
+                        "soft-green": "#E8F5E9",
+                        "soft-yellow": "#FFFDE7",
+                        "soft-pink": "#FCE4EC",
+                        "background-pure": "#050B18",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"],
+                        "serif-navy": ["Poppins", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "lesson-btn": "12px",
+                        "card-bento": "24px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer base {
+            body { font-family: 'Inter', sans-serif; }
+            .material-symbols-outlined {
+                font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            }
+            .filled-icon {
+                font-variation-settings: 'FILL' 1;
+            }
+        }
+    </style>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+
+<body class="bg-[#050B18] text-white">
+    <div
+        class="relative flex min-h-screen w-full flex-col max-w-[430px] mx-auto bg-[#050B18] shadow-[0_0_50px_rgba(5,11,24,0.5)]">
+        <header
+            class="flex flex-col items-center pt-14 pb-10 px-6 sticky top-0 z-50 bg-[#050B18]/80 backdrop-blur-md border-b border-white/5">
+            <div class="flex items-center justify-between w-full mb-2">
+                <a href="/stitch/kids-modo-2/code.html"
+                    class="size-10 flex items-center justify-center rounded-full bg-white/5 text-white active:scale-95 transition-transform">
+                    <span class="material-symbols-outlined text-3xl font-black">chevron_left</span>
+                </a>
+                <div class="flex flex-col items-center">
+                    <div class="size-12 bg-premium-gold/10 heart-clip flex items-center justify-center mb-1">
+                        <span class="material-symbols-outlined text-premium-gold text-2xl font-black filled-icon">church</span>
+                    </div>
+                    <h1
+                        class="text-3xl font-black tracking-tight text-white drop-shadow-[0_2px_10px_rgba(200,169,81,0.3)] uppercase leading-none">
+                        Amém</h1>
+                    <span class="text-[10px] font-black uppercase tracking-[0.4em] text-premium-gold mt-1">Modo
+                        Sementinha</span>
+                </div>
+                <button onclick="toggleTheme()"
+                    class="size-10 flex items-center justify-center rounded-full bg-white/5 text-premium-gold active:scale-95 transition-transform">
+                    <span class="material-symbols-outlined font-black dark:hidden">dark_mode</span>
+                    <span class="material-symbols-outlined font-black hidden dark:block">light_mode</span>
+                </button>
+            </div>
+        </header>
+        <div class="flex-1 overflow-y-auto pb-28">
+            <div class="px-6 pt-8 pb-4 text-center">
+                <div class="inline-flex items-center justify-center bg-primary-gold/10 p-4 rounded-full mb-4">
+                    <span class="material-symbols-outlined text-primary-gold text-4xl filled-icon">potted_plant</span>
+                </div>
+                <h1 class="text-white text-2xl font-black leading-tight font-display px-4 drop-shadow-sm uppercase">
+                    Ensine seu filho a falar com Deus</h1>
+                <p class="text-white/50 mt-2 text-sm font-black uppercase tracking-widest">Momentos premium de fé para
+                    os pequenos</p>
+            </div>
+            <div class="px-6 py-4">
+                <div
+                    class="flex flex-col items-stretch justify-start rounded-card-bento shadow-sm bg-white dark:bg-white/5 border border-white/5 overflow-hidden">
+                    <div class="w-full bg-center bg-no-repeat aspect-video bg-cover relative"
+                        style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBVbY0kp5-nLJqTNvS9FCLiw-vGdufm7dSTjAB7C7tir9mcvMwDUNgmSboF5xaHq3dgKyEIBXmpPjy8zZ0z6oo8f3WaF2aGiXDlDwvzz0HeT43Ux8eGqWo2Ng1IBbz1nbZwgxC53e64vxrOU3X_rxsmBCHSdbar4FYR0jmk9-q-MytznZXaBXW7_lCHKuL66bwPtjsGi2qdojIIWYTOx4_N9kZcaWVTw23ZxFmhr_UGpq_nEW2kp62nkJtoAlAR4tY0uXJ5exNKJmz7");'>
+                        <div
+                            class="absolute top-4 right-4 bg-white/90 p-2 rounded-full flex items-center justify-center shadow-md">
+                            <span class="material-symbols-outlined text-primary-gold filled-icon">star</span>
+                        </div>
+                    </div>
+                    <div class="flex w-full flex-col p-6">
+                        <div class="flex items-center gap-2 mb-1">
+                            <span class="material-symbols-outlined text-primary-gold text-sm filled-icon">eco</span>
+                            <p class="text-primary-gold text-[10px] font-bold uppercase tracking-widest">Aprender agora
+                            </p>
+                        </div>
+                        <p class="text-navy dark:text-white text-xl font-bold leading-tight mb-2">Aprenda a Oração do Pai Nosso</p>
+                        <h3 class="font-bold text-navy dark:text-white mb-1">Caminho da Fé</h3>
+                        <p class="text-navy/40 dark:text-white/40 text-sm leading-relaxed mb-6 font-black uppercase tracking-tighter">Uma
+                            jornada lúdica para descobrir como
+                            falar com o Papai do Céu.</p>
+                        <a href="/stitch/kids-colorir/code.html"
+                            class="w-full flex cursor-pointer items-center justify-center gap-2 rounded-[12px] h-14 px-6 bg-primary-gold text-white text-base font-bold transition-transform active:scale-[0.98] shadow-lg shadow-primary-gold/20">
+                            <span class="truncate">Começar Lição</span>
+                            <span class="material-symbols-outlined">play_circle</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="px-6 py-4">
+                <h3 class="text-white text-lg font-bold mb-4 font-display">Explorar Atividades</h3>
+                <!-- Jardim da Fé (Gamification) -->
+                <div class="glass-card mb-8 p-6 text-center relative overflow-hidden group">
+                    <div
+                        class="absolute top-0 right-0 w-32 h-32 bg-premium-gold/5 rounded-full -mr-16 -mt-16 blur-2xl group-hover:bg-premium-gold/10 transition-all">
+                    </div>
+                    <div class="relative z-10 flex flex-col items-center">
+                        <h3 class="text-sm font-black text-royal-navy dark:text-white uppercase tracking-widest mb-4">
+                            Seu Jardim da Fé</h3>
+
+                        <!-- Growing Plant Animation Area -->
+                        <div class="relative size-32 mb-4">
+                            <div class="absolute inset-0 bg-premium-gold/10 rounded-full blur-xl animate-pulse"></div>
+                            <span class="material-symbols-outlined text-6xl text-premium-gold filled-icon">potted_plant</span>
+                            <!-- Growth badges -->
+                            <div
+                                class="absolute -top-2 -right-2 size-8 bg-gold-glow rounded-full flex items-center justify-center text-royal-navy shadow-lg border-2 border-white animate-bounce">
+                                <span class="material-symbols-outlined text-sm font-black">star</span>
+                            </div>
+                        </div>
+
+                        <div class="w-full space-y-2">
+                            <div
+                                class="flex justify-between items-center text-[10px] font-black uppercase tracking-widest px-2">
+                                <span class="text-premium-gold">Nível 3</span>
+                                <span class="text-royal-navy/40 dark:text-white/40">Faltam 2 lições</span>
+                            </div>
+                            <div
+                                class="h-3 w-full bg-premium-gold/10 rounded-full overflow-hidden border border-premium-gold/20">
+                                <div
+                                    class="h-full bg-premium-gold w-[65%] rounded-full shadow-[0_0_15px_rgba(200,169,81,0.5)]">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                    <a href="/stitch/kids-colorir/code.html"
+                        class="bg-white/5 backdrop-blur-md border border-white/10 p-6 rounded-card-bento flex flex-col items-center text-center cursor-pointer transition-all active:scale-95">
+                        <div
+                            class="size-16 bg-primary-gold/10 rounded-2xl flex items-center justify-center mb-4 shadow-sm border border-primary-gold/10">
+                            <span class="material-symbols-outlined text-primary-gold text-4xl">palette</span>
+                        </div>
+                        <p class="text-white font-black text-sm uppercase">Pintar</p>
+                    </a>
+                    <a href="/stitch/kids-quiz-sabios/code.html"
+                        class="bg-white/5 backdrop-blur-md border border-white/10 p-6 rounded-card-bento flex flex-col items-center text-center cursor-pointer transition-all active:scale-95">
+                        <div
+                            class="size-16 bg-primary-gold/10 rounded-2xl flex items-center justify-center mb-4 shadow-sm border border-primary-gold/10">
+                            <span class="material-symbols-outlined text-primary-gold text-4xl">quiz</span>
+                        </div>
+                        <p class="text-white font-black text-sm uppercase">Quiz Bíblico</p>
+                    </a>
+                    <a href="/stitch/kids-jogo-memoria.html"
+                        class="col-span-2 bg-white/5 backdrop-blur-md border border-white/10 p-6 rounded-card-bento flex flex-col items-center text-center cursor-pointer transition-all active:scale-95">
+                        <div
+                            class="size-16 bg-primary-gold/10 rounded-2xl flex items-center justify-center mb-4 shadow-sm border border-primary-gold/10">
+                            <span class="material-symbols-outlined text-primary-gold text-4xl">psychology</span>
+                        </div>
+                        <p class="text-white font-black text-sm uppercase">Jogo da Memória</p>
+                        <p class="text-primary-gold/40 text-[10px] mt-1 font-black uppercase tracking-widest">Encontre
+                            os Pares da Fé</p>
+                    </a>
+                </div>
+                <!-- Orações do Dia Grid (Premium Kids) -->
+                <div class="px-6 mb-8">
+                    <h3 class="text-white font-black text-xs uppercase tracking-[0.2em] mb-4 opacity-50">Orações do Dia</h3>
+                    <div class="grid grid-cols-2 gap-4">
+                        <a href="/stitch/kids-gratidao.html" class="bg-white/5 border border-white/5 p-4 rounded-[24px] flex flex-col items-center gap-2 active:scale-95 transition-all">
+                            <span class="material-symbols-outlined text-primary-gold text-2xl" style="font-variation-settings: 'FILL' 1">volunteer_activism</span>
+                            <span class="text-[10px] font-black text-white uppercase tracking-widest">Gratidão</span>
+                        </a>
+                        <a href="/stitch/kids-pai-nosso.html" class="bg-white/5 border border-white/5 p-4 rounded-[24px] flex flex-col items-center gap-2 active:scale-95 transition-all">
+                            <span class="material-symbols-outlined text-primary-gold text-2xl" style="font-variation-settings: 'FILL' 1">auto_awesome</span>
+                            <span class="text-[10px] font-black text-white uppercase tracking-widest">Pai Nosso</span>
+                        </a>
+                        <a href="/stitch/kids-protecao.html" class="bg-white/5 border border-white/5 p-4 rounded-[24px] flex flex-col items-center gap-2 active:scale-95 transition-all">
+                            <span class="material-symbols-outlined text-primary-gold text-2xl" style="font-variation-settings: 'FILL' 1">shield_with_heart</span>
+                            <span class="text-[10px] font-black text-white uppercase tracking-widest">Proteção</span>
+                        </a>
+                        <a href="/stitch/kids-refeicao.html" class="bg-white/5 border border-white/5 p-4 rounded-[24px] flex flex-col items-center gap-2 active:scale-95 transition-all">
+                            <span class="material-symbols-outlined text-primary-gold text-2xl" style="font-variation-settings: 'FILL' 1">restaurant_menu</span>
+                            <span class="text-[10px] font-black text-white uppercase tracking-widest">Refeição</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div
+                    class="mx-6 my-6 p-5 bg-white/5 backdrop-blur-md rounded-[24px] flex items-start gap-4 border border-white/10">
+                    <div class="bg-white/5 p-2 rounded-lg">
+                        <span class="material-symbols-outlined text-yellow-600">lightbulb</span>
+                    </div>
+                    <div>
+                        <h4 class="text-white font-bold text-sm">Dica para os Pais</h4>
+                        <p class="text-slate-300 text-xs mt-1 leading-relaxed">Incentive seu filho a criar sua própria
+                            oração espontânea após a lição. Isso fortalece o vínculo com Deus de forma natural.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Premium Navigation Footer -->
+        <nav class="tab-bar-premium">
+            <a href="/stitch/kids-modo-2/code.html" class="tab-item">
+                <span class="material-symbols-outlined">home</span>
+                <p>Início</p>
+            </a>
+            <a href="/stitch/diario-oracoes/code.html" class="tab-item">
+                <span class="material-symbols-outlined">volunteer_activism</span>
+                <p>Diário</p>
+            </a>
+            <a href="/stitch/kids-modo-1/code.html" class="tab-item">
+                <span class="material-symbols-outlined">chat_bubble</span>
+                <p>Mentor</p>
+            </a>
+            <a href="/stitch/conquistas/code.html" class="tab-item">
+                <span class="material-symbols-outlined">workspace_premium</span>
+                <p>Perfil</p>
+            </a>
+        </nav>
+    </div>
+    <script src="/auth.js"></script>
+</body>
+</html>
+
+
+

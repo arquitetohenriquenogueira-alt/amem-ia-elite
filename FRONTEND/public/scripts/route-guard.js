@@ -27,7 +27,7 @@ export const RouteGuard = {
             
             if (isPremiumPage && profile.plan !== 'abencoado') {
                 console.warn("[🚫] Acesso Negado. Usuário sem plano Ungido.");
-                window.location.href = '/FRONTEND/stitch/am_m_ia_planos_de_assinatura/code.html?reason=premium_required';
+                window.location.href = '/stitch/planos-assinatura/code.html?reason=premium_required';
             }
 
         } catch (err) {

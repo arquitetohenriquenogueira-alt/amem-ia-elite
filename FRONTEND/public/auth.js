@@ -26,7 +26,7 @@ function initAuth() {
             }
         } else {
             AmemLogger.info(AmemLogger.Categories.AUTH, 'Tentativa de acesso ao Perfil (Não Logado)');
-            window.location.href = '/stitch/am_m_ia_auth/code.html';
+            window.location.href = '/stitch/auth-v2/code.html';
         }
     }
 }

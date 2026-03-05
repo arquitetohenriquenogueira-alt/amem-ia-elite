@@ -1,0 +1,321 @@
+<html class="light">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Amém - Diário de Orações</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <meta name="apple-mobile-web-app-title" content="Amém">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <script src="/FRONTEND/stitch/theme-switcher.js" type="module"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#C8A951",
+            "premium-gold": "#C8A951",
+            "deep-navy": "#0A2540",
+            "slate-light": "#64748b",
+            "surface": "#FFFFFF",
+          },
+          fontFamily: {
+            "serif": ["Poppins", "sans-serif"],
+            "display": ["Poppins", "sans-serif"],
+            "sans": ["Inter", "sans-serif"]
+          },
+        },
+      },
+    }
+  </script>
+  <style type="text/tailwindcss">
+    :root {
+      --premium-gold: #C8A951;
+      --deep-navy: #0A2540;
+    }
+        @layer base {
+            body {
+                @apply bg-[#FAF7F0] text-[#050B18] transition-colors duration-300 font-sans;
+            }
+            .dark body {
+                @apply bg-[#050B18] text-white;
+            }
+        }
+        .prayer-card {
+            @apply bg-white dark:bg-white/5 rounded-[24px] border border-black/5 dark:border-white/10 shadow-[0_4px_20px_rgba(0,0,0,0.02)] transition-all overflow-hidden;
+        }
+    .switch {
+      @apply relative inline-block w-11 h-6 shrink-0;
+    }
+    .switch input {
+      @apply opacity-0 w-0 h-0;
+    }
+    .slider {
+      @apply absolute cursor-pointer inset-0 bg-[#E9E9EB] dark:bg-white/10 rounded-full transition-all duration-300;
+    }
+    .slider:before {
+      @apply absolute content-[''] h-4 w-4 left-1 bottom-1 bg-white rounded-full transition-all duration-300 shadow-sm;
+    }
+    input:checked + .slider {
+      @apply bg-premium-gold;
+    }
+    input:checked + .slider:before {
+      @apply translate-x-5;
+    }
+    .img-premium {
+        @apply w-full aspect-video object-cover rounded-[16px] mb-4 shadow-sm;
+    }
+    .no-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+    .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+    .symbol-filled { font-variation-settings: 'FILL' 1; }
+</style>
+    <!-- Route Guard (Proteção Ungidos) -->
+    <script type="module">
+        import { RouteGuard } from '/FRONTEND/public/scripts/route-guard.js';
+        RouteGuard.protect();
+    </script>
+</head>
+
+<body class="antialiased font-sans">
+  <div
+    class="relative flex h-screen w-full max-w-[430px] mx-auto flex-col bg-[#FAF7F0] dark:bg-[#050B18] overflow-hidden shadow-2xl transition-colors">
+    <header
+      class="sticky top-0 z-40 bg-[#FAF7F0]/80 dark:bg-[#050B18]/80 backdrop-blur-md border-b border-black/5 px-6 py-6 flex items-center justify-between">
+      <button onclick="window.history.back()" class="text-[#050B18] dark:text-white">
+        <span class="material-symbols-outlined font-black">menu</span>
+      </button>
+      <div class="flex-1 text-center">
+        <p class="text-[9px] font-black text-premium-gold uppercase tracking-[0.4em] mb-0.5">Amém</p>
+        <h1 class="text-xl font-black font-serif text-[#050B18] dark:text-white uppercase tracking-tight">Diário de
+          Orações</h1>
+      </div>
+      <button class="text-[#050B18] dark:text-white">
+        <span class="material-symbols-outlined font-black">account_circle</span>
+      </button>
+    </header>
+
+    <main class="flex-1 p-6 space-y-6 overflow-y-auto no-scrollbar pb-32">
+      <!-- Filtros -->
+      <div class="flex gap-2 overflow-x-auto no-scrollbar">
+        <button
+          class="whitespace-nowrap px-6 py-2 rounded-full bg-premium-gold text-white text-[10px] font-black uppercase tracking-widest shadow-md">Todas</button>
+        <button
+          class="whitespace-nowrap px-6 py-2 rounded-full bg-white dark:bg-white/5 border border-black/5 text-[#050B18]/40 dark:text-white/40 text-[10px] font-black uppercase tracking-widest">Respondidas</button>
+        <button
+          class="whitespace-nowrap px-6 py-2 rounded-full bg-white dark:bg-white/5 border border-black/5 text-[#050B18]/40 dark:text-white/40 text-[10px] font-black uppercase tracking-widest">Pessoais</button>
+      </div>
+
+      <!-- Súplicas do Dia (Henrique CEO Request) -->
+      <section class="space-y-4">
+        <div class="flex items-center justify-between">
+          <h3 class="font-serif text-lg font-black text-[#050B18] dark:text-white uppercase tracking-tight">Súplicas do Dia</h3>
+          <span class="text-[9px] font-black text-premium-gold uppercase tracking-widest">27 Fev</span>
+        </div>
+        <div class="flex gap-4 overflow-x-auto no-scrollbar pb-2">
+            <!-- Oração 1 -->
+            <div class="min-w-[280px] prayer-card p-5 bg-premium-gold/5 border-premium-gold/20 flex flex-col items-stretch">
+                <div class="h-32 rounded-2xl mb-4 overflow-hidden relative group">
+                    <img src="/assets/morning_prayer.png" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Oração da Manhã">
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#050B18]/60 to-transparent"></div>
+                </div>
+                <div class="flex items-center gap-3 mb-3">
+                    <span class="material-symbols-outlined text-premium-gold">wb_sunny</span>
+                    <h4 class="text-xs font-black uppercase text-[#050B18]">Oração da Manhã</h4>
+                </div>
+                <p class="text-[11px] leading-relaxed text-[#050B18]/70 italic mb-4">
+                    "Senhor, obrigado por este novo dia. Entrego meus planos em Tuas mãos. Que a Tua paz guie meus passos e que eu seja luz por onde passar..."
+                </p>
+                <button class="w-full py-2 bg-premium-gold text-white text-[9px] font-black uppercase rounded-xl shadow-lg">Orar Agora</button>
+            </div>
+            <!-- Oração 2 -->
+            <div class="min-w-[280px] prayer-card p-5 flex flex-col items-stretch">
+                <div class="h-32 rounded-2xl mb-4 overflow-hidden relative group">
+                    <img src="/assets/protection_prayer.png" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Proteção Divina">
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#050B18]/60 to-transparent"></div>
+                </div>
+                <div class="flex items-center gap-3 mb-3">
+                    <span class="material-symbols-outlined text-blue-600">shield</span>
+                    <h4 class="text-xs font-black uppercase text-[#050B18]">Proteção Divina</h4>
+                </div>
+                <p class="text-[11px] leading-relaxed text-[#050B18]/70 italic mb-4">
+                    "Pai, cobre minha casa e minha família com Teu manto de proteção. Que nenhum mal nos alcance e que o Teu exército de anjos nos guarde..."
+                </p>
+                <button class="w-full py-2 bg-[#050B18] text-white text-[9px] font-black uppercase rounded-xl">Orar Agora</button>
+            </div>
+            <!-- Oração 3 -->
+            <div class="min-w-[280px] prayer-card p-5 flex flex-col items-stretch">
+                <div class="h-32 rounded-2xl mb-4 overflow-hidden relative group">
+                    <img src="/assets/prosperity_prayer.png" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Prosperidade Bíblica">
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#050B18]/60 to-transparent"></div>
+                </div>
+                <div class="flex items-center gap-3 mb-3">
+                    <span class="material-symbols-outlined text-green-600">payments</span>
+                    <h4 class="text-xs font-black uppercase text-[#050B18]">Prosperidade Bíblica</h4>
+                </div>
+                <p class="text-[11px] leading-relaxed text-[#050B18]/70 italic mb-4">
+                    "Deus, multiplique os frutos do meu trabalho. Que eu seja bom mordomo do que me confias e que a abundância transborde para abençoar outros..."
+                </p>
+                <button class="w-full py-2 bg-[#050B18] text-white text-[9px] font-black uppercase rounded-xl">Orar Agora</button>
+            </div>
+        </div>
+      </section>
+
+      <section class="space-y-6">
+        <h3 class="font-serif text-lg font-black text-[#050B18] dark:text-white uppercase tracking-tight mb-2">Meus Pedidos</h3>
+        <!-- Card: Harmonia Familiar -->
+        <div class="prayer-card p-6">
+          <div class="flex justify-between items-start mb-4">
+            <div>
+              <p class="text-[10px] font-bold text-premium-gold uppercase tracking-wider mb-1">Causa Urgente</p>
+              <h2 class="font-serif text-2xl text-deep-navy dark:text-white font-black leading-tight">Harmonia Familiar
+              </h2>
+            </div>
+            <div class="flex flex-col items-end gap-1">
+              <span
+                class="text-[8px] font-black text-slate-light dark:text-white/40 uppercase tracking-widest">Respondida</span>
+              <label class="switch">
+                <input type="checkbox" checked>
+                <span class="slider"></span>
+              </label>
+            </div>
+          </div>
+
+          <img src="https://images.unsplash.com/photo-1544427928-c49dd049c81a?q=80&w=1000" class="img-premium"
+            alt="Harmonia">
+
+          <div
+            class="pl-4 border-l-2 border-premium-gold/30 mb-6 font-serif italic text-deep-navy/70 dark:text-white/70 italic leading-relaxed">
+            "Pedi, e dar-se-vos-á; buscai, e encontrareis; batei, e abrir-se-vos-á..."
+          </div>
+
+          <div class="flex items-center justify-between pt-4 border-t border-black/5 dark:border-white/5">
+            <div class="flex items-center gap-2 text-slate-light">
+              <span class="material-symbols-outlined text-sm">calendar_month</span>
+              <span class="text-[10px] font-bold uppercase tracking-widest">20 Outubro</span>
+            </div>
+            <button
+              class="text-premium-gold text-[10px] font-black uppercase tracking-widest flex items-center gap-1 group">
+              Ver Detalhes
+              <span
+                class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">chevron_right</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Card: Graça de Maria -->
+        <div class="prayer-card p-6 text-left">
+          <div class="flex justify-between items-start mb-4">
+            <div>
+              <p class="text-[10px] font-bold text-premium-gold uppercase tracking-wider mb-1 text-left">Saúde</p>
+              <h2 class="font-serif text-2xl text-deep-navy dark:text-white font-black leading-tight text-left">Graça de
+                Maria</h2>
+            </div>
+            <div class="flex flex-col items-end gap-1">
+              <span
+                class="text-[8px] font-black text-slate-light dark:text-white/40 uppercase tracking-widest">Respondida</span>
+              <label class="switch">
+                <input type="checkbox">
+                <span class="slider"></span>
+              </label>
+            </div>
+          </div>
+
+          <p class="text-deep-navy/60 dark:text-white/60 text-sm font-medium leading-relaxed mb-6 text-left">
+            Intercessão pela recuperação completa e o fortalecimento do espírito após o procedimento médico.
+          </p>
+
+          <div class="flex items-center justify-between pt-4 border-t border-black/5 dark:border-white/5">
+            <div class="flex items-center gap-2 text-slate-light">
+              <span class="material-symbols-outlined text-sm">calendar_month</span>
+              <span class="text-[10px] font-bold uppercase tracking-widest">18 Outubro</span>
+            </div>
+            <button class="text-premium-gold text-[10px] font-black uppercase tracking-widest flex items-center gap-1">
+              Ver Detalhes
+              <span class="material-symbols-outlined text-sm">chevron_right</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Card: Direcionamento -->
+        <div class="prayer-card p-6">
+          <div class="flex justify-between items-start mb-4">
+            <div>
+              <p class="text-[10px] font-bold text-premium-gold uppercase tracking-wider mb-1">Carreira</p>
+              <h2 class="font-serif text-2xl text-deep-navy dark:text-white font-black leading-tight">Direcionamento
+              </h2>
+            </div>
+            <div class="flex flex-col items-end gap-1">
+              <span
+                class="text-[8px] font-black text-slate-light dark:text-white/40 uppercase tracking-widest">Respondida</span>
+              <label class="switch">
+                <input type="checkbox">
+                <span class="slider"></span>
+              </label>
+            </div>
+          </div>
+
+          <div
+            class="pl-4 border-l-2 border-premium-gold/30 mb-6 font-serif italic text-deep-navy/70 dark:text-white/70 italic leading-relaxed">
+            "O coração do homem planeja o seu caminho, mas o Senhor lhe dirige os passos."
+          </div>
+
+          <div class="flex items-center justify-between pt-4 border-t border-black/5 dark:border-white/5">
+            <div class="flex items-center gap-2 text-slate-light">
+              <span class="material-symbols-outlined text-sm">schedule</span>
+              <span class="text-[10px] font-bold uppercase tracking-widest">15 Outubro</span>
+            </div>
+            <button class="text-premium-gold text-[10px] font-black uppercase tracking-widest flex items-center gap-1">
+              Ver Detalhes
+              <span class="material-symbols-outlined text-sm">chevron_right</span>
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FAB -->
+    <button
+      class="fixed bottom-24 right-6 size-14 rounded-full bg-premium-gold text-white shadow-xl flex items-center justify-center z-50 active:scale-90 transition-transform">
+      <span class="material-symbols-outlined text-2xl font-black">add</span>
+    </button>
+
+    <!-- Bottom Nav -->
+    <nav
+      class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[430px] bg-white/95 dark:bg-[#050B18]/95 backdrop-blur-lg border-t border-black/5 px-8 pt-4 pb-8 flex justify-between items-center z-40">
+      <a href="/stitch/kids-modo-2/code.html" class="flex flex-col items-center gap-1 opacity-40">
+        <span class="material-symbols-outlined">home</span>
+        <span class="text-[8px] font-black uppercase tracking-widest">Início</span>
+      </a>
+      <a href="#" class="flex flex-col items-center gap-1 text-premium-gold font-bold">
+        <span class="material-symbols-outlined symbol-filled">volunteer_activism</span>
+        <span class="text-[8px] font-black uppercase tracking-widest">Diário</span>
+      </a>
+      <a href="/stitch/kids-modo-1/code.html" class="flex flex-col items-center gap-1 opacity-40">
+        <span class="material-symbols-outlined">chat_bubble</span>
+        <span class="text-[8px] font-black uppercase tracking-widest">Mentor</span>
+      </a>
+      <a href="/stitch/conquistas/code.html" class="flex flex-col items-center gap-1 opacity-40">
+        <span class="material-symbols-outlined">workspace_premium</span>
+        <span class="text-[8px] font-black uppercase tracking-widest">Perfil</span>
+      </a>
+    </nav>
+  </div>
+</body>
+
+</html>
+
+
+

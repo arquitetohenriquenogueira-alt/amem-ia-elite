@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Jogo da Memória Kids - Amém</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script src="/FRONTEND/stitch/theme-switcher.js" type="module"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "premium-gold": "#C8A951",
+                        "deep-navy": "#050B18",
+                    },
+                },
+            },
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer base {
+            body { font-family: 'Inter', sans-serif; @apply bg-[#050B18] text-white transition-colors; }
+        }
+        .memory-card {
+            @apply relative aspect-square bg-white dark:bg-white/5 rounded-2xl shadow-sm border border-[#050B18]/5 dark:border-white/10 cursor-pointer transition-all duration-500 preserve-3d;
+        }
+        .memory-card.flipped { transform: rotateY(180deg); }
+        .card-front, .card-back {
+            @apply absolute inset-0 flex items-center justify-center backface-hidden rounded-2xl;
+        }
+        .card-back { @apply bg-premium-gold/10 text-premium-gold; }
+        .card-front { @apply bg-white dark:bg-white/10 text-[#050B18] dark:text-white transform rotateY(180deg); }
+        .preserve-3d { transform-style: preserve-3d; }
+        .backface-hidden { backface-visibility: hidden; }
+    </style>
+</head>
+
+<body class="flex justify-center items-center min-h-screen">
+    <div
+        class="relative flex h-screen w-full max-w-[430px] mx-auto flex-col bg-[#FAF7F0] dark:bg-[#050B18] overflow-hidden shadow-2xl transition-colors">
+        <header class="flex items-center px-6 pt-12 pb-4 justify-between sticky top-0 z-20">
+            <button onclick="window.history.back()"
+                class="flex size-10 items-center justify-center bg-[#050B18]/5 dark:bg-white/5 rounded-xl text-deep-navy dark:text-white">
+                <span class="material-symbols-outlined font-bold">arrow_back</span>
+            </button>
+            <div class="flex flex-col items-center">
+                <h2 class="text-deep-navy dark:text-white text-lg font-bold uppercase tracking-tight">Amém Kids</h2>
+                <span class="text-[10px] font-bold uppercase tracking-widest text-premium-gold">Jogo da Memória</span>
+            </div>
+            <button onclick="toggleTheme()"
+                class="flex size-10 items-center justify-center bg-[#050B18]/5 dark:bg-white/5 rounded-xl text-premium-gold">
+                <span class="material-symbols-outlined font-black dark:hidden">dark_mode</span>
+                <span class="material-symbols-outlined font-black hidden dark:block">light_mode</span>
+            </button>
+        </header>
+
+        <main class="flex-1 px-6 flex flex-col items-center justify-center gap-8">
+            <div id="game-grid" class="grid grid-cols-3 gap-4 w-full">
+                <!-- Cards will be injected here -->
+            </div>
+            <div id="stats" class="text-center">
+                <p class="text-[10px] font-black text-premium-gold uppercase tracking-[0.2em] mb-1">Movimentos</p>
+                <span id="move-count" class="text-2xl font-black text-deep-navy dark:text-white">0</span>
+            </div>
+        </main>
+
+        <footer class="p-8">
+            <button onclick="resetGame()"
+                class="w-full bg-premium-gold text-white py-4 rounded-2xl font-black uppercase tracking-widest shadow-lg shadow-premium-gold/20 active:scale-95 transition-all">
+                Reiniciar Jogo
+            </button>
+        </footer>
+    </div>
+
+    <script>
+        const symbols = ['🕊️', '📖', '⛪', '✨', '🍎', '🚢'];
+        let cards = [...symbols, ...symbols];
+        let flippedCards = [];
+        let matchedPairs = 0;
+        let moves = 0;
+
+        function shuffle(array) {
+            return array.sort(() => Math.random() - 0.5);
+        }
+
+        function createCard(symbol, index) {
+            const card = document.createElement('div');
+            card.className = 'memory-card';
+            card.dataset.symbol = symbol;
+            card.dataset.index = index;
+            card.innerHTML = `
+                <div class="card-back"><span class="material-symbols-outlined text-4xl">favorite</span></div>
+                <div class="card-front"><span class="text-4xl">${symbol}</span></div>
+            `;
+            card.onclick = () => flipCard(card);
+            return card;
+        }
+
+        function flipCard(card) {
+            if (flippedCards.length === 2 || card.classList.contains('flipped') || flippedCards.includes(card)) return;
+
+            card.classList.add('flipped');
+            flippedCards.push(card);
+
+            if (flippedCards.length === 2) {
+                moves++;
+                document.getElementById('move-count').innerText = moves;
+                checkMatch();
+            }
+        }
+
+        function checkMatch() {
+            const [card1, card2] = flippedCards;
+            if (card1.dataset.symbol === card2.dataset.symbol) {
+                matchedPairs++;
+                flippedCards = [];
+                if (matchedPairs === symbols.length) {
+                    setTimeout(() => alert('Parabéns! Você encontrou todos os pares!'), 500);
+                }
+            } else {
+                setTimeout(() => {
+                    card1.classList.remove('flipped');
+                    card2.classList.remove('flipped');
+                    flippedCards = [];
+                }, 1000);
+            }
+        }
+
+        function resetGame() {
+            const grid = document.getElementById('game-grid');
+            grid.innerHTML = '';
+            moves = 0;
+            matchedPairs = 0;
+            document.getElementById('move-count').innerText = moves;
+            flippedCards = [];
+            shuffle(cards).forEach((symbol, i) => grid.appendChild(createCard(symbol, i)));
+        }
+
+        resetGame();
+    </script>
+</body>
+
+</html>
+
+
+

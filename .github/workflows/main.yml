@@ -7,7 +7,7 @@ on:
     branches: ["main"]
 
 jobs:
-  audit:
+  fiapos:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -16,15 +16,14 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "20"
+          cache: "npm"
 
       - name: Check HTML Integrity (Grep Search)
         run: |
           echo "Iniciando Varredura Zero Defeitos..."
-          # Verifica se há links quebrados básicos
           grep -r "href=\"#\"" . || echo "Nenhum link vazio encontrado."
 
       - name: Validate Styling Consistency
         run: |
           echo "Verificando Padrão Teatro Amazonas..."
-          # Verifica se o global.css está presente
           ls FRONTEND/public/styles/global.css

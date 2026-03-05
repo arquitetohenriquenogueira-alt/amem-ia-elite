@@ -1,21 +1,63 @@
 {
   "cleanUrls": true,
+  "buildCommand": "rm -rf dist && mkdir -p dist && cp -rv FRONTEND dist",
+  "outputDirectory": "dist",
+  "redirects": [
+    {
+      "source": "/stitch/splash/code(.*)",
+      "destination": "https://www.amemia.com.br/",
+      "permanent": true
+    },
+    {
+      "source": "/stitch/am_m_ia_premium_splash_screen/(.*)",
+      "destination": "/stitch/splash-premium-v1/$1",
+      "permanent": true
+    },
+    {
+      "source": "/stitch/am_m_ia_modo_sementinha_2/(.*)",
+      "destination": "/stitch/kids-modo-2/$1",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
       "source": "/api/(.*)",
       "destination": "/api/$1"
     },
     {
-      "source": "/",
-      "destination": "/FRONTEND/index.html"
+      "source": "/styles/(.*)",
+      "destination": "/FRONTEND/public/styles/$1"
     },
     {
-      "source": "/public/(.*)",
-      "destination": "/FRONTEND/public/$1"
+      "source": "/scripts/(.*)",
+      "destination": "/FRONTEND/public/scripts/$1"
+    },
+    {
+      "source": "/assets/(.*)",
+      "destination": "/FRONTEND/public/assets/$1"
     },
     {
       "source": "/stitch/(.*)",
       "destination": "/FRONTEND/stitch/$1"
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "mode",
+          "value": "app"
+        }
+      ],
+      "destination": "/FRONTEND/index.html"
+    },
+    {
+      "source": "/",
+      "destination": "/FRONTEND/stitch/splash-premium-v1/code.html"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/FRONTEND/$1"
     }
   ]
 }

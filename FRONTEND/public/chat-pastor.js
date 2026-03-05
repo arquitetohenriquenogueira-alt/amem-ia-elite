@@ -344,7 +344,7 @@ function appendMessage(text, isUser = false, shouldSave = true) {
             if (usage.date !== today) { usage.date = today; usage.count = 0; }
             if (usage.count >= 3) {
                 appendMessage("Paz do Senhor! Você atingiu o limite de 3 mensagens diárias. Deseja conhecer o Plano Standard?", false);
-                setTimeout(() => window.location.href = '/stitch/am_m_ia_planos_de_assinatura/index.html', 2000);
+                setTimeout(() => window.location.href = '/stitch/planos-assinatura/code.html', 2000);
                 return false;
             }
             usage.count++;

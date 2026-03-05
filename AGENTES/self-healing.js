@@ -49,7 +49,7 @@ const SelfHealing = {
 
         if (attempts > RECOVERY_LIMIT) {
             AmemLogger.error(AmemLogger.Categories.SYSTEM, 'Loop de recuperação detectado. Forçando retorno à Home.', { path });
-            window.location.href = '/stitch/am_m_ia_modo_sementinha_2/code.html';
+            window.location.href = '/';
         }
     }
 };

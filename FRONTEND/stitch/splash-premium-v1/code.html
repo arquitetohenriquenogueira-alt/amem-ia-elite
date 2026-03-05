@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+    <title>Amém - Ungidos Splash</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        "deep-navy": "#050B18",
+                        "premium-gold": "#C8A951",
+                        "heart-blue": "#0D1B3E"
+                    },
+                    fontFamily: {
+                        "sans": ["Inter", "sans-serif"]
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        .heart-shape {
+            background-color: #0D1B3E;
+            display: inline-block;
+            height: 380px;
+            margin: 0 10px;
+            position: relative;
+            top: 0;
+            transform: rotate(-45deg);
+            width: 380px;
+            box-shadow: 0 0 60px rgba(0, 0, 0, 0.5);
+            background: linear-gradient(135deg, #0D1B3E 0%, #050B18 100%);
+        }
+
+        .heart-shape:before,
+        .heart-shape:after {
+            content: "";
+            background: inherit;
+            border-radius: 50%;
+            height: 380px;
+            position: absolute;
+            width: 380px;
+        }
+
+        .heart-shape:before {
+            top: -190px;
+            left: 0;
+        }
+
+        .heart-shape:after {
+            left: 190px;
+            top: 0;
+        }
+
+        .logo-content {
+            transform: rotate(45deg);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            width: 100%;
+            position: relative;
+            z-index: 20;
+        }
+
+        @keyframes pulse-gold {
+            0%, 100% { opacity: 0.8; transform: scale(1); filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.4)); }
+            50% { opacity: 1; transform: scale(1.05); filter: drop-shadow(0 0 40px rgba(212, 175, 55, 0.7)); }
+        }
+
+        .logo-aura {
+            animation: pulse-gold 4s infinite ease-in-out;
+        }
+    </style>
+</head>
+
+<body class="bg-[#050B18] text-white flex items-center justify-center min-h-screen overflow-hidden p-6 select-none">
+    
+    <div class="flex flex-col items-center justify-center space-y-12 w-full max-w-md animate-in fade-in duration-1000">
+        
+        <!-- Master Heart Container -->
+        <div class="relative flex items-center justify-center mt-[-100px]">
+            <div class="heart-shape">
+                <div class="logo-content">
+                    <img src="/assets/logo-ungidos.png" alt="Amém Ungidos" class="w-48 h-48 md:w-56 md:h-56 object-contain logo-aura mb-[-10px]">
+                    <h2 class="text-6xl font-black uppercase tracking-tighter mt-[-20px]">Amém</h2>
+                    <h2 class="text-2xl font-black uppercase tracking-[0.5em] text-premium-gold/50 mt-2">Ungidos</h2>
+                </div>
+            </div>
+        </div>
+
+        <!-- Text Section -->
+        <div class="text-center space-y-2 pt-12">
+            <h1 class="text-3xl font-black flex items-center justify-center gap-1">
+                Amém <span class="text-slate-400">IA</span>
+            </h1>
+            <p class="text-white/70 text-sm font-medium leading-tight max-w-[280px] mx-auto uppercase tracking-widest">
+                Toda a sabedoria da Bíblia na palma da sua mão.
+            </p>
+        </div>
+
+        <!-- Action Button -->
+        <div class="w-full pt-4">
+            <button onclick="startApp()" 
+                class="w-full bg-premium-gold text-[#050B18] font-black py-5 rounded-[12px] text-sm uppercase tracking-widest shadow-[0_10px_30px_rgba(200,169,81,0.3)] active:scale-95 transition-all">
+                Iniciar Minha Jornada
+            </button>
+        </div>
+
+    </div>
+
+    <!-- Background Decoration -->
+    <div class="absolute inset-0 pointer-events-none opacity-20 bg-[radial-gradient(circle_at_center,_rgba(13,27,62,0.8)_0%,_transparent_70%)]"></div>
+
+    <script>
+        // Previne o loop no Hub adicionando um flag de "entrada real"
+        function startApp() {
+            window.location.href = '../../index.html?mode=app';
+        }
+        document.querySelector('button').onclick = startApp;
+    </script>
+</body>
+
+</html>
+
+

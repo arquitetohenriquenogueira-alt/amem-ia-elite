@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Amém - Portal de Honra</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800;900&family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script src="/FRONTEND/stitch/theme-switcher.js" type="module"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        "perolado": "#050B18",
+                        "deep-navy": "#0A2540",
+                        "premium-gold": "#C8A951",
+                        "gold-soft": "#F3E2A9",
+                        "gold-deep": "#996515",
+                    },
+                    fontFamily: {
+                        "sans": ["Inter", "sans-serif"],
+                        "playfair": ["Poppins", "sans-serif"]
+                    },
+                    boxShadow: {
+                        'premium': '0 10px 30px -10px rgba(200, 169, 81, 0.4)',
+                        'elevation': '0 4px 12px rgba(10, 37, 64, 0.08)',
+                    }
+                },
+            },
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .gold-premium-texture {
+                background: linear-gradient(145deg, #C8A951 0%, #A68A3D 50%, #C8A951 100%);
+                position: relative;
+                overflow: hidden;
+            }
+            .gold-premium-texture::before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                background: url('https://www.transparenttextures.com/patterns/pinstriped-suit.png');
+                opacity: 0.05;
+                pointer-events: none;
+            }
+            .nav-blur {
+                background: rgba(248, 249, 250, 0.9);
+                backdrop-filter: blur(12px);
+            }
+        }
+        @layer base {
+            body {
+                @apply bg-white dark:bg-[#050B18] transition-colors duration-300;
+            }
+        }
+        .glass-card {
+            @apply bg-white/40 dark:bg-white/5 backdrop-blur-xl border border-[#050B18]/5 dark:border-white/10;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+
+<body class="antialiased selection:bg-premium-gold/20">
+    <div
+        class="relative flex h-screen w-full flex-col overflow-hidden max-w-[430px] mx-auto bg-[#FAF7F0] dark:bg-[#050B18] shadow-[0_0_50px_rgba(5,11,24,0.1)] dark:shadow-[0_0_50px_rgba(5,11,24,0.5)] transition-colors">
+        <header
+            class="flex items-center p-6 justify-between sticky top-0 z-30 bg-[#FAF7F0]/80 dark:bg-[#050B18]/80 backdrop-blur-md">
+            <button
+                class="text-[#050B18] dark:text-white flex size-10 items-center justify-center hover:bg-[#050B18]/5 dark:hover:bg-white/5 rounded-full transition-colors"
+                onclick="window.history.back()">
+                <span class="material-symbols-outlined font-bold">arrow_back</span>
+            </button>
+            <div class="flex flex-col items-center">
+                <h1 class="text-[#050B18] dark:text-white text-lg font-black uppercase tracking-tight">Amém Ungidos
+                </h1>
+                <span class="text-[9px] font-bold text-premium-gold uppercase tracking-[0.3em]">Escolha sua
+                    Jornada</span>
+            </div>
+            <button onclick="toggleTheme()"
+                class="text-[#050B18] dark:text-white flex size-10 items-center justify-center hover:bg-[#050B18]/5 dark:hover:bg-white/5 rounded-full transition-colors">
+                <span class="material-symbols-outlined font-black dark:hidden">dark_mode</span>
+                <span class="material-symbols-outlined font-black hidden dark:block">light_mode</span>
+            </button>
+            <div class="size-10 flex items-center justify-center">
+                <span class="material-symbols-outlined text-premium-gold text-2xl"
+                    style="font-variation-settings: 'FILL' 1;">verified</span>
+            </div>
+        </header>
+        <main class="flex-1 overflow-y-auto px-6 pb-40 relative z-10">
+            <div class="text-center py-8">
+                <div class="mb-4 inline-flex items-center justify-center p-3 rounded-full bg-premium-gold/10">
+                    <span class="material-symbols-outlined text-3xl text-premium-gold">workspace_premium</span>
+                </div>
+                <h1
+                    class="font-playfair text-[#050B18] dark:text-white text-2xl font-black mb-2 tracking-tight uppercase">
+                    Portal de Honra</h1>
+                <p
+                    class="text-[#050B18]/60 dark:text-white/60 text-[10px] font-black leading-relaxed max-w-[280px] mx-auto uppercase tracking-widest">
+                    Sua oferta sustenta a propagação do Evangelho através da tecnologia.
+                </p>
+            </div>
+
+            <div class="space-y-6">
+                <!-- Plano Gratuito (Semente) -->
+                <div class="glass-card rounded-[24px] p-6 border-dashed border-premium-gold/30">
+                    <div class="flex justify-between items-center mb-4">
+                        <div>
+                            <h4 class="text-navy dark:text-white font-black text-sm uppercase tracking-widest">Plano
+                                Semente</h4>
+                            <p class="text-[9px] font-bold text-premium-gold uppercase tracking-tighter">Nível Inicial
+                            </p>
+                        </div>
+                        <span
+                            class="text-xs font-black text-navy dark:text-white uppercase tracking-widest">Grátis</span>
+                    </div>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-center gap-2 text-[10px] font-bold text-navy/60 dark:text-white/60">
+                            <span class="material-symbols-outlined text-sm text-premium-gold">check_circle</span>
+                            3 Mensagens/Dia Pastor IA
+                        </li>
+                        <li class="flex items-center gap-2 text-[10px] font-bold text-navy/60 dark:text-white/60">
+                            <span class="material-symbols-outlined text-sm text-premium-gold">check_circle</span>
+                            Acesso à Comunidade (Leitura)
+                        </li>
+                    </ul>
+                    <button
+                        class="w-full py-3 rounded-xl border border-navy/10 dark:border-white/10 text-navy dark:text-white text-[10px] font-black uppercase tracking-widest">Plano
+                        Atual</button>
+                </div>
+
+                <!-- Plano Mensal (Abençoado) - DESIGN HERO Ungidos -->
+                <div class="gold-premium-texture rounded-[28px] p-8 shadow-premium relative overflow-hidden ring-4 ring-premium-gold/20 transform hover:scale-[1.02] transition-all">
+                    <div class="absolute -right-6 -top-6 size-32 bg-white/20 rounded-full blur-3xl"></div>
+                    <div class="flex justify-between items-start mb-6 border-b border-deep-navy/10 pb-4">
+                        <div>
+                            <h4 class="text-deep-navy dark:text-white font-playfair text-2xl font-black italic tracking-tighter">ABENÇOADO</h4>
+                            <p class="text-[10px] font-black text-deep-navy/70 dark:text-white/70 uppercase tracking-[0.2em]">Acesso Total Ungidos</p>
+                        </div>
+                        <div
+                            class="bg-deep-navy text-white px-4 py-1.5 rounded-full text-[9px] font-black uppercase tracking-widest shadow-lg">
+                            Destaque</div>
+                    </div>
+                    <div class="flex items-baseline gap-1 text-deep-navy dark:text-white mb-8">
+                        <span class="text-xs font-bold font-sans">R$</span>
+                        <span class="text-5xl font-black tracking-tighter">29</span>
+                        <span class="text-2xl font-black tracking-tighter">,90</span>
+                        <span class="text-deep-navy/60 text-[10px] font-black ml-2 uppercase">Mensal</span>
+                    </div>
+                    <ul class="space-y-4 mb-10">
+                        <li class="flex items-center gap-3 text-[12px] font-black text-deep-navy">
+                            <span class="material-symbols-outlined text-base">verified</span>
+                            Pastor IA Personalizado 24/7
+                        </li>
+                        <li class="flex items-center gap-3 text-[12px] font-black text-deep-navy">
+                            <span class="material-symbols-outlined text-base">verified</span>
+                            Comunidade Amém Ungidos (Full)
+                        </li>
+                        <li class="flex items-center gap-3 text-[12px] font-black text-deep-navy">
+                            <span class="material-symbols-outlined text-base">verified</span>
+                            Análise de Sonhos & Devocionais
+                        </li>
+                    </ul>
+                    <button id="btn-plano-abencoado"
+                        onclick="goToCheckout('abencoado')"
+                        class="bg-deep-navy w-full py-5 rounded-2xl text-white text-[12px] font-black tracking-[0.2em] uppercase shadow-2xl active:scale-[0.95] transition-all hover:bg-black group">
+                        <span class="flex items-center justify-center gap-2">
+                             Quero ser Abençoado
+                             <span class="material-symbols-outlined text-premium-gold group-hover:translate-x-1 transition-transform">bolt</span>
+                        </span>
+                    </button>
+                </div>
+
+                <!-- Plano Anual (Vara de Arão) -->
+                <div
+                    class="bg-navy dark:bg-royal-navy border-2 border-premium-gold rounded-[28px] p-6 relative overflow-hidden">
+                    <div class="absolute right-4 top-4">
+                        <span
+                            class="flex items-center gap-1 bg-premium-gold text-white text-[8px] font-black px-2 py-1 rounded-full uppercase">Melhor
+                            Valor</span>
+                    </div>
+                    <div class="flex flex-col mb-6">
+                        <h4 class="text-premium-gold font-playfair text-xl font-black">VARA DE ARÃO</h4>
+                        <p class="text-[9px] font-black text-white/40 uppercase tracking-widest">Assinatura Anual</p>
+                    </div>
+                    <div class="flex items-baseline gap-1 text-white mb-6">
+                        <span class="text-sm font-bold">R$</span>
+                        <span class="text-4xl font-black tracking-tighter">299,00</span>
+                        <span class="text-white/40 text-[10px] font-bold ml-1">/ano</span>
+                    </div>
+                    <p class="text-[10px] font-bold text-premium-gold mb-8 uppercase tracking-tighter">✨ Economize R$
+                        59,80 (2 meses grátis)</p>
+                    <button id="btn-plano-vara"
+                        onclick="goToCheckout('vara')"
+                        class="bg-premium-gold w-full py-4 rounded-xl text-white text-[11px] font-black tracking-widest uppercase shadow-xl shadow-premium-gold/20 active:scale-[0.98] transition-all">
+                        Assinar Plano Anual
+                    </button>
+                </div>
+            </div>
+            <div class="mt-12 text-center pb-8">
+                <div class="flex justify-center gap-6 mb-4">
+                    <a class="text-[10px] text-deep-navy/40 font-bold uppercase tracking-widest hover:text-deep-navy"
+                        href="javascript:void(0)">Termos</a>
+                    <span class="text-deep-navy/10">•</span>
+                    <a class="text-[10px] text-deep-navy/40 font-bold uppercase tracking-widest hover:text-deep-navy"
+                        href="javascript:void(0)">Privacidade</a>
+                    <span class="text-deep-navy/10">•</span>
+                    <a class="text-[10px] text-deep-navy/40 font-bold uppercase tracking-widest hover:text-deep-navy"
+                        href="javascript:void(0)">Restaurar</a>
+                </div>
+                <p class="text-[9px] text-deep-navy/30 leading-relaxed font-bold uppercase tracking-[0.15em] px-10">
+                    O Amém é um projeto de fé dedicado à propagação do evangelho através da tecnologia.
+                </p>
+            </div>
+        </main>
+        <script>
+            /**
+             * ESTRATÉGIA ELDORADO - REDIRECIONAMENTO DE CHECKOUT
+             * Orion Extreme: O código abaixo prepara o portal para receber os links reais da Ticto/Stripe.
+             * Substitua os placeholders abaixo pelos links oficiais.
+             */
+            const CHECKOUT_LINKS = {
+                'abencoado': 'https://checkout.ticto.app/O06B610DB', // Link Oficial Mensal
+                'vara': 'https://checkout.ticto.app/O06B610DB'       // Link Oficial (Usando o mesmo até gerar o anual)
+            };
+
+            function goToCheckout(planKey) {
+                const url = CHECKOUT_LINKS[planKey];
+                if (url && url !== '#') {
+                    console.log(`[🚀] Redirecionando para checkout (${planKey}): ${url}`);
+                    window.location.href = url;
+                } else {
+                    alert('⚠️ Erro de Configuração: Este link de oferta ainda não foi ativado pelo CEO. Por favor, tente novamente em instantes.');
+                    console.error(`[!] Eldorado: Link para o plano '${planKey}' não configurado.`);
+                }
+            }
+        </script>
+</body>
+
+</html>
+
+
+

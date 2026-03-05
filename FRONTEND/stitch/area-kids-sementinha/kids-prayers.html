@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Orações e conteúdos espirituais para crianças Amém - Um ambiente seguro e abençoado para os pequenos." />
+    <title>Orações Kids - Amém Ungidos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <style>
+        :root {
+            --kids-primary: #C8A951;
+            --kids-secondary: #4CAF50;
+            --kids-bg: #F0F9FF;
+            --Ungidos-gold: #C8A951;
+            --Ungidos-gold-glow: rgba(200, 169, 81, 0.4);
+            --text-main: #0F172A;
+            --text-sub: #475569; /* WCAG AA High Contrast */
+            --glass-white: rgba(255, 255, 255, 0.85);
+            --glass-border: rgba(200, 169, 81, 0.15);
+        }
+
+        @keyframes gold-pulse {
+            0% { box-shadow: 0 0 0 0 var(--Ungidos-gold-glow); }
+            70% { box-shadow: 0 0 0 12px rgba(200, 169, 81, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(200, 169, 81, 0); }
+        }
+
+        body {
+            background-color: var(--kids-bg);
+            background-image: url('../../public/assets/kids_journey_bg.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--text-main);
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .header {
+            background: var(--glass-white);
+            padding: 32px 24px 24px;
+            border-radius: 0 0 32px 32px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+            -webkit-backdrop-filter: blur(12px);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .header h1 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 800;
+            color: #0369A1;
+            margin: 0;
+            font-size: 32px;
+            letter-spacing: 0.5px;
+        }
+
+        .category-section {
+            padding: 24px;
+        }
+
+        .age-badge {
+            display: inline-block;
+            padding: 6px 16px;
+            border-radius: 99px;
+            font-size: 11px;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .prayer-card {
+            background: var(--glass-white);
+            border-radius: 28px;
+            padding: 22px;
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            margin-bottom: 18px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.03);
+            border: 1px solid rgba(255,255,255,0.5);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
+            color: inherit;
+            -webkit-backdrop-filter: blur(8px);
+            backdrop-filter: blur(8px);
+        }
+
+        .prayer-card:active {
+            transform: scale(0.96);
+        }
+
+        .prayer-card.playing {
+            border: 2px solid var(--Ungidos-gold);
+            background: white;
+            animation: gold-pulse 2s infinite;
+        }
+
+        .icon-circle {
+            width: 56px;
+            height: 56px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            box-shadow: inset 0 -4px 0 rgba(0,0,0,0.1);
+        }
+
+        .p-content {
+            flex: 1;
+        }
+
+        .p-content h3 {
+            margin: 0;
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .p-content p {
+            margin: 4px 0 0;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-sub);
+            line-height: 1.4;
+        }
+
+        .btn-play {
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--kids-primary);
+            font-size: 32px !important;
+            transition: all 0.3s;
+        }
+
+        .prayer-card.playing .btn-play {
+            color: #EF4444;
+            transform: scale(1.1);
+        }
+
+        .age-3-5 { background: linear-gradient(135deg, #FF6B6B, #EE5253); }
+        .age-6-9 { background: linear-gradient(135deg, #4B7BEC, #3867D6); margin-top: 20px; }
+        .age-10-12 { background: linear-gradient(135deg, #20BF6B, #10AC84); margin-top: 20px; }
+
+        .icon-3-5 { background: #FFE3E3; color: #FF6B6B; }
+        .icon-6-9 { background: #E1E9FF; color: #4B7BEC; }
+        .icon-10-12 { background: #D1F9E3; color: #20BF6B; }
+        
+        .back-link { 
+            color: #0369A1; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            background: #F1F5F9;
+            border-radius: 50%;
+        }
+
+        /* Hit targets optimization for children */
+        .prayer-card { min-height: 100px; }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <a href="../menu_mais.html" class="back-link"><span class="material-symbols-outlined">arrow_back_ios_new</span></a>
+        <h1>Orações Kids</h1>
+    </div>
+
+    <div class="category-section">
+        <div class="age-badge age-3-5">🐣 3 A 5 ANOS</div>
+        <a href="#" class="prayer-card" data-audio="https://amem-ia.vercel.app/assets/audio/kids/bom-dia-deus.mp3">
+            <div class="icon-circle icon-3-5"><span class="material-symbols-outlined">wb_sunny</span></div>
+            <div class="p-content">
+                <h3>Bom dia, Deus!</h3>
+                <p>Oração rítmica para acordar com alegria.</p>
+            </div>
+            <span class="material-symbols-outlined btn-play">play_circle</span>
+        </a>
+
+        <a href="#" class="prayer-card" data-audio="https://amem-ia.vercel.app/assets/audio/kids/refeicao-baby.mp3">
+            <div class="icon-circle icon-3-5"><span class="material-symbols-outlined">restaurant</span></div>
+            <div class="p-content">
+                <h3>Hora de Comer</h3>
+                <p>Agradecendo pelo pão e pela força.</p>
+            </div>
+            <span class="material-symbols-outlined btn-play">play_circle</span>
+        </a>
+
+        <a href="#" class="prayer-card" data-audio="https://amem-ia.vercel.app/assets/audio/kids/protecao-baby.mp3">
+            <div class="icon-circle icon-3-5"><span class="material-symbols-outlined">shield_heart</span></div>
+            <div class="p-content">
+                <h3>Anjinho do Céu</h3>
+                <p>Proteção para o sono e os sonhos.</p>
+            </div>
+            <span class="material-symbols-outlined btn-play">play_circle</span>
+        </a>
+
+        <div class="age-badge age-6-9">🎨 6 A 9 ANOS</div>
+        <a href="#" class="prayer-card" data-audio="https://amem-ia.vercel.app/assets/audio/kids/oracao-guerreiro.mp3">
+            <div class="icon-circle icon-6-9"><span class="material-symbols-outlined">shield</span></div>
+            <div class="p-content">
+                <h3>Oração do Guerreiro</h3>
+                <p>Pedindo coragem e força para o dia.</p>
+            </div>
+            <span class="material-symbols-outlined btn-play">play_circle</span>
+        </a>
+
+        <a href="#" class="prayer-card" data-audio="https://amem-ia.vercel.app/assets/audio/kids/escola-exploradores.mp3">
+            <div class="icon-circle icon-6-9"><span class="material-symbols-outlined">school</span></div>
+            <div class="p-content">
+                <h3>Minha Escola</h3>
+                <p>Oração pelos amigos e professores.</p>
+            </div>
+            <span class="material-symbols-outlined btn-play">play_circle</span>
+        </a>
+
+        <a href="#" class="prayer-card" data-audio="https://amem-ia.vercel.app/assets/audio/kids/familia-exploradores.mp3">
+            <div class="icon-circle icon-6-9"><span class="material-symbols-outlined">family_restroom</span></div>
+            <div class="p-content">
+                <h3>Minha Família</h3>
+                <p>Pedindo proteção para a nossa casa.</p>
+            </div>
+            <span class="material-symbols-outlined btn-play">play_circle</span>
+        </a>
+
+        <div class="age-badge age-10-12">⚔️ 10 A 12 ANOS</div>
+        <a href="#" class="prayer-card" data-audio="https://amem-ia.vercel.app/assets/audio/kids/mente-sabia.mp3">
+            <div class="icon-circle icon-10-12"><span class="material-symbols-outlined">lightbulb</span></div>
+            <div class="p-content">
+                <h3>Mente Sábia</h3>
+                <p>Sabedoria e luz para as suas escolhas.</p>
+            </div>
+            <span class="material-symbols-outlined btn-play">play_circle</span>
+        </a>
+
+        <a href="#" class="prayer-card" data-audio="https://amem-ia.vercel.app/assets/audio/kids/amizade-valentes.mp3">
+            <div class="icon-circle icon-10-12"><span class="material-symbols-outlined">handshake</span></div>
+            <div class="p-content">
+                <h3>Amigo Fiel</h3>
+                <p>Ensinando a perdoar e amar como Jesus.</p>
+            </div>
+            <span class="material-symbols-outlined btn-play">play_circle</span>
+        </a>
+
+        <a href="#" class="prayer-card" data-audio="https://amem-ia.vercel.app/assets/audio/kids/futuro-valentes.mp3">
+            <div class="icon-circle icon-10-12"><span class="material-symbols-outlined">auto_awesome</span></div>
+            <div class="p-content">
+                <h3>Meus Sonhos</h3>
+                <p>Confiança no melhor de Deus para você.</p>
+            </div>
+            <span class="material-symbols-outlined btn-play">play_circle</span>
+        </a>
+    </div>
+
+    <script src="parental-gate.js" type="module"></script>
+    <script src="kids-audio-engine.js" type="module"></script>
+    <script>
+        document.querySelectorAll('.prayer-card').forEach(card => {
+            card.addEventListener('click', (e) => {
+                e.preventDefault();
+                
+                if (card.classList.contains('playing')) {
+                    KidsAudioEngine.stop();
+                    card.classList.remove('playing');
+                    card.querySelector('.btn-play').textContent = 'play_circle';
+                    return;
+                }
+
+                const audioUrl = card.getAttribute('data-audio');
+                
+                ParentalGate.ask(() => {
+                    document.querySelectorAll('.prayer-card').forEach(c => {
+                        c.classList.remove('playing');
+                        c.querySelector('.btn-play').textContent = 'play_circle';
+                    });
+
+                    card.classList.add('playing');
+                    card.querySelector('.btn-play').textContent = 'stop_circle';
+
+                    KidsAudioEngine.play(audioUrl, () => {
+                        card.classList.remove('playing');
+                        card.querySelector('.btn-play').textContent = 'play_circle';
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+
+
