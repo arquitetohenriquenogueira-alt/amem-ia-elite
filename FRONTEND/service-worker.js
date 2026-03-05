@@ -1,4 +1,4 @@
-const CACHE_NAME = 'amem-ungidos-v2';
+const CACHE_NAME = 'amem-ungidos-v2.1';
 const ASSETS_TO_CACHE = [
     '/',
     '/index.html',
@@ -20,6 +20,7 @@ const ASSETS_TO_CACHE = [
 ];
 
 self.addEventListener('install', (event) => {
+    self.skipWaiting();
     event.waitUntil(
         caches.open(CACHE_NAME).then((cache) => {
             console.log('🛡️ [Service Worker] Caching Hunger Assets...');
