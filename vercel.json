@@ -1,11 +1,11 @@
 {
   "cleanUrls": true,
-  "buildCommand": "rm -rf dist && mkdir -p dist && cp -rv FRONTEND dist",
+  "buildCommand": "rm -rf dist && mkdir -p dist && cp -rv FRONTEND/* dist/",
   "outputDirectory": "dist",
   "redirects": [
     {
       "source": "/stitch/splash/code(.*)",
-      "destination": "https://www.amemia.com.br/",
+      "destination": "/",
       "permanent": true
     },
     {
@@ -26,19 +26,19 @@
     },
     {
       "source": "/styles/(.*)",
-      "destination": "/FRONTEND/public/styles/$1"
+      "destination": "/public/styles/$1"
     },
     {
       "source": "/scripts/(.*)",
-      "destination": "/FRONTEND/public/scripts/$1"
+      "destination": "/public/scripts/$1"
     },
     {
       "source": "/assets/(.*)",
-      "destination": "/FRONTEND/public/assets/$1"
+      "destination": "/public/assets/$1"
     },
     {
       "source": "/stitch/(.*)",
-      "destination": "/FRONTEND/stitch/$1"
+      "destination": "/stitch/$1"
     },
     {
       "source": "/",
@@ -49,15 +49,15 @@
           "value": "app"
         }
       ],
-      "destination": "/FRONTEND/index.html"
+      "destination": "/index.html"
     },
     {
       "source": "/",
-      "destination": "/FRONTEND/stitch/splash-premium-v1/code.html"
+      "destination": "/stitch/splash-premium-v1/code.html"
     },
     {
       "source": "/(.*)",
-      "destination": "/FRONTEND/$1"
+      "destination": "/$1"
     }
   ]
 }
