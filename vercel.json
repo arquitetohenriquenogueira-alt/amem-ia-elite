@@ -1,12 +1,21 @@
 {
+  "cleanUrls": true,
   "rewrites": [
     {
       "source": "/api/(.*)",
       "destination": "/api/$1"
     },
     {
-      "source": "/(.*)",
+      "source": "/",
       "destination": "/FRONTEND/index.html"
+    },
+    {
+      "source": "/public/(.*)",
+      "destination": "/FRONTEND/public/$1"
+    },
+    {
+      "source": "/stitch/(.*)",
+      "destination": "/FRONTEND/stitch/$1"
     }
   ]
 }

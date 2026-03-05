@@ -3,14 +3,14 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Amém IA</title>
-    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
-    <meta name="apple-mobile-web-app-title" content="Amém IA">
+    <title>Amém</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta name="apple-mobile-web-app-title" content="Amém">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Playfair+Display:ital,wght@0,700;1,700&amp;display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:ital,wght@0,700;1,700&display=swap"
         rel="stylesheet" />
     <link
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
@@ -30,7 +30,7 @@
                     },
                     fontFamily: {
                         "sans": ["Inter", "sans-serif"],
-                        "serif": ["Playfair Display", "serif"]
+                        "serif": ["Poppins", "sans-serif"]
                     }
                 },
             },
@@ -69,6 +69,28 @@
             box-shadow: 0 4px 30px rgba(5, 11, 24, 0.3);
         }
     </style>
+    
+    <!-- Google Generative AI SDK (Ungidos Integration) -->
+    <script type="importmap">
+      {
+        "imports": {
+          "@google/generative-ai": "https://esm.run/@google/generative-ai"
+        }
+      }
+    </script>
+    <script type="module">
+        import { GoogleGenerativeAI } from "@google/generative-ai";
+        window.GoogleGenerativeAI = GoogleGenerativeAI;
+        // Chave injetada via Sentinel/Build (MVP Ungidos)
+        window.GEMINI_API_KEY = "GEMINI_API_KEY_PLACEHOLDER"; 
+    </script>
+    
+    <!-- Route Guard (Proteção Ungidos) -->
+    <script type="module">
+        import { RouteGuard } from '/FRONTEND/public/scripts/route-guard.js';
+        RouteGuard.protect();
+    </script>
+</head>
 
 <body class="antialiased font-sans">
     <div class="relative flex h-screen w-full max-w-[430px] mx-auto flex-col bg-[#050B18] overflow-hidden shadow-2xl">
@@ -84,16 +106,17 @@
             class="flex flex-col items-center pt-10 pb-6 px-6 sticky top-10 z-20 bg-[#050B18]/80 backdrop-blur-md border-b border-white/5">
             <div class="flex items-center justify-between w-full">
                 <a href="/stitch/am_m_ia_modo_sementinha_2/code.html"
+                    aria-label="Voltar"
                     class="size-10 flex items-center justify-center rounded-full bg-white/5 text-white active:scale-95 transition-transform">
                     <span class="material-symbols-outlined text-3xl font-black">chevron_left</span>
                 </a>
                 <div class="flex flex-col items-center">
                     <h1
                         class="text-2xl font-black text-white drop-shadow-[0_2px_10px_rgba(200,169,81,0.3)] tracking-tight uppercase">
-                        Amém IA</h1>
+                        Pastor IA</h1>
                     <div class="flex items-center gap-1.5">
                         <span class="w-1.5 h-1.5 rounded-full bg-green-400"></span>
-                        <span class="text-[10px] font-black text-white/50 uppercase tracking-widest">Pastor IA</span>
+                        <span class="text-[10px] font-black text-white/50 uppercase tracking-widest">Fundamentos Ungidos</span>
                     </div>
                 </div>
                 <button onclick="toggleTheme()"
@@ -110,10 +133,9 @@
             </div>
             <div class="flex flex-col items-start max-w-[85%] space-y-2">
                 <div
-                    class="bg-light-champagne px-5 py-4 rounded-[1.4rem] rounded-tl-sm ios-shadow border border-[#F3EDDB]">
-                    <p class="text-[15px] leading-relaxed text-deep-navy/80 font-normal">
-                        Olá! Sou seu Mentor Bíblico. Estou aqui para ajudar você a aprofundar seu conhecimento na
-                        Palavra. Sobre o que gostaria de refletir hoje?
+                    class="bg-white px-5 py-4 rounded-[1.4rem] rounded-tl-sm ios-shadow border border-premium-gold/10">
+                    <p class="text-[15px] leading-relaxed text-[#050B18] font-medium" id="welcome-message">
+                        Carregando mentoria...
                     </p>
                 </div>
                 <span class="text-[10px] text-slate-400 ml-2 font-bold">09:41</span>
@@ -168,7 +190,7 @@
                 </div>
                 <button id="send-btn"
                     class="w-14 h-14 flex items-center justify-center rounded-full bg-premium-gold text-white shadow-[0_0_20px_rgba(200,169,81,0.4)] transition-all active:scale-90">
-                    <span class="material-symbols-outlined fill-icon text-[24px]">send</span>
+                    <span class="material-symbols-outlined symbol-filled text-[24px]">send</span>
                 </button>
             </div>
         </div>
@@ -188,7 +210,7 @@
                 <span class="text-[8px] font-black uppercase tracking-widest text-white">Diário</span>
             </a>
             <a href="#" class="flex flex-col items-center gap-1 text-premium-gold font-bold">
-                <span class="material-symbols-outlined filled-icon" style="font-variation-settings: 'FILL' 1;">chat_bubble</span>
+                <span class="material-symbols-outlined symbol-filled">chat_bubble</span>
                 <span class="text-[8px] font-black uppercase tracking-widest">Mentor</span>
             </a>
             <a href="/stitch/am_m_ia_conquistas_espirituais/code.html" class="flex flex-col items-center gap-1 opacity-40">
@@ -203,4 +225,6 @@
 </body>
 
 </html>
+
+
 

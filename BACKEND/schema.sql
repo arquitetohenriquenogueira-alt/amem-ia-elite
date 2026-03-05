@@ -4,7 +4,10 @@
 CREATE TABLE IF NOT EXISTS public.profiles (
   id UUID REFERENCES auth.users ON DELETE CASCADE PRIMARY KEY,
   full_name TEXT,
+  email TEXT UNIQUE,
   spiritual_level TEXT DEFAULT 'sementinha', -- sementinha, broto, arvore
+  plan TEXT DEFAULT 'free', -- free, elite
+  role TEXT DEFAULT 'user', -- user, warrior
   created_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now()) NOT NULL,
   updated_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now()) NOT NULL
 );

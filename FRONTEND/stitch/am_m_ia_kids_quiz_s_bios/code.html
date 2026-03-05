@@ -4,9 +4,7 @@
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap"
-        rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&amp;display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@700;800&display=swap"
         rel="stylesheet" />
     <link
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
@@ -18,15 +16,15 @@
             theme: {
                 extend: {
                     colors: {
-                        "deep-navy": "#1A2332",
+                        "deep-navy": "#050B18",
                         "premium-gold": "#C8A951",
                         "soft-gray": "#F8F9FA",
                         "border-light": "#E5E7EB",
                         "primary-blue": "#257BF4"
                     },
                     fontFamily: {
-                        "sans": ["Plus Jakarta Sans", "sans-serif"],
-                        "serif": ["Playfair Display", "serif"]
+                        "sans": ["Inter", "sans-serif"],
+                        "serif": ["Poppins", "sans-serif"]
                     },
                     borderRadius: {
                         "standard": "12px",
@@ -80,6 +78,11 @@
             min-height: max(884px, 100dvh);
         }
     </style>
+    <!-- Route Guard (Proteção Ungidos) -->
+    <script type="module">
+        import { RouteGuard } from '/FRONTEND/public/scripts/route-guard.js';
+        RouteGuard.protect();
+    </script>
 </head>
 
 <body class="flex justify-center items-center min-h-screen">
@@ -93,7 +96,7 @@
                 <span class="material-symbols-outlined font-bold">arrow_back</span>
             </button>
             <div class="flex flex-col items-center">
-                <h2 class="text-[#050B18] dark:text-white font-serif text-lg font-bold uppercase tracking-tight">Amém IA
+                <h2 class="text-[#050B18] dark:text-white font-serif text-lg font-bold uppercase tracking-tight">Amém
                     Master</h2>
                 <span class="text-[10px] font-bold uppercase tracking-widest text-premium-gold">Desafio da Fé</span>
             </div>
@@ -302,4 +305,6 @@
 </body>
 
 </html>
+
+
 

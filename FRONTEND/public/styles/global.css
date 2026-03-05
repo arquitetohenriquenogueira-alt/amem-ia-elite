@@ -2,14 +2,14 @@
 
 :root {
   /* Design System Global - Amém IA */
-  --color-bg-primary: #0b0f19;
-  --color-bg-secondary: #111827;
-  --color-card: #1f2937;
-  --color-primary: #d4af37;
+  --color-bg-primary: #050B18;
+  --color-bg-secondary: #0a0e14;
+  --color-card: rgba(255, 255, 255, 0.05);
+  --color-primary: #C8A951;
   --color-text-primary: #ffffff;
-  --color-text-secondary: #9ca3af;
+  --color-text-secondary: rgba(255, 255, 255, 0.7);
 
-  /* Modo Escuro (Principal) - Mantendo compatibilidade com nomes antigos se necessário */
+  /* Modo Escuro (Principal) - Mantendo compatibilidade com nomes antigos */
   --bg-main: var(--color-bg-primary);
   --bg-secondary: var(--color-bg-secondary);
   --bg-card: var(--color-card);

@@ -1,0 +1,23 @@
+# CodeRabbit Configuration for Amém Ungidos
+# Protocolo Sumaúma: Design Premium | Código Limpo | Zero Defeitos
+
+reviews:
+  profile: "premium"
+  request_changes_workflow: true
+  high_level_summary: true
+  poem: false # Foco em produtividade técnica
+  labels:
+    - "zero-defeitos"
+    - "ungidos-v2"
+
+instructions: >
+  Você é o revisor sênior da arquitetura Amém Ungidos.
+  Sua missão é garantir o "Padrão Teatro Amazonas":
+  1. Verifique se contrastes visuais seguem as variáveis do global.css.
+  2. Garanta que 100% dos ícones usem Material Symbols Outlined.
+  3. Identifique qualquer inline style e sugira migração para classes utilitárias ou CSS global.
+  4. Valide a semântica HTML para SEO e acessibilidade.
+  5. Mantenha o tom profissional, encorajador e focado em excelência.
+
+chat:
+  enabled: true

@@ -2,14 +2,14 @@
 
 <head>
   <meta charset="utf-8" />
-  <title>Amém IA - Diário de Orações</title>
-  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
-  <meta name="apple-mobile-web-app-title" content="Amém IA">
+  <title>Amém - Diário de Orações</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <meta name="apple-mobile-web-app-title" content="Amém">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
   <link
-    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&amp;family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&amp;family=Manrope:wght@300;400;500;600;700;800&amp;display=swap"
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&family=Inter:wght@400;500;600;700;800&display=swap"
     rel="stylesheet" />
   <link
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
@@ -28,9 +28,9 @@
             "surface": "#FFFFFF",
           },
           fontFamily: {
-            "serif": ["Playfair Display", "serif"],
-            "display": ["Cinzel", "serif"],
-            "sans": ["Manrope", "sans-serif"]
+            "serif": ["Poppins", "sans-serif"],
+            "display": ["Poppins", "sans-serif"],
+            "sans": ["Inter", "sans-serif"]
           },
         },
       },
@@ -80,7 +80,13 @@
         -ms-overflow-style: none;
         scrollbar-width: none;
     }
+    .symbol-filled { font-variation-settings: 'FILL' 1; }
 </style>
+    <!-- Route Guard (Proteção Ungidos) -->
+    <script type="module">
+        import { RouteGuard } from '/FRONTEND/public/scripts/route-guard.js';
+        RouteGuard.protect();
+    </script>
 </head>
 
 <body class="antialiased font-sans">
@@ -92,7 +98,7 @@
         <span class="material-symbols-outlined font-black">menu</span>
       </button>
       <div class="flex-1 text-center">
-        <p class="text-[9px] font-black text-premium-gold uppercase tracking-[0.4em] mb-0.5">Amém IA</p>
+        <p class="text-[9px] font-black text-premium-gold uppercase tracking-[0.4em] mb-0.5">Amém</p>
         <h1 class="text-xl font-black font-serif text-[#050B18] dark:text-white uppercase tracking-tight">Diário de
           Orações</h1>
       </div>
@@ -120,34 +126,46 @@
         </div>
         <div class="flex gap-4 overflow-x-auto no-scrollbar pb-2">
             <!-- Oração 1 -->
-            <div class="min-w-[280px] prayer-card p-5 bg-premium-gold/5 border-premium-gold/20">
+            <div class="min-w-[280px] prayer-card p-5 bg-premium-gold/5 border-premium-gold/20 flex flex-col items-stretch">
+                <div class="h-32 rounded-2xl mb-4 overflow-hidden relative group">
+                    <img src="/public/assets/morning_prayer.png" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Oração da Manhã">
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#050B18]/60 to-transparent"></div>
+                </div>
                 <div class="flex items-center gap-3 mb-3">
                     <span class="material-symbols-outlined text-premium-gold">wb_sunny</span>
-                    <h4 class="text-xs font-black uppercase text-deep-navy dark:text-white">Oração da Manhã</h4>
+                    <h4 class="text-xs font-black uppercase text-[#050B18]">Oração da Manhã</h4>
                 </div>
-                <p class="text-[11px] leading-relaxed text-[#050B18]/70 dark:text-white/70 italic mb-4">
+                <p class="text-[11px] leading-relaxed text-[#050B18]/70 italic mb-4">
                     "Senhor, obrigado por este novo dia. Entrego meus planos em Tuas mãos. Que a Tua paz guie meus passos e que eu seja luz por onde passar..."
                 </p>
                 <button class="w-full py-2 bg-premium-gold text-white text-[9px] font-black uppercase rounded-xl shadow-lg">Orar Agora</button>
             </div>
             <!-- Oração 2 -->
-            <div class="min-w-[280px] prayer-card p-5">
-                <div class="flex items-center gap-3 mb-3">
-                    <span class="material-symbols-outlined text-blue-500">shield</span>
-                    <h4 class="text-xs font-black uppercase text-deep-navy dark:text-white">Proteção Divina</h4>
+            <div class="min-w-[280px] prayer-card p-5 flex flex-col items-stretch">
+                <div class="h-32 rounded-2xl mb-4 overflow-hidden relative group">
+                    <img src="/public/assets/protection_prayer.png" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Proteção Divina">
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#050B18]/60 to-transparent"></div>
                 </div>
-                <p class="text-[11px] leading-relaxed text-[#050B18]/70 dark:text-white/70 italic mb-4">
+                <div class="flex items-center gap-3 mb-3">
+                    <span class="material-symbols-outlined text-blue-600">shield</span>
+                    <h4 class="text-xs font-black uppercase text-[#050B18]">Proteção Divina</h4>
+                </div>
+                <p class="text-[11px] leading-relaxed text-[#050B18]/70 italic mb-4">
                     "Pai, cobre minha casa e minha família com Teu manto de proteção. Que nenhum mal nos alcance e que o Teu exército de anjos nos guarde..."
                 </p>
                 <button class="w-full py-2 bg-[#050B18] text-white text-[9px] font-black uppercase rounded-xl">Orar Agora</button>
             </div>
             <!-- Oração 3 -->
-            <div class="min-w-[280px] prayer-card p-5">
-                <div class="flex items-center gap-3 mb-3">
-                    <span class="material-symbols-outlined text-green-500">payments</span>
-                    <h4 class="text-xs font-black uppercase text-deep-navy dark:text-white">Prosperidade Bíblica</h4>
+            <div class="min-w-[280px] prayer-card p-5 flex flex-col items-stretch">
+                <div class="h-32 rounded-2xl mb-4 overflow-hidden relative group">
+                    <img src="/public/assets/prosperity_prayer.png" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Prosperidade Bíblica">
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#050B18]/60 to-transparent"></div>
                 </div>
-                <p class="text-[11px] leading-relaxed text-[#050B18]/70 dark:text-white/70 italic mb-4">
+                <div class="flex items-center gap-3 mb-3">
+                    <span class="material-symbols-outlined text-green-600">payments</span>
+                    <h4 class="text-xs font-black uppercase text-[#050B18]">Prosperidade Bíblica</h4>
+                </div>
+                <p class="text-[11px] leading-relaxed text-[#050B18]/70 italic mb-4">
                     "Deus, multiplique os frutos do meu trabalho. Que eu seja bom mordomo do que me confias e que a abundância transborde para abençoar outros..."
                 </p>
                 <button class="w-full py-2 bg-[#050B18] text-white text-[9px] font-black uppercase rounded-xl">Orar Agora</button>
@@ -282,8 +300,7 @@
         <span class="text-[8px] font-black uppercase tracking-widest">Início</span>
       </a>
       <a href="#" class="flex flex-col items-center gap-1 text-premium-gold font-bold">
-        <span class="material-symbols-outlined filled-icon"
-          style="font-variation-settings: 'FILL' 1;">volunteer_activism</span>
+        <span class="material-symbols-outlined symbol-filled">volunteer_activism</span>
         <span class="text-[8px] font-black uppercase tracking-widest">Diário</span>
       </a>
       <a href="/stitch/am_m_ia_modo_sementinha_1/code.html" class="flex flex-col items-center gap-1 opacity-40">
@@ -299,4 +316,6 @@
 </body>
 
 </html>
+
+
 

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html class="dark" lang="pt-BR">
+<head>
+    <meta charset="utf-8" />
+    <title>Localizador de Igrejas - Amém Ungidos</title>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'premium-gold': '#C8A951',
+                        'navy-dark': '#050B18',
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Poppins:wght@700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0&display=swap" rel="stylesheet" />
+    <style type="text/tailwindcss">
+        @layer base {
+            body { @apply bg-navy-dark text-white font-['Inter']; }
+        }
+        .church-card {
+            @apply bg-white/5 rounded-3xl border border-white/10 p-5 backdrop-blur-md transition-all hover:border-premium-gold/40;
+        }
+        .sector-tag {
+            @apply px-3 py-1 rounded-full text-[9px] font-black uppercase tracking-widest bg-premium-gold/10 text-premium-gold;
+        }
+        .shimmer-gold {
+            background: linear-gradient(135deg, #C8A951 0%, #E5D296 50%, #C8A951 100%);
+            background-size: 200% auto;
+            animation: shimmer 3s linear infinite;
+        }
+        @keyframes shimmer {
+            to { background-position: 200% center; }
+        }
+    </style>
+</head>
+
+<body class="antialiased">
+    <div class="relative flex h-screen w-full max-w-[430px] mx-auto flex-col bg-navy-dark overflow-hidden border-x border-white/5">
+        <header class="sticky top-0 z-40 bg-navy-dark/80 backdrop-blur-xl border-b border-white/5 px-6 py-8 flex items-center justify-between">
+            <button onclick="window.history.back()" class="size-10 flex items-center justify-center rounded-full bg-white/5 text-white hover:bg-white/10 transition-all">
+                <span class="material-symbols-rounded">arrow_back_ios_new</span>
+            </button>
+            <div class="text-center">
+                <h1 class="text-sm font-black uppercase tracking-[0.3em] text-premium-gold">Igrejas Próximas</h1>
+                <span class="text-[9px] font-medium uppercase text-white/40 tracking-[0.2em]">Encontre sua Família</span>
+            </div>
+            <button class="size-10 flex items-center justify-center rounded-full bg-premium-gold/10 text-premium-gold">
+                <span class="material-symbols-rounded">map</span>
+            </button>
+        </header>
+
+        <main class="flex-1 overflow-y-auto p-6 space-y-8 no-scrollbar">
+            <!-- Search -->
+            <div class="space-y-4">
+                <div class="bg-white/5 rounded-2xl px-5 py-4 flex items-center gap-3 border border-white/10 focus-within:border-premium-gold/50 transition-all">
+                    <span class="material-symbols-rounded text-premium-gold">search</span>
+                    <input type="text" placeholder="Cidade ou Setor..." class="bg-transparent border-none focus:ring-0 text-sm font-semibold w-full placeholder:text-white/20">
+                </div>
+            </div>
+
+            <!-- Church List -->
+            <div class="space-y-4">
+                <div class="church-card">
+                    <div class="flex gap-4">
+                        <img src="https://images.unsplash.com/photo-1438232992991-995b7058bbb3?q=80&w=200" class="size-20 rounded-2xl object-cover border border-white/10">
+                        <div class="flex-1">
+                            <div class="flex justify-between items-start mb-1">
+                                <h3 class="font-bold text-base tracking-tight text-white">Igreja do Avivamento</h3>
+                                <span class="material-symbols-rounded text-premium-gold text-lg">verified</span>
+                            </div>
+                            <p class="text-xs text-white/50 mb-3">Setor Central • 1.2km</p>
+                            <div class="flex gap-2">
+                                <span class="sector-tag">Sede</span>
+                                <span class="sector-tag">Células Ativas</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="church-card">
+                    <div class="flex gap-4">
+                        <img src="https://images.unsplash.com/photo-1544427920-c49ccfb85579?q=80&w=200" class="size-20 rounded-2xl object-cover border border-white/10">
+                        <div class="flex-1">
+                            <div class="flex justify-between items-start mb-1">
+                                <h3 class="font-bold text-base tracking-tight text-white">Comunidade Cristã Zoe</h3>
+                            </div>
+                            <p class="text-xs text-white/50 mb-3">Setor Sul • 3.5km</p>
+                            <div class="flex gap-2">
+                                <span class="sector-tag">Jovens</span>
+                                <span class="sector-tag">Ungidos</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="p-6 bg-navy-dark/95 border-t border-white/5 backdrop-blur-md">
+            <button class="shimmer-gold w-full h-14 rounded-2xl flex items-center justify-center gap-3 text-[10px] font-black uppercase tracking-[0.2em] text-navy-dark shadow-xl hover:scale-[1.02] transition-all">
+                <span class="material-symbols-rounded">add_location_alt</span>
+                Minha Igreja não está aqui
+            </button>
+        </footer>
+    </div>
+</body>
+</html>
+
+

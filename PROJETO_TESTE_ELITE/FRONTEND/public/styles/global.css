@@ -1,0 +1,12 @@
+:root {
+    --royal-navy: #050B18;
+    --premium-gold: #C8A951;
+    --gold-glow: #E5D296;
+    --pure-white: #FFFFFF;
+}
+
+body {
+    background-color: var(--royal-navy);
+    color: var(--pure-white);
+    font-family: 'Inter', sans-serif;
+}

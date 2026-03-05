@@ -3,14 +3,14 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Amém IA</title>
-    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
-    <meta name="apple-mobile-web-app-title" content="Amém IA">
+    <title>Amém</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta name="apple-mobile-web-app-title" content="Amém">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link
-        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Playfair+Display:wght@700;800&amp;display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@700;800&display=swap"
         rel="stylesheet" />
     <link
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
@@ -45,7 +45,7 @@
             }
         }
         .bento-card {
-            @apply bg-white/40 border border-[#050B18]/5 rounded-2xl p-5 transition-all duration-300;
+            @apply bg-white/60 border border-premium-gold/20 rounded-2xl p-5 transition-all duration-300 shadow-sm;
             backdrop-filter: blur(20px);
         }
         .dark .bento-card {
@@ -57,13 +57,14 @@
         .material-symbols-outlined {
             font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
         }
+        .symbol-filled { font-variation-settings: 'FILL' 1; }
     </style>
     <script id="tailwind-config">
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        navy: "#0A2540",
+                        navy: "#050B18",
                         gold: "#C8A951",
                         grey: "#F5F7F9",
                     }
@@ -77,7 +78,7 @@
         }
 
         .verse-card {
-            @apply bg-[#F8F9FA] dark:bg-white/5 border border-black/5 dark:border-white/10 rounded-[24px] p-6 relative overflow-hidden;
+            @apply bg-white/80 dark:bg-white/5 border border-premium-gold/20 dark:border-white/10 rounded-[24px] p-6 relative overflow-hidden shadow-sm;
         }
 
         .conquest-card {
@@ -103,14 +104,12 @@
                 </button>
                 <div class="flex flex-col items-center">
                     <div class="size-12 bg-premium-gold/10 heart-clip flex items-center justify-center mb-1">
-                        <span class="material-symbols-outlined text-premium-gold text-2xl font-black"
-                            style="font-variation-settings: 'FILL' 1">cross</span>
+                        <span class="material-symbols-outlined text-premium-gold text-2xl font-black symbol-filled">cross</span>
                     </div>
                     <h1
                         class="text-3xl font-black tracking-tight text-[#050B18] dark:text-white drop-shadow-[0_2px_10px_rgba(200,169,81,0.3)] uppercase leading-none">
-                        Amém IA</h1>
-                    <span class="text-[10px] font-black uppercase tracking-[0.4em] text-premium-gold mt-1">Mentoria
-                        Bíblica</span>
+                        Amém</h1>
+                    <span class="text-[10px] font-black uppercase tracking-[0.4em] text-premium-gold mt-1">Jornada de Ungidos</span>
                 </div>
                 <div class="flex items-center gap-2">
                     <button onclick="toggleTheme()"
@@ -136,7 +135,7 @@
                         <div
                             class="flex items-center gap-1 text-premium-gold bg-premium-gold/10 px-2.5 py-1 rounded-full border border-premium-gold/20">
                             <span
-                                class="material-symbols-outlined text-sm font-black filled-icon">local_fire_department</span>
+                                class="material-symbols-outlined text-sm font-black symbol-filled">local_fire_department</span>
                             <span class="text-xs font-black">12</span>
                         </div>
                         <span class="text-[7px] font-black uppercase tracking-widest opacity-40 mt-1">Dias
@@ -198,7 +197,7 @@
             </div>
 
             <div class="grid grid-cols-2 gap-4">
-                <div onclick="window.location.href='/stitch/am_m_ia_comunidade.html'"
+                <div onclick="window.location.href='/stitch/rede_do_fiel.html'"
                     class="bento-card flex flex-col items-center text-center gap-3 bg-[var(--soft-pastel-green)] cursor-pointer">
                     <div class="size-12 rounded-2xl bg-white flex items-center justify-center text-green-600 shadow-md">
                         <span class="material-symbols-outlined text-2xl">groups</span>
@@ -210,7 +209,7 @@
                         </p>
                     </div>
                 </div>
-                <div onclick="window.location.href='/stitch/am_m_ia_celulas.html'"
+                <div onclick="window.location.href='/stitch/gestao_celulas.html'"
                     class="bento-card flex flex-col items-center text-center gap-3 bg-[var(--soft-pastel-blue)] cursor-pointer">
                     <div class="size-12 rounded-2xl bg-white flex items-center justify-center text-blue-600 shadow-md">
                         <span class="material-symbols-outlined text-2xl">hub</span>
@@ -261,7 +260,7 @@
                         <span class="material-symbols-outlined">volunteer_activism</span>
                     </div>
                     <h3 class="font-bold text-navy dark:text-white">Orações</h3>
-                    <p class="text-[10px] text-navy/60 dark:text-white/60 leading-tight">Seu espaço sagrado de petição.
+                    <p class="text-[10px] text-navy/70 dark:text-white/70 leading-tight">Seu espaço sagrado de petição.
                     </p>
                 </a>
 
@@ -353,8 +352,7 @@
                         <div class="absolute inset-0 bg-premium-gold/20 rounded-full blur-xl animate-pulse"></div>
                         <div
                             class="relative size-16 rounded-full bg-gradient-to-tr from-premium-gold to-yellow-200 flex items-center justify-center border-2 border-white/50 shadow-md">
-                            <span class="material-symbols-outlined text-white font-black text-2xl"
-                                style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+                            <span class="material-symbols-outlined text-white font-black text-2xl symbol-filled">auto_awesome</span>
                         </div>
                     </div>
                     <h4 class="text-deep-navy dark:text-white font-black text-sm uppercase leading-tight mb-1">Guerreiro
@@ -367,8 +365,7 @@
                         <div class="absolute inset-0 bg-blue-400/20 rounded-full blur-xl"></div>
                         <div
                             class="relative size-16 rounded-full bg-gradient-to-tr from-blue-500 to-blue-200 flex items-center justify-center border-2 border-white/50 shadow-md">
-                            <span class="material-symbols-outlined text-white font-black text-2xl"
-                                style="font-variation-settings: 'FILL' 1;">devices</span>
+                            <span class="material-symbols-outlined text-white font-black text-2xl symbol-filled">devices</span>
                         </div>
                     </div>
                     <h4 class="text-deep-navy dark:text-white font-black text-sm uppercase leading-tight mb-1">Discípulo
@@ -465,7 +462,7 @@
             </div>
             <div class="p-6 text-center">
                 <p class="text-[10px] text-white/40 font-bold uppercase tracking-widest">Ouça seus louvores sem sair do
-                    Amém IA</p>
+                    Amém</p>
             </div>
         </div>
     </div>
@@ -516,7 +513,7 @@
                     </div>
                     <div class="flex-1">
                         <div class="flex justify-between mb-1">
-                            <span class="text-[10px] font-black text-premium-gold uppercase">Amém IA Eventos</span>
+                            <span class="text-[10px] font-black text-premium-gold uppercase">Amém Eventos</span>
                             <span
                                 class="text-[8px] text-royal-navy/30 dark:text-white/30 uppercase font-bold">Ontem</span>
                         </div>
@@ -540,7 +537,7 @@
                                 atrás</span>
                         </div>
                         <h4 class="text-sm font-bold text-royal-navy dark:text-white mb-1">Seu acesso foi renovado</h4>
-                        <p class="text-[11px] text-royal-navy/60 dark:text-white/60 line-clamp-1">Sua conta Amém IA
+                        <p class="text-[11px] text-royal-navy/60 dark:text-white/60 line-clamp-1">Sua conta Amém
                             Premium está ativa e protegida.</p>
                     </div>
                 </div>
@@ -659,4 +656,6 @@
 </body>
 
 </html>
+
+
 

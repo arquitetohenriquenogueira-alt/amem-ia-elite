@@ -3,11 +3,11 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Comunidade Amém - Amém IA</title>
+    <title>Comunidade Amém - Amém</title>
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link
-        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@700;800&display=swap"
         rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
         rel="stylesheet" />
@@ -24,6 +24,18 @@
             @apply w-full aspect-square object-cover;
         }
     </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        "sans": ["Inter", "sans-serif"],
+                        "serif": ["Poppins", "sans-serif"]
+                    },
+                }
+            }
+        }
+    </script>
 </head>
 
 <body class="antialiased">
@@ -37,12 +49,18 @@
             </button>
             <div class="text-center">
                 <h1 class="text-lg font-black uppercase tracking-widest text-[#050B18] dark:text-white">Comunidade</h1>
-                <span class="text-[9px] font-black uppercase text-premium-gold tracking-[0.3em]">Networking de Fé</span>
+                <span class="text-[9px] font-black uppercase text-premium-gold">Networking de Fé</span>
             </div>
-            <button
-                class="size-10 flex items-center justify-center rounded-full bg-[#050B18]/5 dark:bg-white/5 text-premium-gold">
-                <span class="material-symbols-outlined font-black">add_circle</span>
-            </button>
+            <div class="flex gap-2">
+                <a href="/stitch/church_locator.html" 
+                    class="size-10 flex items-center justify-center rounded-full bg-[#050B18]/5 dark:bg-white/5 text-premium-gold">
+                    <span class="material-symbols-outlined font-black">map</span>
+                </a>
+                <button
+                    class="size-10 flex items-center justify-center rounded-full bg-premium-gold text-white shadow-lg shadow-premium-gold/20">
+                    <span class="material-symbols-outlined font-black">add</span>
+                </button>
+            </div>
         </header>
 
         <main class="flex-1 overflow-y-auto no-scrollbar p-6 space-y-6">
@@ -81,13 +99,53 @@
                 </div>
             </div>
 
-            <!-- Post 2 (Text/Verse Only) -->
+            <!-- Post 2 (Activity/Church Event) - NEW Ungidos STYLE -->
+            <div class="post-card">
+                 <div class="p-4 flex items-center justify-between">
+                    <div class="flex items-center gap-3">
+                        <img src="https://images.unsplash.com/photo-1544427920-c49ccfb85579?q=80&w=100"
+                            class="size-10 rounded-full object-cover ring-2 ring-premium-gold/30">
+                        <div>
+                            <h4 class="text-sm font-black dark:text-white leading-tight">Igreja do Avivamento</h4>
+                            <p class="text-[9px] font-black uppercase tracking-widest text-premium-gold">Evento Setor Central • 5h atrás</p>
+                        </div>
+                    </div>
+                    <span class="material-symbols-outlined text-premium-gold text-20">verified</span>
+                </div>
+                <!-- Interactive Grid/Photo Carousel Placeholder -->
+                <div class="w-full aspect-video bg-white/5 relative overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1510257005510-9118c4e4277b?q=80&w=1000" class="img-standard !aspect-video">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6">
+                        <span class="bg-premium-gold text-white px-3 py-1 rounded-full text-[8px] font-black uppercase tracking-widest">Atividade de Célula</span>
+                    </div>
+                </div>
+                <div class="p-4">
+                     <p class="text-xs font-bold leading-relaxed text-[#050B18]/70 dark:text-white/70 mb-4">
+                        "Nossa célula 'Shalom' hoje reuniu 15 novas vidas. Glória a Deus pela colheita!"
+                    </p>
+                    <div class="flex items-center justify-between pt-4 border-t border-black/5 dark:border-white/5">
+                        <div class="flex items-center gap-4">
+                            <button class="flex items-center gap-1.5 text-premium-gold group">
+                                <span class="material-symbols-outlined text-sm font-black group-active:scale-125 transition-transform">favorite</span>
+                                <span class="text-[10px] font-black uppercase">Amém (89)</span>
+                            </button>
+                            <button class="flex items-center gap-1.5 text-navy/40 dark:text-white/40 group">
+                                <span class="material-symbols-outlined text-sm group-active:translate-y-[-2px] transition-transform">chat_bubble</span>
+                                <span class="text-[10px] font-black uppercase">Ir para Célula</span>
+                            </button>
+                        </div>
+                        <button class="material-symbols-outlined text-navy/40 dark:text-white/40 text-[18px]">bookmark</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Post 3 (Text/Verse Only) -->
             <div class="post-card p-6 bg-premium-gold/5 border-premium-gold/20">
                 <div class="flex items-center gap-3 mb-4">
                     <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=100"
                         class="size-10 rounded-full object-cover border-2 border-premium-gold">
                     <div>
-                        <h4 class="text-sm font-black dark:text-white leading-tight">Irmã Sarah</h4>
+                        <h4 class="text-sm font-black dark:text-white leading-tight">Irmã Maria</h4>
                         <p class="text-[9px] font-black uppercase tracking-widest text-premium-gold">Versículo
                             Inspirador</p>
                     </div>
@@ -118,4 +176,6 @@
 </body>
 
 </html>
+
+
 

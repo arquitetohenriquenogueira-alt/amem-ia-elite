@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Menu Mais - Amém Ungidos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Poppins:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <style>
+        :root {
+            --gold-primary: #C8A951;
+            --gold-gradient: linear-gradient(135deg, #C8A951 0%, #A68A3D 100%);
+            --deep-charcoal: #050B18;
+            --navy-dark: #0a0e14;
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(200, 169, 81, 0.2);
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: radial-gradient(circle at top, #1a1f26 0%, var(--navy-dark) 100%);
+            color: white;
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .header {
+            padding: 40px 24px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header h1 {
+            font-family: 'Poppins', serif;
+            font-size: 32px;
+            margin: 0;
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .close-btn {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: 0.3s;
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+        }
+
+        .close-btn:active {
+            transform: scale(0.9);
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            padding: 0 24px 100px;
+        }
+
+        .menu-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 24px 16px;
+            text-align: center;
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-decoration: none;
+            color: white;
+        }
+
+        .menu-card:active {
+            transform: scale(0.95);
+            background: rgba(200, 169, 81, 0.1);
+        }
+
+        .icon-box {
+            width: 56px;
+            height: 56px;
+            background: rgba(200, 169, 81, 0.1);
+            border-radius: 16px;
+            margin: 0 auto 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .icon-box span {
+            font-size: 32px;
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .menu-card h3 {
+            margin: 0;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .menu-card p {
+            margin: 4px 0 0;
+            font-size: 11px;
+            opacity: 0.5;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .footer-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(10, 14, 20, 0.9);
+            -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(20px);
+            display: flex;
+            justify-content: space-around;
+            padding: 12px 0 30px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 10px;
+        }
+
+        .nav-item.active {
+            color: var(--gold-primary);
+        }
+
+        .nav-item span {
+            font-size: 24px;
+            margin-bottom: 4px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Menu</h1>
+        <div class="close-btn" onclick="window.history.back()" aria-label="Voltar">
+            <span class="material-symbols-outlined">close</span>
+        </div>
+    </div>
+
+    <div class="grid-container">
+        <a href="am_m_ia_bible_portal/code.html" class="menu-card">
+            <div class="icon-box"><span class="material-symbols-outlined">menu_book</span></div>
+            <h3>Bíblia</h3>
+            <p>Sagrada</p>
+        </a>
+        <a href="kids/kids-prayers.html" class="menu-card">
+            <div class="icon-box"><span class="material-symbols-outlined">child_care</span></div>
+            <h3>Kids</h3>
+            <p>Sementinha</p>
+        </a>
+        <a href="ungidos_v2/checkin_emocional.html" class="menu-card" style="grid-column: span 2; background: rgba(200, 169, 81, 0.1); border-color: var(--gold-primary);">
+            <div class="icon-box"><span class="material-symbols-outlined">sentiment_satisfied</span></div>
+            <h3>Check-in Espiritual</h3>
+            <p>Como está seu coração hoje?</p>
+        </a>
+        <a href="am_m_ia_devocionais/code.html" class="menu-card">
+            <div class="icon-box"><span class="material-symbols-outlined">favorite</span></div>
+            <h3>Devocionais</h3>
+            <p style="color: rgba(255,255,255,0.7);">Fé Diária</p>
+        </a>
+        <a href="agenda_eventos.html" class="menu-card">
+            <div class="icon-box"><span class="material-symbols-outlined">calendar_month</span></div>
+            <h3>Agenda</h3>
+            <p style="color: rgba(255,255,255,0.7);">Eventos</p>
+        </a>
+        <a href="transmissao_ao_vivo.html" class="menu-card">
+            <div class="icon-box"><span class="material-symbols-outlined">live_tv</span></div>
+            <h3>Ao Vivo</h3>
+            <p style="color: rgba(255,255,255,0.7);">Transmissão</p>
+        </a>
+        <a href="gestao_celulas.html" class="menu-card">
+            <div class="icon-box"><span class="material-symbols-outlined">groups</span></div>
+            <h3>Células</h3>
+            <p>Grupos</p>
+        </a>
+        <a href="rede_do_fiel.html" class="menu-card">
+            <div class="icon-box"><span class="material-symbols-outlined">public</span></div>
+            <h3>Rede do Fiel</h3>
+            <p>Comunidade</p>
+        </a>
+        <a href="suporte_Ungidos.html" class="menu-card">
+            <div class="icon-box"><span class="material-symbols-outlined">support_agent</span></div>
+            <h3>Suporte</h3>
+            <p style="color: rgba(255,255,255,0.7);">Ajuda</p>
+        </a>
+    </div>
+
+    <nav class="footer-nav">
+        <a href="../index.html" class="nav-item">
+            <span class="material-symbols-outlined">home</span>
+            Home
+        </a>
+        <a href="am_m_ia_planos_de_assinatura/code.html" class="nav-item">
+            <span class="material-symbols-outlined">auto_awesome</span>
+            Planos
+        </a>
+        <a href="am_m_ia_bible_portal/code.html" class="nav-item">
+            <span class="material-symbols-outlined">psychology</span>
+            Mentor
+        </a>
+        <a href="#" class="nav-item">
+            <span class="material-symbols-outlined">star</span>
+            Favoritos
+        </a>
+        <a href="#" class="nav-item active">
+            <span class="material-symbols-outlined">apps</span>
+            Mais
+        </a>
+    </nav>
+
+</body>
+</html>
+
+

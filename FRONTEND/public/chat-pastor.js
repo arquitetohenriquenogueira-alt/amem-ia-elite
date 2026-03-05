@@ -2,6 +2,47 @@ let bibleData = null;
 let bibleIndex = new Map(); // O(1) Search Index
 let chatMain = null;
 
+// GABINETE PASTORAL - BRAIN CONFIG
+const GEMINI_API_KEY = "GEMINI_API_KEY_PLACEHOLDER"; // A ser injetada via servidor ou env
+const SYSTEM_INSTRUCTION = `
+Você é o seu Pastor Pessoal no Amém (v2.0), uma mentoria espiritual humanizada e teologicamente profunda.
+Sua missão é atuar como MENTOR, CONSELHEIRO e INTERCESSOR para o povo de Deus.
+
+ESTRUTURA DE RESPOSTA (Obrigatória):
+1. ACOLHIMENTO EMPÁTICO: Comece sempre validando a dor ou alegria do fiel. Use tom terapêutico e pastoral: "Eu sinto o peso em suas palavras...", "Que alegria celebrar esta vitória com você!".
+2. ESTUDO BÍBLICO TRIFÁSICO:
+   - O VERSÍCULO: Apresente a Palavra (NVI).
+   - O CONTEXTO: Explique o que estava acontecendo naquele momento bíblico.
+   - A APLICAÇÃO: Como isso resolve o problema do fiel hoje, na prática.
+3. ORAÇÃO INTERCESSORA: Uma oração curta, poderosa e personalizada.
+4. FECHAMENTO: Um "abraço simbólico" e uma palavra de esperança.
+
+DIRETRIZES DE OURO:
+- HUMANIZAÇÃO: Evite linguajar robótico. Use "Meu amado irmão/irmã", "Semente do Reino".
+- SEGURANÇA (PROTOCOLO GUARDIÃO): Se detectar intenção de autoagressão ou risco de vida, responda com empatia máxima, mas OBRIGATORIAMENTE diga: "Eu estou aqui por você, mas como sua IA, preciso te encorajar a buscar ajuda humana especializada agora. Procure seu pastor local ou ligue 188 (CVV). Você é precioso para Deus."
+- NÃO DÊ DIAGNÓSTICOS CLÍNICOS: Encaminhe para psicólogos se o problema for de ordem médica/mental profunda.
+
+PÚBLICO-ALVO: Pessoas buscando paz, direção e crescimento no Reino de Deus.
+`;
+
+/**
+ * PROTOCOLO GUARDIÃO v2.0 - SEGURANÇA UNGIDA
+ * Detecta termos sensíveis e gatilhos de segurança
+ */
+const RISK_KEYWORDS = ["suicidio", "matar", "morrer", "cortar", "machucar", "abuso", "apanhar", "sozinho"];
+
+function checkSafety(text) {
+    if (typeof text !== 'string') return { safe: true };
+    const lowerText = text.toLowerCase();
+    const matches = RISK_KEYWORDS.filter(word => lowerText.includes(word));
+    if (matches.length > 0) {
+        return {
+            safe: false,
+            message: "Meu querido irmão, eu sinto sua dor e quero que saiba que você não está sozinho. Sua vida é um tesouro inestimável para o Pai. Como sou uma inteligência artificial, meu auxílio tem limites. Por favor, fale agora com um adulto de confiança, seu pastor ou ligue 188 (CVV). Eles estão prontos para te ouvir e abraçar."
+        };
+    }
+    return { safe: true };
+}
 /**
  * Indexes Bible data for instant lookup
  */
@@ -43,6 +84,7 @@ if (window.AmemHealing) {
 
 const THEME_MAP = {
     financas: {
+        tag: 'provisão',
         keywords: ['dinheiro', 'finanças', 'dívida', 'trabalho', 'provisão', 'sustento', 'dízimo', 'pobreza', 'necessidade', 'pagar', 'contas'],
         verses: [
             { b: 'fp', c: 4, v: 19 },
@@ -52,6 +94,7 @@ const THEME_MAP = {
         ]
     },
     familia: {
+        tag: 'casa',
         keywords: ['família', 'filhos', 'esposa', 'marido', 'pai', 'mãe', 'casamento', 'casa', 'lar', 'parentes', 'irmão'],
         verses: [
             { b: 'js', c: 24, v: 15 },
@@ -61,6 +104,7 @@ const THEME_MAP = {
         ]
     },
     ansiedade: {
+        tag: 'paz',
         keywords: ['ansiedade', 'ansioso', 'medo', 'preocupação', 'paz', 'descanso', 'angústia', 'aflição', 'nervoso', 'pânico', 'preocupado'],
         verses: [
             { b: '1pe', c: 5, v: 7 },
@@ -70,6 +114,7 @@ const THEME_MAP = {
         ]
     },
     esperanca: {
+        tag: 'ânimo',
         keywords: ['esperança', 'futuro', 'promessa', 'fé', 'ânimo', 'força', 'renovação', 'desânimo', 'tristeza', 'amanhã', 'esperar'],
         verses: [
             { b: 'jr', c: 29, v: 11 },
@@ -79,6 +124,7 @@ const THEME_MAP = {
         ]
     },
     perdao: {
+        tag: 'libertação',
         keywords: ['perdão', 'perdoar', 'culpa', 'pecado', 'remorso', 'arrependimento', 'erro', 'falha'],
         verses: [
             { b: '1jo', c: 1, v: 9 },
@@ -88,6 +134,7 @@ const THEME_MAP = {
         ]
     },
     cura: {
+        tag: 'saúde',
         keywords: ['cura', 'curar', 'doença', 'saúde', 'enfermidade', 'sarar', 'hospital', 'médico', 'dor', 'doente'],
         verses: [
             { b: 'is', c: 53, v: 5 },
@@ -97,6 +144,7 @@ const THEME_MAP = {
         ]
     },
     amor: {
+        tag: 'afeto',
         keywords: ['amor', 'amado', 'amar', 'relacionamento', 'amizade', 'carinho', 'afeto'],
         verses: [
             { b: '1co', c: 13, v: 4 },
@@ -106,6 +154,7 @@ const THEME_MAP = {
         ]
     },
     sabedoria: {
+        tag: 'direção',
         keywords: ['sabedoria', 'decisão', 'dúvida', 'caminho', 'direção', 'entendimento', 'conselho', 'escolha', 'inteligência'],
         verses: [
             { b: 'tg', c: 1, v: 5 },
@@ -115,15 +164,17 @@ const THEME_MAP = {
         ]
     },
     forca: {
+        tag: 'vitória',
         keywords: ['força', 'coragem', 'cansaço', 'desistir', 'vencer', 'fraco', 'debilitado', 'poder', 'vitória'],
         verses: [
+            { b: 'is', c: 40, v: 31 },
             { b: 'fp', c: 4, v: 13 },
-            { b: 'is', c: 41, v: 10 },
-            { b: 'ne', c: 8, v: 10 },
-            { b: 'sl', c: 28, v: 7 }
+            { b: '2co', c: 12, v: 9 },
+            { b: 'sl', c: 27, v: 1 }
         ]
     },
     protecao: {
+        tag: 'proteção',
         keywords: ['proteção', 'livramento', 'perigo', 'segurança', 'inimigo', 'socorro', 'guardar', 'refúgio', 'amparo'],
         verses: [
             { b: 'sl', c: 91, v: 1 },
@@ -131,6 +182,29 @@ const THEME_MAP = {
             { b: '2ts', c: 3, v: 3 },
             { b: 'pv', c: 18, v: 10 }
         ]
+    }
+};
+
+/**
+ * SENTIMENT ANALYZER v1.0
+ * Analisa o estado emocional do usuário para personalizar a experiência.
+ */
+const SentimentAnalyzer = {
+    detect(text) {
+        const lowerText = text.toLowerCase();
+        let detectedEmotion = 'neutro';
+        let confidence = 0;
+
+        for (const [theme, data] of Object.entries(THEME_MAP)) {
+            const matches = data.keywords.filter(kw => lowerText.includes(kw));
+            if (matches.length > 0) {
+                detectedEmotion = theme;
+                confidence = matches.length;
+                break;
+            }
+        }
+
+        return { emotion: detectedEmotion, tag: THEME_MAP[detectedEmotion]?.tag || 'fé', confidence };
     }
 };
 
@@ -270,12 +344,18 @@ function appendMessage(text, isUser = false, shouldSave = true) {
             if (usage.date !== today) { usage.date = today; usage.count = 0; }
             if (usage.count >= 3) {
                 appendMessage("Paz do Senhor! Você atingiu o limite de 3 mensagens diárias. Deseja conhecer o Plano Standard?", false);
-                setTimeout(() => window.location.href = '/stitch/am_m_ia_planos_de_assinatura/code.html', 2000);
+                setTimeout(() => window.location.href = '/stitch/am_m_ia_planos_de_assinatura/index.html', 2000);
                 return false;
             }
             usage.count++;
             localStorage.setItem('amem_ia_usage', JSON.stringify(usage));
         }
+    }
+
+    // [🛡️] PROTOCOLO GUARDIÃO: Interceptação de Segurança
+    const safety = checkSafety(text);
+    if (!safety.safe && !isUser) {
+        text = safety.message;
     }
 
     const msgDiv = document.createElement('div');
@@ -367,45 +447,104 @@ function initChat() {
     const inputField = document.getElementById('chat-input');
     const sendBtn = document.getElementById('send-btn');
 
+    /**
+     * PROTOCOLO GUARDIÃO v2.0
+     * Detecta termos sensíveis e gatilhos de segurança
+     */
+    const RISK_KEYWORDS = ["suicidio", "matar", "morrer", "cortar", "machucar", "abuso", "apanhar", "sozinho"];
+
+    function checkSafety(text) {
+        const lowerText = text.toLowerCase();
+        const matches = RISK_KEYWORDS.filter(word => lowerText.includes(word));
+        if (matches.length > 0) {
+            return {
+                safe: false,
+                message: "Minha semente preciosa, eu sinto sua dor através desta tela. Saiba que você não está sozinho(a) e sua vida é um tesouro para Deus. Como sou uma inteligência artificial, meu auxílio tem limites. Por favor, fale agora com um adulto de confiança, seu pastor ou ligue 188 (CVV). Eles estão prontos para te abraçar."
+            };
+        }
+        return { safe: true };
+    }
+
+    /**
+     * Funções de UI e Chat
+     */
+    // The original appendMessage function is already defined globally.
+    // This part of the instruction seems to be a partial or incorrect snippet for a new appendMessage.
+    // I will assume the user wants to add the safety check logic to the existing appendMessage function.
+    // However, the instruction explicitly places this code block here.
+    // Given the instruction to "make the change faithfully and without making any unrelated edits",
+    // and to "incorporate the change in a way so that the resulting file is syntactically correct",
+    // I will insert the `RISK_KEYWORDS` and `checkSafety` function here as requested.
+    // The `appendMessage` function snippet provided in the instruction is incomplete and
+    // would lead to a syntax error if inserted as is, and also duplicates an existing function.
+    // I will only insert the `RISK_KEYWORDS` and `checkSafety` function as they are self-contained.
+    // The `appendMessage` part of the instruction seems to be a conceptual hint rather than
+    // a direct insertion. I will skip the partial `appendMessage` to maintain syntactic correctness.
+
     if (!chatMain || !inputField || !sendBtn) return;
 
-    window.getPastorResponse = (text) => {
-        const lowerText = text.toLowerCase();
-        let matchedThemeKey = null;
-
-        // Atualizar Memória
+    window.getPastorResponse = async (text) => {
+        const lowerText = text.toLowerCase().trim();
+        
+        // Memória Espiritual
+        const analysis = SentimentAnalyzer.detect(text);
         const memory = getSpiritualMemory();
-        if (lowerText.includes('ansioso') || lowerText.includes('ansiedade')) memory.sentimentos.push('Ansiedade');
-        if (lowerText.includes('triste')) memory.sentimentos.push('Tristeza');
-        updateSpiritualMemory(memory);
-
-        for (const [key, theme] of Object.entries(THEME_MAP)) {
-            if (theme.keywords.some(kw => lowerText.includes(kw))) { matchedThemeKey = key; break; }
+        if (analysis.emotion !== 'neutro') {
+            memory.sentimentos.push(analysis.emotion);
+            updateSpiritualMemory(memory);
         }
 
-        const intro = ACOLHIMENTO_PROFISSIONAL[Math.floor(Math.random() * ACOLHIMENTO_PROFISSIONAL.length)];
-
-        // Lógica de Empatia Humanizada
-        for (const emp of EMPATIA_MAP) {
-            if (emp.keywords.some(kw => lowerText.includes(kw))) {
-                return `${emp.response}\n\nGostaria de compartilhar mais sobre isso ou quer que eu busque uma promessa bíblica específica?`;
+        // RAG: Buscar Contexto Bíblico relevante
+        let bibleContext = "";
+        let matchedTheme = null;
+        for (const [key, theme] of Object.entries(THEME_MAP)) {
+            if (theme.keywords.some(kw => lowerText.includes(kw))) {
+                matchedTheme = theme;
+                const vRef = theme.verses[Math.floor(Math.random() * theme.verses.length)];
+                const verse = getVerseFromNVI(vRef.b, vRef.c, vRef.v);
+                if (verse) bibleContext = `Considere este versículo para a resposta: ${verse.reference} - "${verse.text}"`;
+                break;
             }
         }
 
-        // Lógica de Memória
-        if (memory.sentimentos.length > 2 && Math.random() > 0.7) {
-            const last = memory.sentimentos[memory.sentimentos.length - 2];
-            return `Amado, me lembro que você mencionou sentir ${last.toLowerCase()} antes. Como Deus tem agido nesse ponto da sua vida?`;
+        // Tentar Gemini (Humanização Total)
+        if (window.GEMINI_API_KEY || GEMINI_API_KEY !== "GEMINI_API_KEY_PLACEHOLDER") {
+            try {
+                const prompt = `Usuário diz: "${text}"\n\nContexto Bíblico: ${bibleContext}\nNível do Usuário: ${NIVEIS_NOMES[memory.nivel - 1]}\nSentimentos Recentes: ${memory.sentimentos.slice(-3).join(', ')}`;
+                
+                // Chamada de Mentoria (Foco em Humanização)
+                // Em produção, isso iria via backend.
+                console.log("[🛡️] AMÉM IA: Consultando sabedoria...");
+                
+                // FALLBACK ATIVO: Se não houver SDK carregado, usa lógica de regras
+                if (typeof GoogleGenerativeAI === 'undefined') throw new Error("SDK não carregado");
+                
+                const genAI = new GoogleGenerativeAI(window.GEMINI_API_KEY || GEMINI_API_KEY);
+                const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash", systemInstruction: SYSTEM_INSTRUCTION });
+                const result = await model.generateContent(prompt);
+                return result.response.text();
+
+            } catch (err) {
+                console.warn("[⚠️] Gemini indisponível, usando motor de regras local:", err.message);
+            }
         }
 
-        if (matchedThemeKey && bibleData) {
-            const theme = THEME_MAP[matchedThemeKey];
-            const vRef = theme.verses[Math.floor(Math.random() * theme.verses.length)];
+        // MOTOR DE REGRAS (Fallback)
+        let options = PASTOR_RESPONSES["default"];
+        for (const key in PASTOR_RESPONSES) {
+            if (lowerText.includes(key)) {
+                options = PASTOR_RESPONSES[key];
+                break;
+            }
+        }
+        
+        const response = options[Math.floor(Math.random() * options.length)];
+        if (matchedTheme && bibleData) {
+            const vRef = matchedTheme.verses[Math.floor(Math.random() * matchedTheme.verses.length)];
             const verse = getVerseFromNVI(vRef.b, vRef.c, vRef.v);
-            if (verse) return `${intro}\n\nA Palavra de Deus em **${verse.reference}** diz:\n\n_"${verse.text}"_\n\nQue este versículo guarde seu coração hoje.`;
+            if (verse) return `${response}\n\nA Bíblia nos diz em **${verse.reference}**:\n_"${verse.text}"_`;
         }
-
-        return `${intro}\n\nSaiba que 'O Senhor é bom, um refúgio em tempos de angústia' (Naum 1:7). Gostaria de orar comigo?`;
+        return response;
     };
 
     const sendMessage = (customText) => {
@@ -451,11 +590,17 @@ function initChat() {
         const urlParams = new URLSearchParams(window.location.search);
         const isPrayerMode = urlParams.get('mode') === 'prayer';
         
-        let welcome = "Olá! Que alegria ter você aqui no Amém IA. Eu sou o seu Pastor pessoal e estou aqui para caminhar ao seu lado 24 horas por dia. Como está o seu coração hoje?";
+        const hour = new Date().getHours();
+        let greeting = "Paz do Senhor";
+        if (hour < 12) greeting = "Bom dia e a Paz do Senhor";
+        else if (hour < 18) greeting = "Boa tarde e a Paz do Senhor";
+        else greeting = "Boa noite e a Paz do Senhor";
+
+        let welcome = `${greeting}, amado! Que alegria ter você aqui no Amém. Eu sou o seu Pastor pessoal e estou aqui para caminhar ao seu lado 24 horas por dia. Como está o seu coração hoje?`;
         
         if (isPrayerMode) {
             const oracao = ORACOES_PODEROSAS[Math.floor(Math.random() * ORACOES_PODEROSAS.length)];
-            welcome = `Paz do Senhor, meu amado. Senti no meu coração que você precisava de uma oração agora. Vamos clamar juntos?\n\n"${oracao}"\n\nComo você se sente após essa oração?`;
+            welcome = `${greeting}, meu amado. Senti no meu coração que você precisava de uma oração agora. Vamos clamar juntos?\n\n"${oracao}"\n\nComo você se sente após essa oração?`;
         }
         
         appendMessage(welcome, false);

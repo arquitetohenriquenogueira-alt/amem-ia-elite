@@ -3,10 +3,10 @@
 
 <head>
     <meta charset="utf-8" />
+    <title>Jogo da Memória Kids - Amém</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap"
-        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <link
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
         rel="stylesheet" />
@@ -26,7 +26,7 @@
     </script>
     <style type="text/tailwindcss">
         @layer base {
-            body { @apply font-sans antialiased bg-[#FAF7F0] dark:bg-[#050B18] transition-colors; }
+            body { font-family: 'Inter', sans-serif; @apply bg-[#050B18] text-white transition-colors; }
         }
         .memory-card {
             @apply relative aspect-square bg-white dark:bg-white/5 rounded-2xl shadow-sm border border-[#050B18]/5 dark:border-white/10 cursor-pointer transition-all duration-500 preserve-3d;
@@ -51,7 +51,7 @@
                 <span class="material-symbols-outlined font-bold">arrow_back</span>
             </button>
             <div class="flex flex-col items-center">
-                <h2 class="text-deep-navy dark:text-white text-lg font-bold uppercase tracking-tight">Amém IA Kids</h2>
+                <h2 class="text-deep-navy dark:text-white text-lg font-bold uppercase tracking-tight">Amém Kids</h2>
                 <span class="text-[10px] font-bold uppercase tracking-widest text-premium-gold">Jogo da Memória</span>
             </div>
             <button onclick="toggleTheme()"
@@ -148,4 +148,6 @@
 </body>
 
 </html>
+
+
 

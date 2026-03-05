@@ -4,10 +4,10 @@
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Amém IA - Portal de Honra</title>
+    <title>Amém - Portal de Honra</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap"
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800;900&family=Inter:wght@400;500;600;700;800&display=swap"
         rel="stylesheet" />
     <link
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
@@ -25,8 +25,8 @@
                         "gold-deep": "#996515",
                     },
                     fontFamily: {
-                        "sans": ["Manrope", "sans-serif"],
-                        "playfair": ["'Playfair Display'", "serif"]
+                        "sans": ["Inter", "sans-serif"],
+                        "playfair": ["Poppins", "sans-serif"]
                     },
                     boxShadow: {
                         'premium': '0 10px 30px -10px rgba(200, 169, 81, 0.4)',
@@ -39,7 +39,7 @@
     <style type="text/tailwindcss">
         @layer utilities {
             .gold-premium-texture {
-                background: linear-gradient(145deg, #F1E5AC 0%, #C8A951 50%, #B08D3E 100%);
+                background: linear-gradient(145deg, #C8A951 0%, #A68A3D 50%, #C8A951 100%);
                 position: relative;
                 overflow: hidden;
             }
@@ -86,7 +86,7 @@
                 <span class="material-symbols-outlined font-bold">arrow_back</span>
             </button>
             <div class="flex flex-col items-center">
-                <h1 class="text-[#050B18] dark:text-white text-lg font-black uppercase tracking-tight">Amém IA Premium
+                <h1 class="text-[#050B18] dark:text-white text-lg font-black uppercase tracking-tight">Amém Ungidos
                 </h1>
                 <span class="text-[9px] font-bold text-premium-gold uppercase tracking-[0.3em]">Escolha sua
                     Jornada</span>
@@ -143,42 +143,45 @@
                         Atual</button>
                 </div>
 
-                <!-- Plano Mensal (Abençoado) -->
-                <div class="gold-premium-texture rounded-[28px] p-6 shadow-premium relative overflow-hidden">
-                    <div class="absolute -right-6 -top-6 size-24 bg-white/20 rounded-full blur-2xl"></div>
-                    <div class="flex justify-between items-start mb-6">
+                <!-- Plano Mensal (Abençoado) - DESIGN HERO Ungidos -->
+                <div class="gold-premium-texture rounded-[28px] p-8 shadow-premium relative overflow-hidden ring-4 ring-premium-gold/20 transform hover:scale-[1.02] transition-all">
+                    <div class="absolute -right-6 -top-6 size-32 bg-white/20 rounded-full blur-3xl"></div>
+                    <div class="flex justify-between items-start mb-6 border-b border-deep-navy/10 pb-4">
                         <div>
-                            <h4 class="text-deep-navy font-playfair text-xl font-black">ABENÇOADO</h4>
-                            <p class="text-[9px] font-black text-deep-navy/90 uppercase tracking-widest">Assinatura
-                                Mensal</p>
+                            <h4 class="text-deep-navy font-playfair text-2xl font-black italic tracking-tighter">ABENÇOADO</h4>
+                            <p class="text-[10px] font-black text-deep-navy/70 uppercase tracking-[0.2em]">Acesso Total Ungidos</p>
                         </div>
                         <div
-                            class="bg-deep-navy text-white px-3 py-1 rounded-full text-[8px] font-black uppercase tracking-wider">
-                            Popular</div>
+                            class="bg-deep-navy text-white px-4 py-1.5 rounded-full text-[9px] font-black uppercase tracking-widest shadow-lg">
+                            Destaque</div>
                     </div>
-                    <div class="flex items-baseline gap-1 text-deep-navy mb-6">
-                        <span class="text-sm font-bold">R$</span>
-                        <span class="text-4xl font-black tracking-tighter">29,90</span>
-                        <span class="text-deep-navy/80 text-[10px] font-bold ml-1">/mês</span>
+                    <div class="flex items-baseline gap-1 text-deep-navy mb-8">
+                        <span class="text-xs font-bold font-sans">R$</span>
+                        <span class="text-5xl font-black tracking-tighter">29</span>
+                        <span class="text-2xl font-black tracking-tighter">,90</span>
+                        <span class="text-deep-navy/60 text-[10px] font-black ml-2 uppercase">Mensal</span>
                     </div>
-                    <ul class="space-y-3 mb-8">
-                        <li class="flex items-center gap-2 text-[11px] font-black text-deep-navy">
-                            <span class="material-symbols-outlined text-sm">verified</span>
-                            Pastor IA Ilimitado 24/7
+                    <ul class="space-y-4 mb-10">
+                        <li class="flex items-center gap-3 text-[12px] font-black text-deep-navy">
+                            <span class="material-symbols-outlined text-base">verified</span>
+                            Pastor IA Personalizado 24/7
                         </li>
-                        <li class="flex items-center gap-2 text-[11px] font-black text-deep-navy">
-                            <span class="material-symbols-outlined text-sm">verified</span>
-                            Postagens na Comunidade
+                        <li class="flex items-center gap-3 text-[12px] font-black text-deep-navy">
+                            <span class="material-symbols-outlined text-base">verified</span>
+                            Comunidade Amém Ungidos (Full)
                         </li>
-                        <li class="flex items-center gap-2 text-[11px] font-black text-deep-navy">
-                            <span class="material-symbols-outlined text-sm">verified</span>
-                            Quiz Bíblico Todos os Níveis
+                        <li class="flex items-center gap-3 text-[12px] font-black text-deep-navy">
+                            <span class="material-symbols-outlined text-base">verified</span>
+                            Análise de Sonhos & Devocionais
                         </li>
                     </ul>
                     <button id="btn-plano-abencoado"
                         onclick="goToCheckout('abencoado')"
-                        class="bg-deep-navy w-full py-4 rounded-xl text-white text-[11px] font-black tracking-widest uppercase shadow-xl active:scale-[0.98] transition-all">
-                        Quero ser Abençoado
+                        class="bg-deep-navy w-full py-5 rounded-2xl text-white text-[12px] font-black tracking-[0.2em] uppercase shadow-2xl active:scale-[0.95] transition-all hover:bg-black group">
+                        <span class="flex items-center justify-center gap-2">
+                             Quero ser Abençoado
+                             <span class="material-symbols-outlined text-premium-gold group-hover:translate-x-1 transition-transform">bolt</span>
+                        </span>
                     </button>
                 </div>
 
@@ -211,16 +214,16 @@
             <div class="mt-12 text-center pb-8">
                 <div class="flex justify-center gap-6 mb-4">
                     <a class="text-[10px] text-deep-navy/40 font-bold uppercase tracking-widest hover:text-deep-navy"
-                        href="#">Termos</a>
+                        href="javascript:void(0)">Termos</a>
                     <span class="text-deep-navy/10">•</span>
                     <a class="text-[10px] text-deep-navy/40 font-bold uppercase tracking-widest hover:text-deep-navy"
-                        href="#">Privacidade</a>
+                        href="javascript:void(0)">Privacidade</a>
                     <span class="text-deep-navy/10">•</span>
                     <a class="text-[10px] text-deep-navy/40 font-bold uppercase tracking-widest hover:text-deep-navy"
-                        href="#">Restaurar</a>
+                        href="javascript:void(0)">Restaurar</a>
                 </div>
                 <p class="text-[9px] text-deep-navy/30 leading-relaxed font-bold uppercase tracking-[0.15em] px-10">
-                    O Amém IA é um projeto de fé dedicado à propagação do evangelho através da tecnologia.
+                    O Amém é um projeto de fé dedicado à propagação do evangelho através da tecnologia.
                 </p>
             </div>
         </main>
@@ -249,4 +252,6 @@
 </body>
 
 </html>
+
+
 

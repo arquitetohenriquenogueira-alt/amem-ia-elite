@@ -8,8 +8,10 @@
         "dev": "vite --host",
         "build": "vite build",
         "preview": "vite preview",
-        "sync:ide": "node .aios-core/scripts/sync-ide.js",
-        "validate:agents": "node .aios-core/scripts/validate-agents.js"
+        "sync:ide": "node .aios-core/development/scripts/unified-activation-pipeline.js",
+        "sync:ide:gemini": "node .aios-core/development/scripts/unified-activation-pipeline.js --ide gemini",
+        "validate:agents": "node .aios-core/development/scripts/audit-agent-config.js",
+        "aios:doctor": "npx aios-core doctor"
     },
     "keywords": [
         "bible",

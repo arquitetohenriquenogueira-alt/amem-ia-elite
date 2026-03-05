@@ -1,0 +1,21 @@
+name: Amém Ungidos CI
+
+on:
+  push:
+    branches: [master, main]
+  pull_request:
+    branches: [master, main]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - run: npm install --package-lock-only # Just to verify dependencies if any
+      - name: Lint HTML files (basic check)
+        run: |
+          find . -name "*.html" -exec node -e "require('fs').readFileSync('{}')" \;

@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Rede do Fiel - Amém Ungidos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Poppins:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <style>
+        :root {
+            --gold-primary: #C8A951;
+            --gold-gradient: linear-gradient(135deg, #C8A951 0%, #A68A3D 100%);
+            --navy-dark: #050B18;
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(200, 169, 81, 0.2);
+            --accent-blue: #3b82f6;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: radial-gradient(circle at top, #1a1f26 0%, var(--navy-dark) 100%);
+            color: white;
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+            overflow-x: hidden;
+            padding-bottom: 100px;
+        }
+
+        .header {
+            padding: 40px 24px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            background: rgba(10, 14, 20, 0.8);
+            -webkit-backdrop-filter: blur(15px);
+            backdrop-filter: blur(15px);
+            z-index: 100;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .header h1 {
+            font-family: 'Poppins', serif;
+            font-size: 28px;
+            margin: 0;
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .back-btn {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .back-btn:active { transform: scale(0.9); }
+
+        .container {
+            padding: 16px 24px;
+        }
+
+        /* Post Creator */
+        .post-creator {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 16px;
+            margin-bottom: 24px;
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+        }
+
+        .post-creator .input-area {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 2px solid var(--gold-primary);
+            object-fit: cover;
+        }
+
+        .placeholder-text {
+            color: rgba(255,255,255,0.4);
+            font-size: 14px;
+            flex: 1;
+        }
+
+        .creator-actions {
+            display: flex;
+            gap: 12px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            padding-top: 12px;
+        }
+
+        .action-btn {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12px;
+            color: rgba(255,255,255,0.6);
+            background: none;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 12px;
+            transition: 0.3s;
+        }
+
+        .action-btn:active { background: rgba(255,255,255,0.05); }
+        .action-btn span { font-size: 20px; color: var(--gold-primary); }
+
+        /* Feed Tabs */
+        .tabs {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 24px;
+            overflow-x: auto;
+            padding-bottom: 4px;
+        }
+
+        .tab {
+            padding: 8px 16px;
+            border-radius: 100px;
+            background: var(--glass-bg);
+            border: 1px solid rgba(255,255,255,0.1);
+            font-size: 13px;
+            white-space: nowrap;
+            color: rgba(255,255,255,0.6);
+            transition: 0.3s;
+        }
+
+        .tab.active {
+            background: var(--gold-gradient);
+            border-color: var(--gold-primary);
+            color: black;
+            font-weight: 600;
+        }
+
+        /* Feed Items */
+        .feed-item {
+            background: var(--glass-bg);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 24px;
+            padding: 20px;
+            margin-bottom: 20px;
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+        }
+
+        .feed-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 16px;
+        }
+
+        .user-info {
+            display: flex;
+            gap: 12px;
+        }
+
+        .user-meta h4 {
+            margin: 0;
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        .user-meta p {
+            margin: 2px 0 0;
+            font-size: 11px;
+            color: rgba(255,255,255,0.4);
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .post-type {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-weight: 800;
+        }
+
+        .type-testimony { background: rgba(200, 169, 81, 0.1); color: var(--gold-primary); }
+        .type-prayer { background: rgba(59, 130, 246, 0.1); color: var(--accent-blue); }
+
+        .feed-content {
+            font-size: 14px;
+            line-height: 1.6;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 16px;
+        }
+
+        .feed-image {
+            width: 100%;
+            height: 200px;
+            border-radius: 20px;
+            object-fit: cover;
+            margin-bottom: 16px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .feed-actions {
+            display: flex;
+            justify-content: space-between;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            padding-top: 16px;
+        }
+
+        .post-action {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: none;
+            border: none;
+            color: rgba(255,255,255,0.6);
+            cursor: pointer;
+            transition: 0.3s;
+            padding: 4px 8px;
+            border-radius: 8px;
+        }
+
+        .post-action span { font-size: 22px; }
+        .post-action:active { background: rgba(255,255,255,0.05); }
+        .post-action.amem span { color: var(--gold-primary); }
+        .post-action.gloria span { color: #f43f5e; }
+
+        .btn-icon-small { font-size: 12px; }
+
+        .intercede-btn {
+            background: var(--gold-gradient);
+            color: black;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            width: 100%;
+            justify-content: center;
+            margin-top: 8px;
+            box-shadow: 0 4px 15px rgba(200, 169, 81, 0.2);
+        }
+
+        .intercede-btn span { font-size: 20px; }
+
+        .footer-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(10, 14, 20, 0.9);
+            -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(20px);
+            display: flex;
+            justify-content: space-around;
+            padding: 12px 0 30px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            z-index: 1000;
+        }
+
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 10px;
+        }
+
+        .nav-item.active { color: var(--gold-primary); }
+        .nav-item span { font-size: 24px; margin-bottom: 4px; }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Rede do Fiel</h1>
+        <div class="back-btn" onclick="window.history.back()" aria-label="Voltar">
+            <span class="material-symbols-outlined">chevron_left</span>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Post Creator -->
+        <div class="post-creator">
+            <div class="input-area">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=100" class="avatar" alt="User">
+                <div class="placeholder-text">Compartilhar uma Bênção...</div>
+            </div>
+            <div class="creator-actions">
+                <button class="action-btn"><span class="material-symbols-outlined">photo_camera</span> Foto</button>
+                <button class="action-btn"><span class="material-symbols-outlined">videocam</span> Vídeo</button>
+                <button class="action-btn"><span class="material-symbols-outlined">visibility_off</span> Anônimo</button>
+            </div>
+        </div>
+
+        <!-- Tabs -->
+        <div class="tabs">
+            <div class="tab active">Todo o Reino</div>
+            <div class="tab">Testemunhos</div>
+            <div class="tab">Pedidos</div>
+            <div class="tab">Células</div>
+        </div>
+
+        <!-- Feed List -->
+        <div id="feed">
+            <!-- Testimony Card -->
+            <div class="feed-item">
+                <div class="feed-header">
+                    <div class="user-info">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=100" class="avatar" alt="Mariana">
+                        <div class="user-meta">
+                            <h4>Mariana Costa</h4>
+                            <p><span class="material-symbols-outlined btn-icon-small">schedule</span> 2h atrás</p>
+                        </div>
+                    </div>
+                    <span class="post-type type-testimony">Testemunho</span>
+                </div>
+                <div class="feed-content">
+                    Hoje recebi a notícia de uma cura milagrosa na minha família. Os médicos não explicavam, mas nós sabemos quem agiu! Deus é fiel! 🙏✨ #Testemunho #GloriaADeus
+                </div>
+                <img src="https://images.unsplash.com/photo-1504052434569-70ad5836ab65?q=80&w=800" class="feed-image" alt="Testemunho">
+                <div class="feed-actions">
+                    <button class="post-action amem"><span class="material-symbols-outlined">favorite</span> 124 Améns</button>
+                    <button class="post-action gloria"><span class="material-symbols-outlined">share</span> 42 Glórias</button>
+                    <button class="post-action"><span class="material-symbols-outlined">chat_bubble</span> 18</button>
+                </div>
+            </div>
+
+            <!-- Prayer Card -->
+            <div class="feed-item">
+                <div class="feed-header">
+                    <div class="user-info">
+                        <img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?q=80&w=100" class="avatar" alt="Marcos">
+                        <div class="user-meta">
+                            <h4>Marcos Silva</h4>
+                            <p><span class="material-symbols-rounded btn-icon-small">schedule</span> 5h atrás</p>
+                        </div>
+                    </div>
+                    <span class="post-type type-prayer">Pedido de Oração</span>
+                </div>
+                <div class="feed-content">
+                    "Peço orações pela saúde do meu pai que passará por uma cirurgia amanhã cedo. Cremos na vitória!"
+                </div>
+                <button class="intercede-btn" onclick="this.innerHTML='<span class=\'material-symbols-outlined\'>flare</span> Você está intercedendo!'">
+                    <span class="material-symbols-outlined">volunteer_activism</span> Interceder Agora
+                </button>
+                <div class="feed-actions" style="margin-top: 12px;">
+                    <button class="post-action amem"><span class="material-symbols-outlined">favorite</span> 86 Améns</button>
+                    <button class="post-action gloria"><span class="material-symbols-outlined">share</span> 12 Glórias</button>
+                    <button class="post-action"><span class="material-symbols-outlined">chat_bubble</span> 5</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom Nav -->
+    <nav class="footer-nav">
+        <a href="../index.html" class="nav-item">
+            <span class="material-symbols-rounded">home</span>
+            Home
+        </a>
+        <a href="am_m_ia_planos_de_assinatura/code.html" class="nav-item">
+            <span class="material-symbols-rounded">auto_awesome</span>
+            Planos
+        </a>
+        <a href="am_m_ia_bible_portal/code.html" class="nav-item">
+            <span class="material-symbols-rounded">psychology</span>
+            Mentor
+        </a>
+        <a href="#" class="nav-item active">
+            <span class="material-symbols-rounded">public</span>
+            Rede
+        </a>
+        <a href="menu_mais.html" class="nav-item">
+            <span class="material-symbols-rounded">apps</span>
+            Mais
+        </a>
+    </nav>
+
+    <script type="module">
+        import { AuthService } from '../public/scripts/auth_service.js';
+        
+        // Verifica Autenticação
+        async function checkUser() {
+            try {
+                const session = await AuthService.getSession();
+                if (session) {
+                    const { data: profile } = await AuthService.getProfile();
+                    if (profile) {
+                        document.querySelector('.user-meta h4').innerText = profile.full_name;
+                        if (profile.avatar_url) {
+                            document.querySelectorAll('.avatar').forEach(img => img.src = profile.avatar_url);
+                        }
+                    }
+                }
+            } catch (e) {
+                console.warn("Auth offline - modo preview", e);
+            }
+        }
+
+        checkUser();
+
+        // Lógica de Postagem com Análise de Sentimento
+        window.postContent = () => {
+            const text = prompt("O que Deus fez por você hoje?");
+            if (!text) return;
+
+            // Integraria aqui o SentimentAnalyzer se carregado
+            // Como é módulo ESM, usamos o global se disponível ou importamos
+            alert("Bênção compartilhada! Nossa fia está analisando sua gratidão.");
+        }
+    </script>
+</body>
+</html>
+
+

@@ -4,10 +4,10 @@
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Amém IA Pintura Final Padronizada</title>
+    <title>Amém Pintura Final Padronizada</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link
-        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap"
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;600;700&display=swap"
         rel="stylesheet" />
     <link
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
@@ -24,8 +24,8 @@
                         "border-light": "#E5E7EB",
                     },
                     fontFamily: {
-                        "serif": ["Cinzel", "serif"],
-                        "sans": ["Plus Jakarta Sans", "sans-serif"]
+                        "serif": ["Poppins", "sans-serif"],
+                        "sans": ["Inter", "sans-serif"]
                     },
                     borderRadius: {
                         "premium": "12px",
@@ -63,6 +63,9 @@
         body {
             min-height: max(884px, 100dvh);
         }
+        .symbol-filled {
+            font-variation-settings: 'FILL' 1;
+        }
     </style>
 </head>
 
@@ -78,7 +81,7 @@
                 <h2 class="text-white font-serif text-xl font-black tracking-tight uppercase drop-shadow-sm">Pinte com
                     Fé</h2>
                 <div class="flex items-center justify-center">
-                    <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-premium-gold">Amém IA Kids</span>
+                    <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-premium-gold">Amém Kids</span>
                 </div>
             </div>
             <button
@@ -91,25 +94,24 @@
                 <aside class="w-20 flex flex-col gap-4">
                     <div id="color-palette"
                         class="flex-1 bento-sidebar-card p-2 flex flex-col gap-3 items-center overflow-y-auto no-scrollbar">
-                        <button class="color-tap bg-[#FF5A5A] w-full" data-color="#FF5A5A"></button>
-                        <button class="color-tap bg-[#FF9F43] w-full" data-color="#FF9F43"></button>
-                        <button class="color-tap bg-[#FED330] w-full" data-color="#FED330"></button>
-                        <button class="color-tap bg-[#26DE81] w-full" data-color="#26DE81"></button>
+                        <button class="color-tap bg-[#FF5A5A] w-full" data-color="#FF5A5A" aria-label="Vermelho"></button>
+                        <button class="color-tap bg-[#FF9F43] w-full" data-color="#FF9F43" aria-label="Laranja"></button>
+                        <button class="color-tap bg-[#FED330] w-full" data-color="#FED330" aria-label="Amarelo"></button>
+                        <button class="color-tap bg-[#26DE81] w-full" data-color="#26DE81" aria-label="Verde"></button>
                         <button class="color-tap bg-[#45AAF2] w-full ring-2 ring-premium-gold ring-offset-2"
-                            data-color="#45AAF2"></button>
-                        <button class="color-tap bg-[#A55EEA] w-full" data-color="#A55EEA"></button>
-                        <button class="color-tap bg-[#FD79A8] w-full" data-color="#FD79A8"></button>
-                        <button class="color-tap bg-[#8D6E63] w-full" data-color="#8D6E63"></button>
-                        <button class="color-tap bg-[#000000] w-full" data-color="#000000"></button>
-                        <button class="color-tap bg-[#FFFFFF] w-full" data-color="#FFFFFF"></button>
+                            data-color="#45AAF2" aria-label="Azul"></button>
+                        <button class="color-tap bg-[#A55EEA] w-full" data-color="#A55EEA" aria-label="Roxo"></button>
+                        <button class="color-tap bg-[#FD79A8] w-full" data-color="#FD79A8" aria-label="Rosa"></button>
+                        <button class="color-tap bg-[#8D6E63] w-full" data-color="#8D6E63" aria-label="Marrom"></button>
+                        <button class="color-tap bg-[#000000] w-full" data-color="#000000" aria-label="Preto"></button>
+                        <button class="color-tap bg-[#FFFFFF] w-full" data-color="#FFFFFF" aria-label="Branco"></button>
                     </div>
                     <div class="h-28 bento-sidebar-card flex flex-col items-center justify-around py-3">
-                        <button id="brush-tool" class="text-premium-gold active:scale-110 transition-transform">
-                            <span class="material-symbols-outlined text-2xl"
-                                style="font-variation-settings: 'FILL' 1">brush</span>
+                        <button id="brush-tool" class="text-premium-gold active:scale-110 transition-transform" aria-label="Pincel">
+                            <span class="material-symbols-outlined text-2xl symbol-filled">brush</span>
                         </button>
                         <div class="w-8 h-[1px] bg-white/10"></div>
-                        <button id="eraser-tool" class="text-white/20 active:scale-110 transition-transform">
+                        <button id="eraser-tool" class="text-white/20 active:scale-110 transition-transform" aria-label="Borracha">
                             <span class="material-symbols-outlined text-2xl">ink_eraser</span>
                         </button>
                     </div>
@@ -287,3 +289,4 @@
 </body>
 
 </html>
+

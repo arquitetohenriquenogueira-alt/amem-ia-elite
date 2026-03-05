@@ -1,4 +1,5 @@
 import crypto from 'crypto';
+import { supabaseAdmin } from '../../BACKEND/supabase_client.js';
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
@@ -27,13 +28,23 @@ export default async function handler(req, res) {
     if (status === 'paid' || status === 'approved') {
         console.log(`[💎] ELITE STATUS: Ativar para ${customer?.email}`);
         
-        // INTEGRAÇÃO SUPABASE - PROTOCOLO ELDORADO
-        // const { data, error } = await supabase
-        //   .from('profiles')
-        //   .update({ plan: 'elite', role: 'warrior' })
-        //   .eq('email', customer?.email);
+        // INTEGRAÇÃO SUPABASE - PROTOCOLO ELDORADO (Ativada pela NOVA/QA)
+        const { data, error } = await supabaseAdmin
+          .from('profiles')
+          .update({ 
+              plan: 'elite', 
+              role: 'warrior',
+              updated_at: new Date()
+          })
+          .eq('email', customer?.email);
         
-        console.log(`[🚀] Acesso Liberado: Plano Elite para ${customer?.email}`);
+        if (error) {
+            console.error('[!] Erro ao atualizar perfil Supabase:', error);
+            // Mesmo com erro no DB, retornamos 200 para a Ticto não reenviar, 
+            // mas logamos o erro para intervenção manual se necessário.
+        } else {
+            console.log(`[🚀] Acesso Liberado: Plano Elite para ${customer?.email}`);
+        }
     }
 
     return res.status(200).send('OK');

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check-in Emocional - Amém Ungidos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Poppins:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <style>
+        :root {
+            --gold-primary: #C8A951;
+            --gold-gradient: linear-gradient(135deg, #C8A951 0%, #A68A3D 100%);
+            --navy-dark: #050B18;
+            --glass-white: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(200, 169, 81, 0.15);
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: radial-gradient(circle at top, #1a1f26 0%, var(--navy-dark) 100%);
+            color: white;
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            padding: 40px 24px 20px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 28px;
+            font-weight: 800;
+            margin: 0;
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .header p {
+            color: rgba(255,255,255,0.6);
+            font-size: 15px;
+            margin-top: 8px;
+        }
+
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            padding: 24px;
+            flex: 1;
+        }
+
+        .emotion-card {
+            background: var(--glass-white);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 24px 16px;
+            text-align: center;
+            text-decoration: none;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .emotion-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--gold-gradient);
+            opacity: 0;
+            transition: 0.4s;
+            z-index: 0;
+        }
+
+        .emotion-card:active {
+            transform: scale(0.92);
+        }
+
+        .emotion-card.selected {
+            border-color: var(--gold-primary);
+            background: rgba(200, 169, 81, 0.15);
+        }
+
+        .emotion-icon {
+            font-size: 40px;
+            margin-bottom: 12px;
+            position: relative;
+            z-index: 1;
+            transition: 0.3s;
+        }
+
+        .emotion-card span.label {
+            font-weight: 700;
+            font-size: 16px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Cores Temáticas para Emoções */
+        .emo-ansioso .emotion-icon { color: #3b82f6; } /* Azul */
+        .emo-triste .emotion-icon { color: #6366f1; } /* Indigo */
+        .emo-grato .emotion-icon { color: #f59e0b; } /* Âmbar */
+        .emo-cansado .emotion-icon { color: #94a3b8; } /* Slate */
+        .emo-confuso .emotion-icon { color: #a855f7; } /* Purple */
+        .emo-bravo .emotion-icon { color: #ef4444; } /* Red */
+        .emo-feliz .emotion-icon { color: #22c55e; } /* Green */
+        .emo-sozinho .emotion-icon { color: #ec4899; } /* Pink */
+
+        .action-area {
+            padding: 32px 24px 60px;
+            display: none; /* Aparece quando selecionado */
+            animation: slideUp 0.5s ease;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .btn-ungido {
+            width: 100%;
+            height: 60px;
+            background: var(--gold-gradient);
+            border: none;
+            border-radius: 18px;
+            color: var(--navy-dark);
+            font-weight: 800;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            box-shadow: 0 10px 20px rgba(200, 169, 81, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .back-btn {
+            position: absolute;
+            top: 40px;
+            left: 24px;
+            width: 44px;
+            height: 44px;
+            background: var(--glass-white);
+            border: 1px solid var(--glass-border);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <a href="../menu_mais.html" class="back-btn">
+        <span class="material-symbols-outlined">arrow_back_ios_new</span>
+    </a>
+
+    <div class="header">
+        <h1>Check-in Espiritual</h1>
+        <p>Como está o seu coração agora?</p>
+    </div>
+
+    <div class="bento-grid">
+        <div class="emotion-card emo-ansioso" onclick="selectEmotion(this, 'Ansioso')">
+            <span class="material-symbols-outlined emotion-icon">waves</span>
+            <span class="label">Ansioso</span>
+        </div>
+        <div class="emotion-card emo-triste" onclick="selectEmotion(this, 'Triste')">
+            <span class="material-symbols-outlined emotion-icon">cloud</span>
+            <span class="label">Triste</span>
+        </div>
+        <div class="emotion-card emo-grato" onclick="selectEmotion(this, 'Grato')">
+            <span class="material-symbols-outlined emotion-icon">auto_awesome</span>
+            <span class="label">Grato</span>
+        </div>
+        <div class="emotion-card emo-cansado" onclick="selectEmotion(this, 'Cansado')">
+            <span class="material-symbols-outlined emotion-icon">battery_low</span>
+            <span class="label">Cansado</span>
+        </div>
+        <div class="emotion-card emo-confuso" onclick="selectEmotion(this, 'Confuso')">
+            <span class="material-symbols-outlined emotion-icon">help_center</span>
+            <span class="label">Confuso</span>
+        </div>
+        <div class="emotion-card emo-bravo" onclick="selectEmotion(this, 'Bravo')">
+            <span class="material-symbols-outlined emotion-icon">bolt</span>
+            <span class="label">Bravo</span>
+        </div>
+        <div class="emotion-card emo-feliz" onclick="selectEmotion(this, 'Feliz')">
+            <span class="material-symbols-outlined emotion-icon">sentiment_very_satisfied</span>
+            <span class="label">Feliz</span>
+        </div>
+        <div class="emotion-card emo-sozinho" onclick="selectEmotion(this, 'Sozinho')">
+            <span class="material-symbols-outlined emotion-icon">person</span>
+            <span class="label">Sozinho</span>
+        </div>
+    </div>
+
+    <div class="action-area" id="action-area">
+        <button class="btn-ungido" onclick="getWord()">
+            <span class="material-symbols-outlined">psychology</span>
+            Receber Palavra Amiga
+        </button>
+    </div>
+
+    <script>
+        let selectedEmotion = '';
+
+        function selectEmotion(el, emotion) {
+            document.querySelectorAll('.emotion-card').forEach(c => c.classList.remove('selected'));
+            el.classList.add('selected');
+            selectedEmotion = emotion;
+            document.getElementById('action-area').style.display = 'block';
+            
+            // Haptic/Visual Feedback
+            if (window.navigator.vibrate) window.navigator.vibrate(10);
+        }
+
+        function getWord() {
+            // Placeholder para integração com o Mentor IA
+            window.location.href = `mentor_ia_response.html?emotion=${selectedEmotion}`;
+        }
+    </script>
+</body>
+</html>

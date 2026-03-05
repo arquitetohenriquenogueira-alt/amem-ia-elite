@@ -1,130 +1,133 @@
 <!DOCTYPE html>
-<html class="light" lang="pt-br">
+<html lang="pt-br">
 
 <head>
     <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&amp;family=Inter:wght@500&amp;display=swap"
-        rel="stylesheet" />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-        rel="stylesheet" />
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+    <title>Amém - Ungidos Splash</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
     <script id="tailwind-config">
         tailwind.config = {
-            darkMode: "class",
             theme: {
                 extend: {
                     colors: {
-                        "deep-navy": "#0A1229",
-                        "slate-grey": "#050B18",
+                        "deep-navy": "#050B18",
                         "premium-gold": "#C8A951",
-                        "pure-white": "#FFFFFF"
+                        "heart-blue": "#0D1B3E"
                     },
                     fontFamily: {
-                        "serif-title": ["'Playfair Display'", "serif"],
-                        "sans-tagline": ["'Inter'", "sans-serif"]
+                        "sans": ["Inter", "sans-serif"]
                     },
                 },
             },
         }
     </script>
-    <style type="text/tailwindcss">
-        :root {
-            --rose-gold: #b78b71;
-            --deep-navy: #0A2540;
+    <style>
+        .heart-shape {
+            background-color: #0D1B3E;
+            display: inline-block;
+            height: 380px;
+            margin: 0 10px;
+            position: relative;
+            top: 0;
+            transform: rotate(-45deg);
+            width: 380px;
+            box-shadow: 0 0 60px rgba(0, 0, 0, 0.5);
+            background: linear-gradient(135deg, #0D1B3E 0%, #050B18 100%);
         }
-        .editorial-grid {
-            display: grid;
-            grid-template-columns: repeat(12, 1fr);
-            grid-template-rows: repeat(12, 1fr);
-            height: 100dvh;
+
+        .heart-shape:before,
+        .heart-shape:after {
+            content: "";
+            background: inherit;
+            border-radius: 50%;
+            height: 380px;
+            position: absolute;
+            width: 380px;
+        }
+
+        .heart-shape:before {
+            top: -190px;
+            left: 0;
+        }
+
+        .heart-shape:after {
+            left: 190px;
+            top: 0;
+        }
+
+        .logo-content {
+            transform: rotate(45deg);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
             width: 100%;
+            position: relative;
+            z-index: 20;
         }
-        .divider-v {
-            width: 1px;
-            background: linear-gradient(180deg, transparent, var(--rose-gold), transparent);
-            opacity: 0.15;
+
+        @keyframes pulse-gold {
+            0%, 100% { opacity: 0.8; transform: scale(1); filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.4)); }
+            50% { opacity: 1; transform: scale(1.05); filter: drop-shadow(0 0 40px rgba(212, 175, 55, 0.7)); }
         }
-        .divider-h {
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--rose-gold), transparent);
-            opacity: 0.15;
-        }
-    </style>
-    <style>
-        body {
-            min-height: max(844px, 100dvh);
-            background-color: #050B18;
-        }
-    </style>
-    <style>
-        body {
-            min-height: max(884px, 100dvh);
+
+        .logo-aura {
+            animation: pulse-gold 4s infinite ease-in-out;
         }
     </style>
 </head>
 
-<body class="bg-[#050B18] text-white font-sans-tagline overflow-hidden select-none flex flex-col items-center">
-    <div class="absolute inset-0 pointer-events-none">
-        <div class="absolute left-[12%] top-0 bottom-0 divider-v"></div>
-        <div class="absolute left-[88%] top-0 bottom-0 divider-v"></div>
-        <div class="absolute top-[15%] left-0 right-0 divider-h"></div>
-        <div class="absolute top-[85%] left-0 right-0 divider-h"></div>
-    </div>
-    <main class="relative z-10 editorial-grid p-6">
-        <div class="col-start-2 col-span-12 row-start-3 row-span-2 flex flex-col justify-center items-center">
-            <div class="text-center">
-                <h1
-                    class="font-serif-title text-white text-6xl tracking-tighter leading-none uppercase font-black drop-shadow-[0_2px_15px_rgba(5,11,24,0.4)]">
-                    Amém IA
-                </h1>
-                <div class="w-20 h-1.5 bg-premium-gold mx-auto mt-6 shadow-lg shadow-premium-gold/20"></div>
-                <p class="text-premium-gold text-[10px] font-black tracking-[0.5em] uppercase mt-4">Sua Jornada
-                    Espiritual</p>
-            </div>
-        </div>
-        <div class="col-start-4 col-span-8 row-start-5 row-span-4 flex items-center justify-center">
-            <div class="relative">
-                <div class="absolute -top-10 -right-10 w-20 h-20 border-[0.5px] border-rose-gold/20 rounded-full"></div>
-                <div class="absolute -bottom-6 -left-6 w-12 h-12 border-[0.5px] border-rose-gold/20"></div>
-                <div
-                    class="relative z-10 p-10 border-4 border-white/5 rounded-full flex items-center justify-center bg-white/5 backdrop-blur-xl shadow-2xl">
-                    <span class="material-symbols-outlined text-premium-gold text-8xl"
-                        style="font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 48;">
-                        auto_awesome
-                    </span>
+<body class="bg-[#050B18] text-white flex items-center justify-center min-h-screen overflow-hidden p-6 select-none">
+    
+    <div class="flex flex-col items-center justify-center space-y-12 w-full max-w-md animate-in fade-in duration-1000">
+        
+        <!-- Master Heart Container -->
+        <div class="relative flex items-center justify-center mt-[-100px]">
+            <div class="heart-shape">
+                <div class="logo-content">
+                    <img src="/public/assets/logo-premium.png" alt="Amém Ungidos" class="w-48 h-48 md:w-56 md:h-56 object-contain logo-aura mb-[-10px]">
+                    <h2 class="text-6xl font-black uppercase tracking-tighter mt-[-20px]">Amém</h2>
+                    <h2 class="text-2xl font-black uppercase tracking-[0.5em] text-premium-gold/50 mt-2">Ungidos</h2>
                 </div>
             </div>
         </div>
-        <div class="col-start-5 col-span-7 row-start-10 row-span-2 flex flex-col justify-end items-end text-right">
-            <div class="border-r-[1px] border-rose-gold/30 pr-6 py-2">
-                <p
-                    class="font-sans-tagline font-black text-white/50 tracking-[0.2em] text-base uppercase leading-loose">
-                    Conecte.<br />
-                    Inspire.<br />
-                    Eleve.
-                </p>
-            </div>
+
+        <!-- Text Section -->
+        <div class="text-center space-y-2 pt-12">
+            <h1 class="text-3xl font-black flex items-center justify-center gap-1">
+                Amém <span class="text-slate-400">IA</span>
+            </h1>
+            <p class="text-white/70 text-sm font-medium leading-tight max-w-[280px] mx-auto uppercase tracking-widest">
+                Toda a sabedoria da Bíblia na palma da sua mão.
+            </p>
         </div>
-        <div class="col-start-2 col-span-10 row-start-11 flex items-end justify-between">
-            <div class="flex flex-col items-center gap-4">
-                <span
-                    class="text-[10px] tracking-[0.6em] uppercase text-premium-gold font-bold [writing-mode:vertical-lr] rotate-180">Jornada
-                    Espiritual</span>
-                <div class="w-[1px] h-12 bg-premium-gold/20"></div>
-            </div>
-            <a href="/stitch/am_m_ia_modo_sementinha_2/code.html"
-                class="bg-premium-gold text-white px-12 py-5 rounded-full font-sans-tagline font-black text-sm uppercase tracking-[0.3em] shadow-[0_10px_30px_rgba(200,169,81,0.4)] active:scale-95 transition-all mb-10 w-full text-center max-w-[280px]">
-                Iniciar Jornada
-            </a>
+
+        <!-- Action Button -->
+        <div class="w-full pt-4">
+            <button onclick="startApp()" 
+                class="w-full bg-premium-gold text-[#050B18] font-black py-5 rounded-[12px] text-sm uppercase tracking-widest shadow-[0_10px_30px_rgba(200,169,81,0.3)] active:scale-95 transition-all">
+                Iniciar Minha Jornada
+            </button>
         </div>
-    </main>
-    <div class="absolute inset-0 pointer-events-none opacity-[0.03]"
-        style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuANZeX31eMfdh_0V5L2uL2_otJMfTaPsRcSCEtyR_oZmLPNwsElmHQE_0Tvf50XVv5GUJ3ka2vIsU008yiolCpAUrIGPo_okm6XAPu8U7R63GkRzBvyqIF4NnAHJ2sGJZox5TKFIcc6wBvaNIEmbAkxE6nu3mukai3P5TGhod3KTvtJjYiQZLMZoGMkYYfgRaH9NPQRdgdR4oey4vEGHEv3d2OojB5f6vtptKHHj0kztUFzRXlKKjee2kHvdLGa0GBVYPTngr2vhKMT');">
+
     </div>
 
+    <!-- Background Decoration -->
+    <div class="absolute inset-0 pointer-events-none opacity-20 bg-[radial-gradient(circle_at_center,_rgba(13,27,62,0.8)_0%,_transparent_70%)]"></div>
+
+    <script>
+        // Previne o loop no Hub adicionando um flag de "entrada real"
+        function startApp() {
+            window.location.href = '../../index.html?mode=app';
+        }
+        document.querySelector('button').onclick = startApp;
+    </script>
 </body>
 
 </html>
+
+

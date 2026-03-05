@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Master Lobby - Amém IA Administration</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="public/styles/global.css">
+    <script src="public/scripts/config_elite.js" type="module"></script>
+    <style>
+        body {
+            background: #0B0F19;
+            color: white;
+            padding: 40px 20px;
+        }
+        .lobby-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 24px;
+            max-width: 1200px;
+            margin: 40px auto;
+        }
+        .module-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 32px;
+            border-radius: 24px;
+            text-decoration: none;
+            color: white;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .module-card:hover {
+            background: rgba(212, 175, 55, 0.1);
+            border-color: #D4AF37;
+            transform: translateY(-5px);
+        }
+        .module-icon {
+            font-size: 48px;
+            color: #D4AF37;
+            margin-bottom: 16px;
+        }
+        .module-title {
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+        .module-desc {
+            font-size: 14px;
+            opacity: 0.6;
+            line-height: 1.5;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        .header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            margin-bottom: 8px;
+        }
+        .header p {
+            color: #D4AF37;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>MASTER LOBBY</h1>
+        <p>Amém Ungidos Administration</p>
+    </div>
+
+    <div class="lobby-grid">
+        <!-- Main Access -->
+        <a href="index.html" class="module-card" style="border-width: 2px; border-color: #D4AF37; background: rgba(212, 175, 55, 0.1);">
+            <span class="material-symbols-outlined module-icon" style="color: #D4AF37;">rocket_launch</span>
+            <div class="module-title" style="color: #D4AF37;">Lançar App (Hub Ungidos)</div>
+            <div class="module-desc">Ponto de entrada do usuário final (Round & Premium).</div>
+        </a>
+
+        <a href="stitch/am_m_ia_premium_splash_screen/code.html" class="module-card">
+            <span class="material-symbols-outlined module-icon">favorite</span>
+            <div class="module-title">Splash Screen Ungidos</div>
+            <div class="module-desc">A primeira impressão "Teatro Amazonas".</div>
+        </a>
+
+        <!-- Spiritual Core -->
+        <a href="stitch/am_m_ia_modo_sementinha_1/code.html" class="module-card">
+            <span class="material-symbols-outlined module-icon">psychology</span>
+            <div class="module-title">Fundamentos Ungidos</div>
+            <div class="module-desc">Trilha Adulta Iniciante: Mentoria 24h humanizada.</div>
+        </a>
+
+        <a href="stitch/am_m_ia_rea_kids_sementinha/code.html" class="module-card">
+            <span class="material-symbols-outlined module-icon">child_care</span>
+            <div class="module-title">Modo Sementinha (Kids)</div>
+            <div class="module-desc">Orações e ensinos lúdicos para crianças.</div>
+        </a>
+
+        <a href="stitch/am_m_ia_bible_portal/code.html" class="module-card">
+            <span class="material-symbols-outlined module-icon">menu_book</span>
+            <div class="module-title">Portal Bíblico</div>
+            <div class="module-desc">Base NVI e estudos profundos.</div>
+        </a>
+
+        <a href="stitch/am_m_ia_celulas.html" class="module-card">
+            <span class="material-symbols-outlined module-icon">church</span>
+            <div class="module-title">Gestão de Células</div>
+            <div class="module-desc">Administração de grupos e materiais de estudo.</div>
+        </a>
+
+        <a href="stitch/am_m_ia_comunidade.html" class="module-card">
+            <span class="material-symbols-outlined module-icon">groups</span>
+            <div class="module-title">Comunidade Ungida</div>
+            <div class="module-desc">Social, curtidas Amém e conexão.</div>
+        </a>
+
+        <!-- Management & Marketing -->
+        <a href="https://checkout.ticto.app/O06B610DB" class="module-card">
+            <span class="material-symbols-outlined module-icon">payments</span>
+            <div class="module-title">Checkout Ticto</div>
+            <div class="module-desc">Monitoramento do fluxo de vendas.</div>
+        </a>
+
+        <div class="module-card" style="border-color: #D4AF37; opacity: 0.8;">
+            <span class="material-symbols-outlined module-icon">admin_panel_settings</span>
+            <div class="module-title">Gestão Nova</div>
+            <div class="module-desc">Controle de Agentes e Estratégia Big Tech.</div>
+            <p class="text-[10px] mt-2 opacity-60">E-mail: suporte@amemia.com.br</p>
+        </div>
+    </div>
+</body>
+</html>

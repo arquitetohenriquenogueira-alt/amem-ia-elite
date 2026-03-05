@@ -3,7 +3,7 @@
 Um domínio premium é 50% da percepção de autoridade.
 
 ## 🌟 Sugestão Escolhida
-- [x] **amemia.com.br** (O óbvio, essencial) - ✨ **ESCOLHIDO PELO CEO**
+- [x] **amemia.com.br** (O óbvio, essencial) - ✅ **COMPRADO & ATIVO** (Hostinger)
 
 ## 🏗️ Próximos Passos
 1. **Compra**: Registrar o domínio no Registro.br ou host de preferência.
