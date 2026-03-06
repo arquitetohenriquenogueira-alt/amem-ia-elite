@@ -1,4 +1,4 @@
-const CACHE_NAME = 'amem-ungidos-v2.1';
+const CACHE_NAME = 'amem-ungidos-v3';
 const ASSETS_TO_CACHE = [
     '/',
     '/index.html',
@@ -7,7 +7,7 @@ const ASSETS_TO_CACHE = [
     '/public/styles/global.css',
     '/public/scripts/quiz.js',
     '/public/scripts/supabase_client.js',
-    '/assets/logo-ungidos.png',
+    '/assets/logo-ungidos-v3.png',
     '/public/assets/kids_journey_bg.png',
     '/stitch/menu_mais.html',
     '/stitch/kids/kids-prayers.html',

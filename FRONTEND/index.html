@@ -95,7 +95,7 @@
         <!-- Logo Section -->
         <div class="relative inline-block">
             <div class="absolute inset-0 bg-primary-gold opacity-10 blur-3xl rounded-full"></div>
-            <img src="/assets/logo-ungidos.png?v=2" alt="Amém Ungidos" class="w-32 h-32 md:w-40 md:h-40 object-contain logo-aura relative z-10">
+            <img src="/assets/logo-ungidos-v3.png" alt="Amém Ungidos" class="w-32 h-32 md:w-40 md:h-40 object-contain logo-aura relative z-10">
         </div>
 
         <!-- Content Section -->
@@ -159,7 +159,7 @@
         // Service Worker Registration for Offline Support
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('./service-worker.js?v=2.1')
+                navigator.serviceWorker.register('./service-worker.js?v=3&t=' + Date.now())
                     .then(reg => console.log('🛡️ [Service Worker] Ativo:', reg.scope))
                     .catch(err => console.log('❌ [Service Worker] Erro:', err));
             });
