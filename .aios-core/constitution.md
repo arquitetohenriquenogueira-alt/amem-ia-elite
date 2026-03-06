@@ -13,14 +13,12 @@ Este documento define os princípios fundamentais e inegociáveis do Synkra AIOS
 O CLI é a fonte da verdade onde toda inteligência, execução, e automação vivem.
 
 **Regras:**
-
 - MUST: Toda funcionalidade nova DEVE funcionar 100% via CLI antes de qualquer UI
 - MUST: Dashboards apenas observam, NUNCA controlam ou tomam decisões
 - MUST: A UI NUNCA é requisito para operação do sistema
 - MUST: Ao decidir onde implementar, sempre CLI > Observability > UI
 
 **Hierarquia:**
-
 ```
 CLI (Máxima) → Observability (Secundária) → UI (Terciária)
 ```
@@ -34,7 +32,6 @@ CLI (Máxima) → Observability (Secundária) → UI (Terciária)
 Cada agente tem autoridades exclusivas que não podem ser violadas.
 
 **Regras:**
-
 - MUST: Apenas @devops pode executar `git push` para remote
 - MUST: Apenas @devops pode criar Pull Requests
 - MUST: Apenas @devops pode criar releases e tags
@@ -61,7 +58,6 @@ Cada agente tem autoridades exclusivas que não podem ser violadas.
 Todo desenvolvimento começa e termina com uma story.
 
 **Regras:**
-
 - MUST: Nenhum código é escrito sem uma story associada
 - MUST: Stories DEVEM ter acceptance criteria claros antes de implementação
 - MUST: Progresso DEVE ser rastreado via checkboxes na story
@@ -129,24 +125,6 @@ import { useStore } from '../../../stores/feature/store'
 
 ---
 
-### VII. Product Governance (Nova & Sumaúma 1.0)
-
-A **Nova** opera sob a autoridade suprema do **Protocolo Sumaúma 1.0**.
-
-**Módulos de Conformidade:**
-- **Juma**: Setup de marca e segurança.
-- **Harpia (CTO)**: Performance < 2s e código limpo.
-- **Teatro Amazonas**: Design Elite e luxo.
-- **Eldorado (CFO)**: Maximização de LTV e lucro.
-- **Tuxaua (CEO)**: Alinhamento geral e `STATUS_GERAL.md`.
-
-**Regra SOBERANA:**
-- Nenhuma ação técnica ou criativa pode violar os 13 módulos do [Protocolo Sumaúma 1.0](file:///g:/EMPRESA_DIGITAL/AMEM_IA/.aios-core/PROTOCOLO_SUMAUMA_1.0.md).
-- MUST: Decisões estratégicas de produto seguem as recomendações da Nova em caso de conflito entre agentes técnicos.
-- MUST: Manter o tom executivo e o ceticismo construtivo em todas as validações.
-
----
-
 ## Governance
 
 ### Amendment Process
@@ -182,12 +160,12 @@ A **Nova** opera sob a autoridade suprema do **Protocolo Sumaúma 1.0**.
 
 ## References
 
-- **Princípios derivados de:** `.claude/CLAUDE.md` e `Nova Strategic Prompt`
+- **Princípios derivados de:** `.claude/CLAUDE.md`
 - **Inspirado por:** GitHub Spec-Kit Constitution System
 - **Gates implementados em:** `.aios-core/development/tasks/`
 - **Checklists relacionados:** `.aios-core/product/checklists/`
 
 ---
 
-*Synkra AIOS Constitution v1.1.0*
-*CLI First | Agent-Driven | Product-Led (Nova)*
+*Synkra AIOS Constitution v1.0.0*
+*CLI First | Agent-Driven | Quality First*

@@ -1,7 +1,7 @@
 {
     "version": "1.0",
-    "project": "amem-ia",
-    "workspace": "C:/Users/Administrador/Desktop/amem-ia",
+    "project": "AMEM_IA",
+    "workspace": "G:/EMPRESA_DIGITAL/AMEM_IA",
     "agents": {
         "enabled": true,
         "directory": ".antigravity\\agents",

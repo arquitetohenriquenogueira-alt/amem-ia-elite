@@ -79,7 +79,7 @@ async function generateGreeting(agentId) {
  * @returns {string} Simple fallback greeting
  */
 function generateFallbackGreeting(agentId) {
-  return `\u2705 Agente ${agentId} pronto\n\nDigite \`*help\` para ver os comandos disponíveis.`;
+  return `\u2705 ${agentId} Agent ready\n\nType \`*help\` to see available commands.`;
 }
 
 // CLI interface

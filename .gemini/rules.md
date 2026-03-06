@@ -1,82 +1,80 @@
-# Regras do Gemini - Synkra AIOS
+# Gemini Rules - Synkra AIOS
 
-Este arquivo define as instruções do projeto para o Gemini CLI neste repositório.
+Este arquivo define as instrucoes do projeto para Gemini CLI neste repositorio.
 
 <!-- AIOS-MANAGED-START: core -->
-## Regras Principais
+## Core Rules
 
-1. Siga a Constituição em `.aios-core/constitution.md` (v1.1.0 - Liderado pelo Produto pela Nova)
-2. Priorize `CLI Primeiro -> Observabilidade Segundo -> UI Terceira`
-3. Ative `@nova` para decisões estratégicas e supervisão de produto.
-4. Trabalhe por histórias (stories) em `docs/stories/`
-5. Não invente requisitos fora dos artefatos existentes
+1. Siga a Constitution em `.aios-core/constitution.md`
+2. Priorize `CLI First -> Observability Second -> UI Third`
+3. Trabalhe por stories em `docs/stories/`
+4. Nao invente requisitos fora dos artefatos existentes
 <!-- AIOS-MANAGED-END: core -->
 
 <!-- AIOS-MANAGED-START: quality -->
-## Portões de Qualidade
+## Quality Gates
 
-- Execute `npm run lint`
-- Execute `npm run typecheck`
-- Execute `npm test`
-- Atualize a checklist e a lista de arquivos da história antes de concluir
+- Rode `npm run lint`
+- Rode `npm run typecheck`
+- Rode `npm test`
+- Atualize checklist e file list da story antes de concluir
 <!-- AIOS-MANAGED-END: quality -->
 
 <!-- AIOS-MANAGED-START: codebase -->
-## Mapa do Projeto
+## Project Map
 
-- Framework central: `.aios-core/`
-- Pontos de entrada da CLI: `bin/`
-- Pacotes compartilhados: `packages/`
-- Testes: `tests/`
-- Documentação: `docs/`
+- Core framework: `.aios-core/`
+- CLI entrypoints: `bin/`
+- Shared packages: `packages/`
+- Tests: `tests/`
+- Docs: `docs/`
 <!-- AIOS-MANAGED-END: codebase -->
 
 <!-- AIOS-MANAGED-START: gemini-integration -->
-## Integração com Gemini
+## Gemini Integration
 
-Fonte da verdade dos agentes:
-- Canônico: `.aios-core/development/agents/*.md`
+Fonte de verdade de agentes:
+- Canonico: `.aios-core/development/agents/*.md`
 - Espelhado para Gemini: `.gemini/rules/AIOS/agents/*.md`
 
-Hooks e configurações:
+Hooks e settings:
 - Hooks locais: `.gemini/hooks/`
-- Configurações locais: `.gemini/settings.json`
+- Settings locais: `.gemini/settings.json`
 
-Sempre que houver divergência, execute:
+Sempre que houver drift, execute:
 - `npm run sync:ide:gemini`
 - `npm run validate:gemini-sync`
 - `npm run validate:gemini-integration`
 <!-- AIOS-MANAGED-END: gemini-integration -->
 
 <!-- AIOS-MANAGED-START: parity -->
-## Paridade Multi-IDE
+## Multi-IDE Parity
 
-Para garantir a paridade entre Claude Code, Codex e Gemini:
+Para garantir paridade entre Claude Code, Codex e Gemini:
 - `npm run validate:parity`
 - `npm run validate:paths`
 <!-- AIOS-MANAGED-END: parity -->
 
 <!-- AIOS-MANAGED-START: activation -->
-## Ativação de Agentes
+## Agent Activation
 
-Preferência de ativação:
+Preferencia de ativacao:
 1. Use agentes em `.gemini/rules/AIOS/agents/`
-2. Se necessário, use a fonte canônica em `.aios-core/development/agents/`
+2. Se necessario, use fonte canonica em `.aios-core/development/agents/`
 
-Ao ativar um agente:
-- Carregue a definição completa do agente
-- Renderize a saudação via `node .aios-core/development/scripts/generate-greeting.js <agent-id>`
-- Mantenha a persona ativa até `*exit`
+Ao ativar agente:
+- carregar definicao completa do agente
+- renderizar greeting via `node .aios-core/development/scripts/generate-greeting.js <agent-id>`
+- manter persona ativa ate `*exit`
 
 Atalhos recomendados no Gemini:
 - `/aios-menu` para listar agentes
-- `/aios-<agent-id>` (ex: `/aios-dev`, `/aios-architect`)
-- `/aios-agent <agent-id>` para lançador genérico
-- `/nova` para a Orquestradora Estratégica
+- `/aios-<agent-id>` (ex.: `/aios-dev`, `/aios-architect`)
+- `/aios-agent <agent-id>` para launcher generico
 <!-- AIOS-MANAGED-END: activation -->
 
 <!-- AIOS-MANAGED-START: commands -->
-## Comandos Comuns
+## Common Commands
 
 - `npm run sync:ide`
 - `npm run sync:ide:check`

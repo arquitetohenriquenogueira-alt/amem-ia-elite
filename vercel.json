@@ -54,10 +54,6 @@
     {
       "source": "/",
       "destination": "/stitch/splash-premium-v1/code.html"
-    },
-    {
-      "source": "/(.*)",
-      "destination": "/$1"
     }
   ],
   "headers": [
