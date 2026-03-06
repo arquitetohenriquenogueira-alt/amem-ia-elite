@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <title>Comunidade Amém - Amém</title>
-    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@700;800&display=swap"
@@ -12,17 +12,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
         rel="stylesheet" />
     <script src="/FRONTEND/stitch/theme-switcher.js" type="module"></script>
-    <style type="text/tailwindcss">
-        @layer base {
-            body { @apply bg-[#FAF7F0] text-[#050B18] transition-colors duration-300; }
-            .dark body { @apply bg-[#050B18] text-white; }
-        }
-        .post-card {
-            @apply bg-white dark:bg-white/5 rounded-3xl border border-[#050B18]/5 dark:border-white/10 overflow-hidden shadow-sm;
-        }
-        .img-standard {
-            @apply w-full aspect-square object-cover;
-        }
+    <style>
+        body { background-color: #FAF7F0; color: #050B18; transition-property: color, background-color, border-color, text-decoration-color, fill, stroke; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 300ms; }
+        .dark body { background-color: #050B18; color: #ffffff; }
+        .post-card { background-color: rgb(255 255 255); border-radius: 1.5rem; border-width: 1px; border-color: rgb(5 11 24 / 0.05); overflow: hidden; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); }
+        .dark .post-card { background-color: rgb(255 255 255 / 0.05); border-color: rgb(255 255 255 / 0.1); }
+        .img-standard { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; }
     </style>
     <script>
         tailwind.config = {
@@ -68,7 +63,7 @@
             <div class="post-card">
                 <div class="p-4 flex items-center gap-3">
                     <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=100"
-                        class="size-10 rounded-full object-cover border-2 border-premium-gold">
+                        class="size-10 rounded-full object-cover border-2 border-premium-gold" alt="Avatar Irmão Ricardo">
                     <div>
                         <h4 class="text-sm font-black dark:text-white leading-tight">Irmão Ricardo</h4>
                         <p class="text-[9px] font-black uppercase tracking-widest text-premium-gold">Culto de Domingo •
@@ -78,7 +73,7 @@
                 <!-- Standard Image Size -->
                 <div class="w-full aspect-square bg-slate-200">
                     <img src="https://images.unsplash.com/photo-1438232992991-995b7058bbb3?q=80&w=1000"
-                        class="img-standard">
+                        class="img-standard" alt="Foto Culto de Domingo">
                 </div>
                 <div class="p-4">
                     <p class="text-xs font-bold leading-relaxed text-[#050B18]/70 dark:text-white/70 mb-4">
@@ -104,7 +99,7 @@
                  <div class="p-4 flex items-center justify-between">
                     <div class="flex items-center gap-3">
                         <img src="https://images.unsplash.com/photo-1544427920-c49ccfb85579?q=80&w=100"
-                            class="size-10 rounded-full object-cover ring-2 ring-premium-gold/30">
+                            class="size-10 rounded-full object-cover ring-2 ring-premium-gold/30" alt="Avatar Igreja do Avivamento">
                         <div>
                             <h4 class="text-sm font-black dark:text-white leading-tight">Igreja do Avivamento</h4>
                             <p class="text-[9px] font-black uppercase tracking-widest text-premium-gold">Evento Setor Central • 5h atrás</p>
@@ -114,7 +109,7 @@
                 </div>
                 <!-- Interactive Grid/Photo Carousel Placeholder -->
                 <div class="w-full aspect-video bg-white/5 relative overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1510257005510-9118c4e4277b?q=80&w=1000" class="img-standard !aspect-video">
+                    <img src="https://images.unsplash.com/photo-1510257005510-9118c4e4277b?q=80&w=1000" class="img-standard !aspect-video" alt="Atividade de Célula">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6">
                         <span class="bg-premium-gold text-white px-3 py-1 rounded-full text-[8px] font-black uppercase tracking-widest">Atividade de Célula</span>
                     </div>
@@ -143,7 +138,7 @@
             <div class="post-card p-6 bg-premium-gold/5 border-premium-gold/20">
                 <div class="flex items-center gap-3 mb-4">
                     <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=100"
-                        class="size-10 rounded-full object-cover border-2 border-premium-gold">
+                        class="size-10 rounded-full object-cover border-2 border-premium-gold" alt="Avatar Irmã Maria">
                     <div>
                         <h4 class="text-sm font-black dark:text-white leading-tight">Irmã Maria</h4>
                         <p class="text-[9px] font-black uppercase tracking-widest text-premium-gold">Versículo

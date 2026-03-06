@@ -1,4 +1,4 @@
-<html class="light">
+<html class="light" lang="pt-BR">
 
 <head>
   <meta charset="utf-8" />
@@ -41,38 +41,18 @@
       --premium-gold: #C8A951;
       --deep-navy: #0A2540;
     }
-        @layer base {
-            body {
-                @apply bg-[#FAF7F0] text-[#050B18] transition-colors duration-300 font-sans;
-            }
-            .dark body {
-                @apply bg-[#050B18] text-white;
-            }
-        }
-        .prayer-card {
-            @apply bg-white dark:bg-white/5 rounded-[24px] border border-black/5 dark:border-white/10 shadow-[0_4px_20px_rgba(0,0,0,0.02)] transition-all overflow-hidden;
-        }
-    .switch {
-      @apply relative inline-block w-11 h-6 shrink-0;
-    }
-    .switch input {
-      @apply opacity-0 w-0 h-0;
-    }
-    .slider {
-      @apply absolute cursor-pointer inset-0 bg-[#E9E9EB] dark:bg-white/10 rounded-full transition-all duration-300;
-    }
-    .slider:before {
-      @apply absolute content-[''] h-4 w-4 left-1 bottom-1 bg-white rounded-full transition-all duration-300 shadow-sm;
-    }
-    input:checked + .slider {
-      @apply bg-premium-gold;
-    }
-    input:checked + .slider:before {
-      @apply translate-x-5;
-    }
-    .img-premium {
-        @apply w-full aspect-video object-cover rounded-[16px] mb-4 shadow-sm;
-    }
+        body { background-color: #FAF7F0; color: #050B18; transition-property: color, background-color, border-color, text-decoration-color, fill, stroke; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 300ms; font-family: sans-serif; }
+        .dark body { background-color: #050B18; color: #ffffff; }
+        .prayer-card { background-color: rgb(255 255 255); border-radius: 24px; border-width: 1px; border-color: rgb(0 0 0 / 0.05); box-shadow: 0 4px 20px rgba(0,0,0,0.02); transition-property: all; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 150ms; overflow: hidden; }
+        .dark .prayer-card { background-color: rgb(255 255 255 / 0.05); border-color: rgb(255 255 255 / 0.1); }
+    .switch { position: relative; display: inline-block; width: 2.75rem; height: 1.5rem; flex-shrink: 0; }
+    .switch input { opacity: 0; width: 0; height: 0; }
+    .slider { position: absolute; cursor: pointer; top: 0; right: 0; bottom: 0; left: 0; background-color: #E9E9EB; border-radius: 9999px; transition-property: all; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 300ms; }
+    .dark .slider { background-color: rgb(255 255 255 / 0.1); }
+    .slider:before { position: absolute; content: ''; height: 1rem; width: 1rem; left: 0.25rem; bottom: 0.25rem; background-color: rgb(255 255 255); border-radius: 9999px; transition-property: all; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 300ms; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); }
+    input:checked + .slider { background-color: #C8A951; }
+    input:checked + .slider:before { transform: translateX(1.25rem); }
+    .img-premium { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 16px; margin-bottom: 1rem; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); }
     .no-scrollbar::-webkit-scrollbar {
         display: none;
     }
@@ -187,7 +167,7 @@
               <span
                 class="text-[8px] font-black text-slate-light dark:text-white/40 uppercase tracking-widest">Respondida</span>
               <label class="switch">
-                <input type="checkbox" checked>
+                <input type="checkbox" checked title="Alternar status" aria-label="Marcar oração como respondida">
                 <span class="slider"></span>
               </label>
             </div>
@@ -227,7 +207,7 @@
               <span
                 class="text-[8px] font-black text-slate-light dark:text-white/40 uppercase tracking-widest">Respondida</span>
               <label class="switch">
-                <input type="checkbox">
+                <input type="checkbox" title="Alternar status" aria-label="Marcar oração como respondida">
                 <span class="slider"></span>
               </label>
             </div>
@@ -261,7 +241,7 @@
               <span
                 class="text-[8px] font-black text-slate-light dark:text-white/40 uppercase tracking-widest">Respondida</span>
               <label class="switch">
-                <input type="checkbox">
+                <input type="checkbox" title="Alternar status" aria-label="Marcar oração como respondida">
                 <span class="slider"></span>
               </label>
             </div>

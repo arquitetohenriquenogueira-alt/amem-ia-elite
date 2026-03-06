@@ -1,6 +1,6 @@
 <html lang="pt-BR">
-
 <head>
+    <title>Amém - Desafio da Fé</title>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
@@ -33,24 +33,11 @@
             },
         }
     </script>
-    <style type="text/tailwindcss">
-        @layer base {
-            body {
-            @apply font-sans antialiased text-white bg-[#050B18];
-            -webkit-tap-highlight-color: transparent;
-        }
-    }
-        .bento-card {
-            @apply bg-white/5 backdrop-blur-md border border-white/10 shadow-sm transition-all duration-200;
-            border-radius: 12px;
-        }
-        .bento-card:active {
-            @apply scale-[0.97] bg-white/10;
-        }
-        .speech-bubble {
-            @apply relative bg-white/5 backdrop-blur-md border border-white/10 p-6 shadow-sm;
-            border-radius: 12px;
-        }
+    <style>
+        body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; color: #ffffff; background-color: #050B18; -webkit-tap-highlight-color: transparent; }
+        .bento-card { background-color: rgb(255 255 255 / 0.05); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); border-width: 1px; border-color: rgb(255 255 255 / 0.1); box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); transition-property: all; transition-duration: 200ms; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); border-radius: 12px; }
+        .bento-card:active { transform: scale(0.97); background-color: rgb(255 255 255 / 0.1); }
+        .speech-bubble { position: relative; background-color: rgb(255 255 255 / 0.05); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); border-width: 1px; border-color: rgb(255 255 255 / 0.1); padding: 1.5rem; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); border-radius: 12px; }
         .speech-bubble::after {
             content: '';
             position: absolute;
@@ -109,8 +96,7 @@
         <div class="px-6 py-2">
             <div class="flex items-center gap-3">
                 <div class="flex-1 h-2 bg-[#050B18]/10 dark:bg-white/5 rounded-full overflow-hidden">
-                    <div id="progress-bar" class="h-full bg-premium-gold rounded-full transition-all duration-500"
-                        style="width: 10%;"></div>
+                    <div id="progress-bar" class="h-full bg-premium-gold rounded-full transition-all duration-500 w-[10%]"></div>
                 </div>
                 <span id="question-counter" class="text-[#050B18] dark:text-white font-black text-xs">01/10</span>
             </div>

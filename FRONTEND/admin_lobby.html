@@ -70,6 +70,18 @@
             letter-spacing: 4px;
             font-weight: 700;
         }
+        .highlighted-card {
+            border-width: 2px;
+            border-color: #D4AF37;
+            background: rgba(212, 175, 55, 0.1);
+        }
+        .highlighted-text {
+            color: #D4AF37;
+        }
+        .admin-card {
+            border-color: #D4AF37;
+            opacity: 0.8;
+        }
     </style>
 </head>
 <body>
@@ -80,9 +92,9 @@
 
     <div class="lobby-grid">
         <!-- Main Access -->
-        <a href="index.html" class="module-card" style="border-width: 2px; border-color: #D4AF37; background: rgba(212, 175, 55, 0.1);">
-            <span class="material-symbols-outlined module-icon" style="color: #D4AF37;">rocket_launch</span>
-            <div class="module-title" style="color: #D4AF37;">Lançar App (Hub Ungidos)</div>
+        <a href="index.html" class="module-card highlighted-card">
+            <span class="material-symbols-outlined module-icon highlighted-text">rocket_launch</span>
+            <div class="module-title highlighted-text">Lançar App (Hub Ungidos)</div>
             <div class="module-desc">Ponto de entrada do usuário final (Round & Premium).</div>
         </a>
 
@@ -130,7 +142,7 @@
             <div class="module-desc">Monitoramento do fluxo de vendas.</div>
         </a>
 
-        <div class="module-card" style="border-color: #D4AF37; opacity: 0.8;">
+        <div class="module-card admin-card">
             <span class="material-symbols-outlined module-icon">admin_panel_settings</span>
             <div class="module-title">Gestão Nova</div>
             <div class="module-desc">Controle de Agentes e Estratégia Big Tech.</div>

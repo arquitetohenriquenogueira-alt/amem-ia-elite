@@ -24,7 +24,7 @@
             </clipPath>
         </defs>
     </svg>
-    <style type="text/tailwindcss">
+    <style>
         :root {
             --deep-navy: #0A2540;
             --premium-gold: #C8A951;
@@ -33,27 +33,12 @@
             --soft-pastel-green: #F0F7F4;
             --soft-pastel-gold: #FAF7F0;
         }
-        @layer base {
-            body {
-                @apply bg-[#FAF7F0] text-[#050B18] transition-colors duration-300;
-            }
-            .dark body {
-                @apply bg-[#050B18] text-white;
-            }
-            h1, h2, .serif-title {
-                @apply font-serif;
-            }
-        }
-        .bento-card {
-            @apply bg-white/60 border border-premium-gold/20 rounded-2xl p-5 transition-all duration-300 shadow-sm;
-            backdrop-filter: blur(20px);
-        }
-        .dark .bento-card {
-            @apply bg-white/5 border-white/5;
-        }
-        .bento-card:active {
-            @apply scale-[0.98];
-        }
+        body { background-color: #FAF7F0; color: #050B18; transition-property: color, background-color, border-color, text-decoration-color, fill, stroke; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 300ms; }
+        .dark body { background-color: #050B18; color: #ffffff; }
+        h1, h2, .serif-title { font-family: 'Poppins', sans-serif; }
+        .bento-card { background-color: rgb(255 255 255 / 0.6); border-width: 1px; border-color: rgb(200 169 81 / 0.2); border-radius: 1rem; padding: 1.25rem; transition-property: all; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 300ms; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); -webkit-backdrop-filter: blur(20px); backdrop-filter: blur(20px); }
+        .dark .bento-card { background-color: rgb(255 255 255 / 0.05); border-color: rgb(255 255 255 / 0.05); }
+        .bento-card:active { transform: scale(0.98); }
         .material-symbols-outlined {
             font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
         }
@@ -73,17 +58,13 @@
         }
     </script>
     <style>
-        .calendar-modal {
-            @apply fixed inset-0 z-[100] hidden flex items-center justify-center p-6 bg-royal-navy/90 backdrop-blur-xl;
-        }
-
-        .verse-card {
-            @apply bg-white/80 dark:bg-white/5 border border-premium-gold/20 dark:border-white/10 rounded-[24px] p-6 relative overflow-hidden shadow-sm;
-        }
-
-        .conquest-card {
-            @apply bg-white dark:bg-white/5 border border-black/5 dark:border-white/10 rounded-[28px] p-6 flex flex-col items-center text-center shadow-sm;
-        }
+        .calendar-modal { position: fixed; top: 0; right: 0; bottom: 0; left: 0; z-index: 100; display: hidden; align-items: center; justify-content: center; padding: 1.5rem; background-color: rgba(10, 37, 64, 0.9); -webkit-backdrop-filter: blur(24px); backdrop-filter: blur(24px); }
+        .calendar-modal.flex { display: flex; }
+        .verse-card { background-color: rgb(255 255 255 / 0.8); border-width: 1px; border-color: rgb(200 169 81 / 0.2); border-radius: 24px; padding: 1.5rem; position: relative; overflow: hidden; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); }
+        .dark .verse-card { background-color: rgb(255 255 255 / 0.05); border-color: rgb(255 255 255 / 0.1); }
+        .conquest-card { background-color: rgb(255 255 255); border-width: 1px; border-color: rgb(0 0 0 / 0.05); border-radius: 28px; padding: 1.5rem; display: flex; flex-direction: column; align-items: center; text-align: center; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); }
+        .dark .conquest-card { background-color: rgb(255 255 255 / 0.05); border-color: rgb(255 255 255 / 0.1); }
+        .spotify-iframe { border-radius: 12px; width: 100%; height: 380px; border: none; }
     </style>
     <style>
         body {
@@ -454,9 +435,10 @@
                 </button>
             </div>
             <div class="p-4 bg-royal-navy/50">
-                <iframe style="border-radius:12px"
+                <iframe class="spotify-iframe"
                     src="https://open.spotify.com/embed/playlist/37i9dQZF1DWV7UaT9vS7S3?utm_source=generator&theme=0"
-                    width="100%" height="380" frameBorder="0" allowfullscreen=""
+                    title="Playlist de Louvores Spotify"
+                    allowfullscreen=""
                     allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                     loading="lazy"></iframe>
             </div>
