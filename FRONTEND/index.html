@@ -17,60 +17,38 @@
     <meta property="twitter:description" content="Abandone o Raso. Mergulhe no Profundo. Experimente a mentoria cristã definitiva com Amém Ungidos." />
     <meta property="twitter:image" content="https://www.amemia.com.br/public/assets/logo-ungidos-v3.png" />
     <title>Amém - Sua Jornada Ungida</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800;900&family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
     
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            deep: '#050B18',
+                            surface: '#0D1B3E'
+                        },
+                        gold: {
+                            premium: '#C8A951',
+                            hover: '#B5963E'
+                        },
+                        stone: {
+                            offwhite: '#FAF7F0'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
     <link rel="stylesheet" href="./public/styles/global.css">
     <style>
-        :root {
-            --primary-gold: #C8A951;
-            --navy-deep: #050B18;
-            --text-white: #FFFFFF;
-            --text-gray: rgba(255, 255, 255, 0.7);
-            --gold-gradient: linear-gradient(135deg, #C8A951, #A68A3D, #C8A951);
-        }
-
-        body {
-            background-color: var(--navy-deep);
-            color: var(--text-white);
-            font-family: 'Inter', sans-serif;
-            margin: 0;
-            overflow-x: hidden;
-        }
-
-        .premium-gradient {
-            background: radial-gradient(circle at center, #111827 0%, #0B0F19 100%);
-        }
-
-        .headline-ungida {
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(to right, #ffffff 0%, #C8A951 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            letter-spacing: -0.02em;
-        }
-
-        .btn-ungido {
-            background: linear-gradient(135deg, #C8A951 0%, #996515 100%);
-            color: #050B18;
-            box-shadow: 0 10px 40px rgba(200, 169, 81, 0.3);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-
-        .btn-ungido:hover {
-            transform: translateY(-5px) scale(1.02);
-            box-shadow: 0 20px 60px rgba(200, 169, 81, 0.5);
-        }
-
-        .card-glass {
-            background: rgba(255, 255, 255, 0.03);
-            -webkit-backdrop-filter: blur(20px);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 32px;
-        }
-
         .logo-aura {
             filter: drop-shadow(0 0 30px rgba(200, 169, 81, 0.4));
             animation: pulse-led 4s infinite ease-in-out;
@@ -80,53 +58,55 @@
             0%, 100% { opacity: 0.8; transform: scale(1); }
             50% { opacity: 1; transform: scale(1.05); }
         }
-
-        .border-gold-ungido {
-            border: 1px solid rgba(200, 169, 81, 0.4);
-            box-shadow: inset 0 0 20px rgba(200, 169, 81, 0.1);
-        }
     </style>
 </head>
 
-<body class="premium-gradient min-h-screen flex items-center justify-center p-6">
-    <div class="max-w-4xl w-full text-center space-y-12 animate-fade-in">
+<body class="bg-stone-offwhite dark:bg-navy-deep text-slate-800 dark:text-white transition-colors duration-500 min-h-screen flex items-center justify-center p-6 font-sans">
+    
+    <!-- Theme Toggle (Temporary visual helper for dev before putting in a proper corner) -->
+    <button onclick="document.documentElement.classList.toggle('dark')" class="fixed top-4 right-4 z-50 p-2 bg-white/10 dark:bg-black/20 backdrop-blur-md rounded-full border border-black/5 dark:border-white/5 shadow-sm text-slate-600 dark:text-white/70 hover:scale-105 transition-all">
+        <span class="material-symbols-outlined block dark:hidden">dark_mode</span>
+        <span class="material-symbols-outlined hidden dark:block">light_mode</span>
+    </button>
+
+    <div class="max-w-4xl w-full text-center space-y-12 animate-fade-in relative z-10">
         
         <!-- Logo Section -->
-        <div class="relative inline-block">
-            <div class="absolute inset-0 bg-primary-gold opacity-10 blur-3xl rounded-full"></div>
-            <img src="./public/assets/logo-ungidos-v3.png" alt="Amém Ungidos" class="w-32 h-32 md:w-40 md:h-40 object-contain logo-aura relative z-10">
+        <div class="relative inline-block mt-8">
+            <div class="absolute inset-0 bg-gold-premium opacity-10 blur-3xl rounded-full"></div>
+            <img src="./public/assets/logo-ungidos-v3.png" alt="Amém Ungidos" class="w-32 h-32 md:w-36 md:h-36 object-contain logo-aura relative z-10 mx-auto">
         </div>
 
         <!-- Content Section -->
         <header class="space-y-6">
-            <h1 class="headline-ungida text-4xl md:text-6xl font-black uppercase">
-                Abandone o <span class="text-premium-gold">Raso</span>.<br>
-                Mergulhe no <span class="text-premium-gold">Profundo</span>.
+            <h1 class="font-serif text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 dark:text-white leading-tight">
+                Abandone o <span class="text-gold-premium italic">Raso</span>.<br>
+                Mergulhe no <span class="text-gold-premium italic">Profundo</span>.
             </h1>
-            <p class="text-lg md:text-xl text-white/60 max-w-2xl mx-auto font-medium">
+            <p class="text-lg md:text-xl text-slate-600 dark:text-white/70 max-w-2xl mx-auto font-medium leading-relaxed">
                 Sua mentoria cristã personalizada, fundamentada na Palavra, disponível 24h para cada passo da sua caminhada.
             </p>
         </header>
 
         <!-- CTA Section -->
-        <div class="flex flex-col items-center gap-6">
+        <div class="flex flex-col items-center gap-4">
             <button onclick="scrollToSection('funnel-section')" 
-                class="btn-ungido px-12 py-6 rounded-full text-xl font-black uppercase tracking-widest flex items-center gap-3">
-                <span class="material-symbols-outlined font-bold">church</span>
+                class="bg-gold-premium hover:bg-gold-hover text-navy-deep px-10 py-5 rounded-2xl text-lg font-black uppercase tracking-widest flex items-center gap-3 shadow-[0_10px_30px_rgba(200,169,81,0.2)] dark:shadow-[0_10px_40px_rgba(200,169,81,0.15)] transition-all active:scale-95">
+                <span class="material-symbols-outlined font-bold text-2xl">church</span>
                 Identificar Meu Momento
             </button>
-            <p class="text-xs uppercase tracking-[0.3em] text-white/40 font-bold">Inicie sua jornada espiritual ungida</p>
+            <p class="text-[10px] md:text-xs uppercase tracking-[0.2em] text-slate-400 dark:text-white/40 font-bold mt-2">Inicie sua jornada espiritual AIOS</p>
         </div>
 
         <!-- Funnel Section (Quiz Integration) -->
-        <section id="funnel-section" class="card-glass p-10 md:p-16 space-y-8">
+        <section id="funnel-section" class="bg-white dark:bg-navy-surface/50 border border-slate-200 dark:border-white/5 shadow-xl dark:shadow-2xl rounded-[24px] p-8 md:p-12 space-y-8 mt-16 backdrop-blur-sm transition-colors">
             <div class="space-y-4">
-                <h2 class="text-2xl md:text-3xl font-serif font-black uppercase">Mapeie seu <span class="text-premium-gold">Nível de Intimidade</span></h2>
-                <p class="text-white/50">Responda ao diagnóstico para receber um plano de crescimento sob medida para você.</p>
+                <h2 class="text-2xl md:text-3xl font-serif font-black text-slate-800 dark:text-white">Mapeie seu <span class="text-gold-premium italic">Nível de Intimidade</span></h2>
+                <p class="text-slate-500 dark:text-white/60 font-medium">Responda ao diagnóstico para receber um plano de crescimento sob medida para você.</p>
             </div>
             
             <div id="quiz-container">
-                <button onclick="startQuiz()" class="bg-white/5 hover:bg-white/10 border border-white/20 px-10 py-5 rounded-2xl font-black uppercase tracking-widest transition-all">
+                <button onclick="startQuiz()" class="bg-slate-100 dark:bg-white/5 hover:bg-slate-200 dark:hover:bg-white/10 border border-slate-200 dark:border-white/10 text-slate-800 dark:text-white px-8 py-4 rounded-2xl font-black uppercase tracking-widest transition-all shadow-sm active:scale-95">
                     Começar Agora
                 </button>
             </div>

@@ -21,10 +21,6 @@
   ],
   "rewrites": [
     {
-      "source": "/api/(.*)",
-      "destination": "/api/$1"
-    },
-    {
       "source": "/styles/(.*)",
       "destination": "/public/styles/$1"
     },
@@ -37,10 +33,6 @@
       "destination": "/public/assets/$1"
     },
     {
-      "source": "/stitch/(.*)",
-      "destination": "/stitch/$1"
-    },
-    {
       "source": "/",
       "has": [
         {
@@ -49,11 +41,11 @@
           "value": "app"
         }
       ],
-      "destination": "/index.html"
+      "destination": "/index"
     },
     {
       "source": "/",
-      "destination": "/stitch/splash-premium-v1/code.html"
+      "destination": "/stitch/splash-premium-v1/code"
     }
   ],
   "headers": [

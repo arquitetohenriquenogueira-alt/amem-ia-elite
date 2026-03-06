@@ -6,54 +6,47 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>Bíblia Sagrada - Amém</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;900&family=Inter:wght@400;700;800&display=swap"
-        rel="stylesheet" />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
     <script src="/FRONTEND/stitch/theme-switcher.js" type="module"></script>
     <link rel="stylesheet" href="/public/styles/global.css">
-    <svg width="0" height="0" class="absolute">
-        <defs>
-            <clipPath id="heart-path" clipPathUnits="objectBoundingBox">
-                <path d="M0.5,0.2 C0.4,0,0,0,0,0.4 C0,0.75,0.3,0.85,0.5,1 C0.7,0.85,1,0.75,1,0.4 C1,0,0.6,0,0.5,0.2"></path>
-            </clipPath>
-        </defs>
-    </svg>
     <script id="tailwind-config">
         tailwind.config = {
+            darkMode: 'class',
             theme: {
                 extend: {
                     colors: {
-                        "royal-navy": "#050B18",
-                        "premium-gold": "#C8A951",
-                        "gold-glow": "#E5D296",
+                        navy: {
+                            deep: '#050B18',
+                            surface: '#0D1B3E'
+                        },
+                        gold: {
+                            premium: '#C8A951',
+                            hover: '#B5963E'
+                        },
+                        stone: {
+                            offwhite: '#FAF7F0'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif']
                     }
                 }
             }
         }
     </script>
-    <style type="text/tailwindcss">
-        @layer base {
-            body {
-                @apply bg-[#050B18] text-white transition-colors duration-300;
-            }
-            .dark body {
-                @apply bg-[#050B18] text-white;
-            }
-        }
-        .main-container {
-            @apply flex-1 bg-[#050B18] p-6 shadow-inner relative z-10;
-        }
-        .dark .main-container {
-            @apply bg-[#050B18];
-        }
+    <style>
         .glass-card {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            background: rgba(255, 255, 255, 0.6);
+            border: 1px solid rgba(200, 169, 81, 0.2);
             border-radius: 24px;
+            -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(20px);
+        }
+        .dark .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
         .gold-gradient {
             background: linear-gradient(135deg, #C8A951 0%, #E5D296 100%);
@@ -62,28 +55,28 @@
     </style>
 </head>
 
-<body class="antialiased">
+<body class="antialiased font-sans bg-stone-offwhite dark:bg-navy-deep text-slate-800 dark:text-white transition-colors duration-500">
     <div
-        class="relative flex h-screen w-full max-w-[430px] mx-auto flex-col bg-[#FAF7F0] dark:bg-[#050B18] overflow-hidden shadow-2xl border-[8px] border-[#050B18]/5 dark:border-white/5 rounded-[3rem]">
+        class="relative flex h-screen w-full max-w-[430px] mx-auto flex-col bg-stone-offwhite dark:bg-navy-deep overflow-hidden shadow-2xl border-[8px] border-navy-deep/5 dark:border-white/5 rounded-[3rem]">
         <header
-            class="bg-[#FAF7F0] dark:bg-[#050B18] px-6 pt-12 pb-4 flex flex-col items-center border-b border-[#050B18]/5 dark:border-white/5 sticky top-0 z-20 transition-colors">
+            class="bg-stone-offwhite dark:bg-navy-deep px-6 pt-12 pb-4 flex flex-col items-center border-b border-navy-deep/5 dark:border-white/5 sticky top-0 z-20 transition-colors">
             <div class="flex items-center justify-between w-full mb-4">
                 <button
-                    class="flex size-10 items-center justify-center bg-[#050B18]/5 dark:bg-white/5 rounded-[12px] text-[#050B18] dark:text-white transition-colors"
+                    class="flex size-10 items-center justify-center bg-slate-100 dark:bg-white/5 rounded-xl text-slate-800 dark:text-white transition-colors"
                     onclick="window.location.href='../kids-modo-2/code.html'">
                     <span class="material-symbols-outlined font-bold">arrow_back</span>
                 </button>
                 <div class="flex flex-col items-center">
-                    <div class="size-10 bg-premium-gold/10 heart-clip flex items-center justify-center mb-1">
-                        <span class="material-symbols-outlined text-premium-gold text-xl font-black symbol-filled">church</span>
+                    <div class="size-10 bg-gold-premium/10 rounded-full flex items-center justify-center mb-1">
+                        <span class="material-symbols-outlined text-gold-premium text-xl font-black symbol-filled">church</span>
                     </div>
-                    <h2 class="text-[#050B18] font-serif text-lg font-bold uppercase tracking-tight leading-none">
-                        Amém</h2>
-                    <span class="text-[10px] font-black uppercase tracking-widest text-premium-gold mt-1">Portal da
+                    <h2 class="text-slate-900 dark:text-white font-serif text-lg font-black uppercase tracking-tight leading-none">
+                        Amém<span class="text-gold-premium italic">IA</span></h2>
+                    <span class="text-[10px] font-black uppercase tracking-widest text-gold-premium mt-1">Portal da
                         Bíblia</span>
                 </div>
-                <button onclick="toggleTheme()"
-                    class="size-10 flex items-center justify-center rounded-full bg-[#050B18]/5 dark:bg-white/5 text-[#050B18] dark:text-white transition-colors">
+                <button onclick="document.documentElement.classList.toggle('dark')"
+                    class="size-10 flex items-center justify-center rounded-full bg-slate-100 dark:bg-white/5 text-slate-800 dark:text-white transition-colors">
                     <span class="material-symbols-outlined font-black dark:hidden">dark_mode</span>
                     <span class="material-symbols-outlined font-black hidden dark:block">light_mode</span>
                 </button>
@@ -92,49 +85,49 @@
 
         <main class="flex-1 p-6 space-y-8 flex flex-col items-stretch">
             <div
-                class="bg-white dark:bg-white/5 rounded-[32px] p-8 text-center space-y-6 shadow-2xl border border-premium-gold/10">
+                class="glass-card p-8 text-center space-y-6">
                 <div
                     class="size-20 gold-gradient rounded-full mx-auto flex items-center justify-center shadow-[0_10px_30px_rgba(200,169,81,0.3)]">
-                    <span class="material-symbols-outlined text-royal-navy text-4xl symbol-filled">auto_stories</span>
+                    <span class="material-symbols-outlined text-navy-deep text-4xl symbol-filled">auto_stories</span>
                 </div>
                 <div class="space-y-2">
-                    <h2 class="text-2xl font-black text-royal-navy leading-tight dark:text-white">Mergulhe na Palavra</h2>
-                    <div class="w-12 h-1 bg-premium-gold/30 mx-auto rounded-full"></div>
+                    <h2 class="text-2xl font-serif font-black text-slate-900 leading-tight dark:text-white">Mergulhe na Palavra</h2>
+                    <div class="w-12 h-1 bg-gold-premium/30 mx-auto rounded-full"></div>
                 </div>
-                <p class="text-royal-navy/70 text-base leading-relaxed font-medium dark:text-white/70">
+                <p class="text-slate-500 text-base leading-relaxed font-medium dark:text-white/70">
                     Explore a Bíblia NVI com a clareza e autoridade que sua caminhada exige.
                 </p>
                 <div class="pt-2">
                     <span
-                        class="bg-premium-gold/10 px-5 py-2.5 rounded-full text-[10px] font-black uppercase tracking-widest text-premium-gold border border-premium-gold/20">Acesso Premium Ativo</span>
+                        class="bg-gold-premium/10 px-5 py-2.5 rounded-full text-[10px] font-black uppercase tracking-widest text-gold-premium border border-gold-premium/20">Acesso Premium Ativo</span>
                 </div>
             </div>
 
             <!-- Grid with better symmetry -->
             <div class="grid grid-cols-2 gap-4 w-full" id="books-grid">
                 <div onclick="openBook('gn', 'Gênesis')"
-                    class="glass-card p-6 flex flex-col items-center justify-center text-center gap-4 active:scale-95 transition-all cursor-pointer hover:border-premium-gold/30">
+                    class="glass-card p-6 flex flex-col items-center justify-center text-center gap-4 active:scale-95 transition-all cursor-pointer hover:border-gold-premium/30">
                     <div
-                        class="size-12 rounded-2xl bg-white/5 flex items-center justify-center text-premium-gold border border-premium-gold/10">
+                        class="size-12 rounded-2xl bg-gold-premium/10 flex items-center justify-center text-gold-premium border border-gold-premium/10">
                         <span class="material-symbols-outlined text-2xl font-black">book</span>
                     </div>
                     <div>
-                        <h3 class="font-black text-sm text-[#050B18] dark:text-white">Gênesis</h3>
+                        <h3 class="font-black text-sm text-slate-900 dark:text-white">Gênesis</h3>
                         <p
-                            class="text-[9px] font-black uppercase tracking-widest text-[#050B18]/60 dark:text-white/60 mt-1">
+                            class="text-[9px] font-black uppercase tracking-widest text-slate-500 dark:text-white/60 mt-1">
                             50 Capítulos</p>
                     </div>
                 </div>
                 <div onclick="openBook('sl', 'Salmos')"
-                    class="glass-card p-6 flex flex-col items-center justify-center text-center gap-4 active:scale-95 transition-all cursor-pointer hover:border-premium-gold/30">
+                    class="glass-card p-6 flex flex-col items-center justify-center text-center gap-4 active:scale-95 transition-all cursor-pointer hover:border-gold-premium/30">
                     <div
-                        class="size-12 rounded-2xl bg-white/5 flex items-center justify-center text-premium-gold border border-premium-gold/10">
+                        class="size-12 rounded-2xl bg-gold-premium/10 flex items-center justify-center text-gold-premium border border-gold-premium/10">
                         <span class="material-symbols-outlined text-2xl font-black">book</span>
                     </div>
                     <div>
-                        <h3 class="font-black text-sm text-[#050B18] dark:text-white">Salmos</h3>
+                        <h3 class="font-black text-sm text-slate-900 dark:text-white">Salmos</h3>
                         <p
-                            class="text-[9px] font-black uppercase tracking-widest text-[#050B18]/60 dark:text-white/60 mt-1">
+                            class="text-[9px] font-black uppercase tracking-widest text-slate-500 dark:text-white/60 mt-1">
                             150 Capítulos</p>
                     </div>
                 </div>
@@ -142,16 +135,16 @@
         </main>
         <!-- Reading View (Hidden by default) -->
         <div id="reading-view"
-            class="hidden fixed inset-0 z-[60] bg-[#FAF7F0] dark:bg-[#050B18] flex flex-col max-w-[430px] mx-auto">
+            class="hidden fixed inset-0 z-[60] bg-stone-offwhite dark:bg-navy-deep flex flex-col max-w-[430px] mx-auto">
             <header
-                class="px-6 pt-12 pb-4 flex items-center justify-between border-b border-[#050B18]/5 dark:border-white/5">
+                class="px-6 pt-12 pb-4 flex items-center justify-between border-b border-navy-deep/5 dark:border-white/5">
                 <button onclick="closeBook()"
-                    class="size-10 flex items-center justify-center bg-[#050B18]/5 dark:bg-white/5 rounded-xl text-royal-navy dark:text-white">
+                    class="size-10 flex items-center justify-center bg-slate-100 dark:bg-white/5 rounded-xl text-slate-800 dark:text-white">
                     <span class="material-symbols-outlined">close</span>
                 </button>
                 <div class="text-center">
                     <h2 id="reading-book-title"
-                        class="font-serif text-lg font-bold uppercase tracking-tight text-royal-navy dark:text-white">
+                        class="font-serif text-lg font-bold uppercase tracking-tight text-slate-900 dark:text-white">
                     </h2>
                 <div id="chapter-selector" class="grid grid-cols-5 gap-4 py-6 max-h-[300px] overflow-y-auto no-scrollbar"></div>
                 </div>
@@ -209,7 +202,7 @@
             selector.innerHTML = '';
             currentBook.chapters.forEach((_, idx) => {
                 const btn = document.createElement('button');
-                btn.className = "size-10 rounded-full bg-[#050B18]/5 dark:bg-white/10 text-[#050B18] dark:text-white text-xs font-bold flex items-center justify-center border border-[#050B18]/10 dark:border-white/10 active:bg-premium-gold active:text-white transition-all hover:border-premium-gold/50";
+                btn.className = "size-10 rounded-full bg-slate-100 dark:bg-white/10 text-slate-800 dark:text-white text-xs font-bold flex items-center justify-center border border-navy-deep/10 dark:border-white/10 active:bg-gold-premium active:text-white transition-all hover:border-gold-premium/50";
                 btn.innerText = idx + 1;
                 btn.onclick = () => showChapter(idx);
                 selector.appendChild(btn);
@@ -220,12 +213,12 @@
 
         function showChapter(idx) {
             const container = document.getElementById('verses-container');
-            container.innerHTML = `<h3 class="text-premium-gold font-bold mb-4">Capítulo ${idx + 1}</h3>`;
+            container.innerHTML = `<h3 class="text-gold-premium font-serif text-xl font-bold mb-4">Capítulo ${idx + 1}</h3>`;
 
             currentBook.chapters[idx].forEach((verse, vIdx) => {
                 const p = document.createElement('p');
-                p.className = "text-royal-navy dark:text-white/80 leading-relaxed text-sm";
-                p.innerHTML = `<span class="text-premium-gold font-bold mr-2">${vIdx + 1}</span>${verse}`;
+                p.className = "text-slate-900 dark:text-white/80 leading-relaxed text-sm";
+                p.innerHTML = `<span class="text-gold-premium font-bold mr-2">${vIdx + 1}</span>${verse}`;
                 container.appendChild(p);
             });
             container.scrollTop = 0;
