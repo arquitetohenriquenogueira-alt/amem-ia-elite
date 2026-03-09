@@ -7,10 +7,21 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="/FRONTEND/public/styles/global.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <style>
+        .logo-aura {
+            filter: drop-shadow(0 0 30px rgba(200, 169, 81, 0.4));
+            animation: pulse-led 4s infinite ease-in-out;
+        }
+        @keyframes pulse-led {
+            0%, 100% { opacity: 0.8; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.05); }
+        }
+    </style>
 </head>
 <body class="bg-[#0b0f19] text-white min-h-screen flex items-center justify-center p-6">
     <div class="w-full max-w-md bg-white/5 border border-white/10 p-8 rounded-[32px] backdrop-blur-xl animate-fade-in">
         <div class="text-center mb-10">
+            <img src="/public/assets/logo-ungidos-v3.png" alt="Amém Ungidos" class="w-28 h-28 object-contain logo-aura mx-auto mb-6">
             <h1 class="text-32 font-black uppercase tracking-tight mb-2">Acesso <span class="text-premium-gold">Ungido</span></h1>
             <p class="text-white/50 lowercase">Acesse sua jornada de maturidade espiritual.</p>
         </div>
