@@ -85,13 +85,7 @@ h4,
     -webkit-tap-highlight-color: transparent;
 }
 
-h1, h2, h3, h4, .text-premium {
-    color: var(--color-text-primary) !important;
-}
-
-p, span:not(.material-symbols-outlined):not([style*="color"]), .text-secondary {
-    color: var(--color-text-secondary);
-}
+/* Tailwind irá controlar as cores (removido override global) */
 
 /* Feedback Visual Global */
 button, a, .clickable, .premium-card[onclick] {

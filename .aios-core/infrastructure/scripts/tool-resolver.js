@@ -1,10 +1,10 @@
 const fs = require('fs-extra');
 const path = require('path');
 const yaml = require('js-yaml');
-const glob = require('glob');
+const fg = require('fast-glob');
 
 /**
- * ToolResolver - Resolves and loads AIOS tools from file system
+ * ToolResolver - Resolves and loads AIOX tools from file system
  *
  * Features:
  * - Map-based caching for performance (<5ms cached lookups)
@@ -23,7 +23,7 @@ class ToolResolver {
 
     // Base search paths (in priority order)
     this.basePaths = [
-      'aios-core/tools',
+      'aiox-core/tools',
       'common/tools',
       // Squad paths added dynamically during resolution
     ];
@@ -55,7 +55,7 @@ class ToolResolver {
     // 3. Find tool file using glob (searches subdirectories)
     let toolPath = null;
     for (const basePath of searchPaths) {
-      const candidates = glob.sync(`${basePath}/**/${toolName}.yaml`);
+      const candidates = fg.sync(`${basePath}/**/${toolName}.yaml`);
       if (candidates.length > 0) {
         toolPath = candidates[0];
         break;
@@ -288,7 +288,7 @@ class ToolResolver {
   listAvailableTools() {
     const allTools = [];
     for (const basePath of this.basePaths) {
-      const tools = glob.sync(`${basePath}/**/*.yaml`);
+      const tools = fg.sync(`${basePath}/**/*.yaml`);
       allTools.push(...tools);
     }
     return allTools;
@@ -309,7 +309,7 @@ class ToolResolver {
     searchPaths.push(...this.basePaths);
 
     for (const basePath of searchPaths) {
-      const candidates = glob.sync(`${basePath}/**/${toolName}.yaml`);
+      const candidates = fg.sync(`${basePath}/**/${toolName}.yaml`);
       if (candidates.length > 0) {
         return true;
       }
@@ -331,7 +331,7 @@ class ToolResolver {
    */
   resetSearchPaths() {
     this.basePaths = [
-      'aios-core/tools',
+      'aiox-core/tools',
       'common/tools',
     ];
   }
