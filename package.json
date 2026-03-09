@@ -11,8 +11,7 @@
     "sync:ide": "node .aios-core/development/scripts/unified-activation-pipeline.js",
     "sync:ide:gemini": "node .aios-core/development/scripts/unified-activation-pipeline.js --ide gemini",
     "validate:agents": "node .aios-core/development/scripts/audit-agent-config.js",
-    "aios:doctor": "npx aios-core doctor",
-    "prepare": "husky"
+    "aios:doctor": "npx aios-core doctor"
   },
   "keywords": [
     "bible",
