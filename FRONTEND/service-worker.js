@@ -1,4 +1,4 @@
-﻿const CACHE_NAME = 'amem-ungidos-v3';
+﻿const CACHE_NAME = 'amem-ungidos-v4';
 const ASSETS_TO_CACHE = [
     '/',
     '/index.html',
