@@ -7,6 +7,7 @@
     <title>Amém - Ungidos Splash</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../../public/styles/global.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <script id="tailwind-config">
         tailwind.config = {
@@ -25,51 +26,6 @@
         }
     </script>
     <style>
-        .heart-shape {
-            background-color: #0D1B3E;
-            display: inline-block;
-            height: 380px;
-            margin: 0 10px;
-            position: relative;
-            top: 0;
-            transform: rotate(-45deg);
-            width: 380px;
-            box-shadow: 0 0 60px rgba(0, 0, 0, 0.5);
-            background: linear-gradient(135deg, #0D1B3E 0%, #050B18 100%);
-        }
-
-        .heart-shape:before,
-        .heart-shape:after {
-            content: "";
-            background: inherit;
-            border-radius: 50%;
-            height: 380px;
-            position: absolute;
-            width: 380px;
-        }
-
-        .heart-shape:before {
-            top: -190px;
-            left: 0;
-        }
-
-        .heart-shape:after {
-            left: 190px;
-            top: 0;
-        }
-
-        .logo-content {
-            transform: rotate(45deg);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100%;
-            width: 100%;
-            position: relative;
-            z-index: 20;
-        }
-
         @keyframes pulse-gold {
             0%, 100% { opacity: 0.8; transform: scale(1); filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.4)); }
             50% { opacity: 1; transform: scale(1.05); filter: drop-shadow(0 0 40px rgba(212, 175, 55, 0.7)); }
@@ -87,7 +43,9 @@
         
         <!-- Master Heart Container -->
         <div class="relative flex flex-col items-center justify-center mt-[-100px]">
-             <img src="/public/assets/logo-premium.png" alt="Amém Ungidos" class="w-48 h-48 md:w-56 md:h-56 object-contain logo-aura logo-heart-mask bg-navy-deep relative z-10 mb-[-10px]">
+             <div class="elite-heart-v2 logo-aura relative z-10 mb-[-10px] w-48 h-48 md:w-56 md:h-56">
+                <img src="/public/assets/logo-premium.png" alt="Amém Ungidos">
+             </div>
              <h2 class="text-6xl font-black uppercase tracking-tighter mt-[-20px] relative z-20">Amém</h2>
              <h2 class="text-2xl font-black uppercase tracking-[0.5em] text-premium-gold/50 mt-2 relative z-20">Ungidos</h2>
         </div>
