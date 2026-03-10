@@ -1,21 +1,17 @@
-﻿const CACHE_NAME = 'amem-ungidos-v9-nuclear-fix';
+﻿const CACHE_NAME = 'amem-ia-v10-elite-ultimate';
 const ASSETS_TO_CACHE = [
     '/',
     '/index.html',
     '/login.html',
     '/signup.html',
+    '/admin_lobby.html',
+    '/admin/dashboard.html',
     '/public/styles/global.css',
     '/public/scripts/quiz.js',
-    '/public/scripts/supabase_client.js',
-    '/assets/logo-premium.png',
-    '/public/assets/kids_journey_bg.png',
-    '/stitch/menu_mais.html',
-    '/stitch/kids/kids-prayers.html',
-    '/stitch/kids/parental-gate.js',
-    '/stitch/kids/kids-audio-engine.js',
-    '/stitch/ungidos_v2/checkin_emocional.html',
-    '/stitch/ungidos_v2/mentor_ia_response.html',
-    'https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Poppins:wght@700;800&display=swap',
+    '/public/scripts/auth_service.js',
+    '/public/scripts/route-guard.js',
+    '/public/chat-pastor.js',
+    'https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Poppins:wght@700;800&family=Playfair+Display:wght@700;900&display=swap',
     'https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0'
 ];
 

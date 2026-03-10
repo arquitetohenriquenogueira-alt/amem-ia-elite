@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Central de Comando - Amém IA Supremo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: { deep: '#050B18', surface: '#0A0F1E' },
+                        gold: { premium: '#C8A951', light: '#FFE4A3' }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.05); }
+        .gold-border { border: 1px solid rgba(200, 169, 81, 0.2); }
+        .gold-text { color: #C8A951; }
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-thumb { background: #C8A951; border-radius: 10px; }
+    </style>
+</head>
+<body class="bg-navy-deep text-white font-sans min-h-screen">
+    <!-- Sidebar -->
+    <aside class="fixed left-0 top-0 h-full w-20 md:w-64 glass border-r border-white/5 flex flex-col items-center py-8 z-50">
+            <div class="w-12 h-12 bg-gradient-to-br from-gold-light to-gold-premium rounded-xl flex items-center justify-center" style="-webkit-mask-image: url('data:image/svg+xml;utf8,<svg viewBox=\'0 0 24 24\' xmlns=\'http://www.w3.org/2000/svg\'><path d=\'M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z\'/></svg>'); mask-image: url('data:image/svg+xml;utf8,<svg viewBox=\'0 0 24 24\' xmlns=\'http://www.w3.org/2000/svg\'><path d=\'M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z\'/></svg>');">
+               <span class="material-symbols-outlined text-navy-deep font-black">cross</span>
+            </div>
+        </div>
+        <nav class="flex flex-col gap-6 w-full px-4">
+            <a href="#" class="flex items-center gap-4 p-3 bg-gold-premium/10 rounded-xl text-gold-premium">
+                <span class="material-symbols-outlined">dashboard</span>
+                <span class="hidden md:block font-bold uppercase text-[10px] tracking-widest">Geral</span>
+            </a>
+            <a href="../index.html" class="flex items-center gap-4 p-3 hover:bg-white/5 rounded-xl transition-all">
+                <span class="material-symbols-outlined">rocket_launch</span>
+                <span class="hidden md:block font-bold uppercase text-[10px] tracking-widest text-white/50">Abrir App</span>
+            </a>
+            <a href="../marketing_dashboard.html" class="flex items-center gap-4 p-3 hover:bg-white/5 rounded-xl transition-all">
+                <span class="material-symbols-outlined">auto_awesome</span>
+                <span class="hidden md:block font-bold uppercase text-[10px] tracking-widest text-white/50">Marketing</span>
+            </a>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="ml-20 md:ml-64 p-8">
+        <!-- Header -->
+        <header class="flex justify-between items-center mb-12">
+            <div>
+                <h1 class="text-3xl font-serif font-black tracking-tight mb-2">Central de <span class="gold-text">Comando</span></h1>
+                <p class="text-white/40 uppercase text-[10px] tracking-[0.4em] font-bold">Amém IA Elite System</p>
+            </div>
+            <div class="flex items-center gap-4">
+                <div class="text-right hidden sm:block">
+                    <p class="text-sm font-bold">Henrique Nogueira</p>
+                    <p class="text-[10px] gold-text font-black uppercase tracking-widest">Sumaúma Admin</p>
+                </div>
+                <div class="w-12 h-12 rounded-full glass flex items-center justify-center border border-gold-premium/30">
+                    <span class="material-symbols-outlined gold-text text-3xl">shield_person</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Stats Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+            <div class="glass p-6 rounded-3xl gold-border">
+                <div class="flex justify-between items-start mb-4">
+                    <span class="material-symbols-outlined gold-text p-2 bg-gold-premium/10 rounded-xl">dns</span>
+                    <span class="text-xs font-black text-green-400">ONLINE</span>
+                </div>
+                <h3 class="text-3xl font-black mb-1">100%</h3>
+                <p class="text-white/40 text-[10px] uppercase font-bold tracking-widest">Status Servidor</p>
+            </div>
+            <div class="glass p-6 rounded-3xl gold-border">
+                <div class="flex justify-between items-start mb-4">
+                    <span class="material-symbols-outlined gold-text p-2 bg-gold-premium/10 rounded-xl">group</span>
+                    <span class="text-xs font-black text-gold-premium">+12%</span>
+                </div>
+                <h3 class="text-3xl font-black mb-1">1.284</h3>
+                <p class="text-white/40 text-[10px] uppercase font-bold tracking-widest">Leads Ungidos</p>
+            </div>
+            <div class="glass p-6 rounded-3xl gold-border">
+                <div class="flex justify-between items-start mb-4">
+                    <span class="material-symbols-outlined gold-text p-2 bg-gold-premium/10 rounded-xl">chat</span>
+                    <span class="text-xs font-black text-gold-premium">98%</span>
+                </div>
+                <h3 class="text-3xl font-black mb-1">4.522</h3>
+                <p class="text-white/40 text-[10px] uppercase font-bold tracking-widest">Interações IA</p>
+            </div>
+            <div class="glass p-6 rounded-3xl gold-border">
+                <div class="flex justify-between items-start mb-4">
+                    <span class="material-symbols-outlined gold-text p-2 bg-gold-premium/10 rounded-xl">payments</span>
+                    <span class="text-xs font-black text-green-400">ESTÁVEL</span>
+                </div>
+                <h3 class="text-3xl font-black mb-1">R$ 42k</h3>
+                <p class="text-white/40 text-[10px] uppercase font-bold tracking-widest">Volume Ticto (Mês)</p>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- IA Agent Control -->
+            <div class="lg:col-span-2 space-y-8">
+                <section class="glass p-8 rounded-[32px] border border-white/5 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 p-8">
+                         <span class="material-symbols-outlined gold-text text-8xl opacity-10">smart_toy</span>
+                    </div>
+                    <div class="relative z-10">
+                        <div class="flex justify-between items-center mb-8">
+                            <h2 class="text-xl font-bold uppercase tracking-widest">Gestão de Agentes <span class="gold-text">IA</span></h2>
+                            <span class="px-3 py-1 bg-green-500/20 text-green-400 text-[10px] font-black rounded-full border border-green-500/30">ATIVO</span>
+                        </div>
+                        <div class="space-y-6">
+                            <div class="flex items-center justify-between p-4 bg-white/5 rounded-2xl border border-white/5">
+                                <div class="flex items-center gap-4">
+                                    <div class="w-10 h-10 bg-gold-premium rounded-xl flex items-center justify-center text-navy-deep font-black">P</div>
+                                    <div>
+                                        <p class="font-bold">Pastor IA</p>
+                                        <p class="text-[10px] text-white/40 uppercase tracking-widest">Modelo: Gemini 1.5 Flash</p>
+                                    </div>
+                                </div>
+                                <div class="flex gap-2">
+                                    <button class="px-3 py-2 bg-gold-premium text-navy-deep text-[10px] font-black rounded-lg hover:scale-105 transition-all uppercase">Ver Logs</button>
+                                    <button class="px-3 py-2 bg-white/5 text-white text-[10px] font-black rounded-lg hover:bg-white/10 transition-all uppercase">Reiniciar</button>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between p-4 bg-white/5 rounded-2xl border border-white/5 opacity-50">
+                                <div class="flex items-center gap-4">
+                                    <div class="w-10 h-10 bg-slate-600 rounded-xl flex items-center justify-center text-white font-black">K</div>
+                                    <div>
+                                        <p class="font-bold">Modo Sementinha (Kids)</p>
+                                        <p class="text-[10px] text-white/40 uppercase tracking-widest">Status: Standby</p>
+                                    </div>
+                                </div>
+                                <button class="px-3 py-2 bg-white/5 text-white text-[10px] font-black rounded-lg uppercase">Ativar</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="glass p-8 rounded-[32px] border border-white/5">
+                    <h2 class="text-xl font-bold uppercase tracking-widest mb-8">Ultimas Auditorias <span class="gold-text">Sentinel</span></h2>
+                    <div class="space-y-4">
+                        <div class="flex gap-4 p-4 border-b border-white/5">
+                            <span class="material-symbols-outlined text-green-400">check_circle</span>
+                            <div>
+                                <p class="text-sm font-medium">Padronização de Logo Elite V2 concluída.</p>
+                                <p class="text-[10px] text-white/40 uppercase tracking-widest">Faz 15 minutos • Sucesso</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4 p-4 border-b border-white/5">
+                            <span class="material-symbols-outlined text-gold-premium">warning</span>
+                            <div>
+                                <p class="text-sm font-medium">Latência de API Gemini acima do normal (1.2s).</p>
+                                <p class="text-[10px] text-white/40 uppercase tracking-widest">Faz 1 hora • Alerta</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Lead Overview -->
+            <aside class="space-y-8">
+                <section class="glass p-8 rounded-[32px] border border-white/5 h-full">
+                    <h2 class="text-xl font-bold uppercase tracking-widest mb-8">Novos <span class="gold-text">Leads</span></h2>
+                    <div class="space-y-6">
+                        <div class="p-4 bg-white/5 rounded-2xl border border-gold-premium/20">
+                            <p class="font-bold mb-1">Ricardo Alcantara</p>
+                            <p class="text-[10px] text-gold-premium uppercase font-black tracking-widest mb-3">Nível 4: Ungido Fiel</p>
+                            <div class="flex justify-between items-center text-[10px] text-white/40">
+                                <span>ricardo@email.com</span>
+                                <span>Agora</span>
+                            </div>
+                        </div>
+                        <div class="p-4 bg-white/5 rounded-2xl border border-white/5">
+                            <p class="font-bold mb-1">Marta Silva</p>
+                            <p class="text-[10px] text-white/40 uppercase font-black tracking-widest mb-3">Nível 1: Sementinha</p>
+                            <div class="flex justify-between items-center text-[10px] text-white/40">
+                                <span>marta.s@email.com</span>
+                                <span>12 min atrás</span>
+                            </div>
+                        </div>
+                        <div class="p-4 bg-white/5 rounded-2xl border border-white/5">
+                            <p class="font-bold mb-1">Pastor Jonas</p>
+                            <p class="text-[10px] text-white/40 uppercase font-black tracking-widest mb-3">Nível 10: Elite</p>
+                            <div class="flex justify-between items-center text-[10px] text-white/40">
+                                <span>jonas@igreja.org</span>
+                                <span>45 min atrás</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="w-full mt-8 py-4 glass border-gold-premium/30 hover:bg-gold-premium/10 transition-all rounded-2xl text-[10px] font-black uppercase tracking-widest gold-text">Exportar CSV (Leads)</button>
+                </section>
+            </aside>
+        </div>
+
+        <!-- Quick Access Hub -->
+        <section class="mt-12">
+            <h2 class="text-xl font-bold uppercase tracking-widest mb-8">Hub de <span class="gold-text">Operação</span></h2>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                <a href="../index.html" class="glass p-4 rounded-2xl text-center hover:bg-gold-premium/10 transition-all group">
+                    <span class="material-symbols-outlined text-2xl group-hover:scale-110 transition-transform mb-2 block">home</span>
+                    <span class="text-[10px] font-bold uppercase tracking-widest">Home</span>
+                </a>
+                <a href="../login.html" class="glass p-4 rounded-2xl text-center hover:bg-gold-premium/10 transition-all group">
+                    <span class="material-symbols-outlined text-2xl group-hover:scale-110 transition-transform mb-2 block">lock_open</span>
+                    <span class="text-[10px] font-bold uppercase tracking-widest">Auth</span>
+                </a>
+                <a href="../stitch/dashboard/code.html" class="glass p-4 rounded-2xl text-center hover:bg-gold-premium/10 transition-all group">
+                    <span class="material-symbols-outlined text-2xl group-hover:scale-110 transition-transform mb-2 block">apps</span>
+                    <span class="text-[10px] font-bold uppercase tracking-widest">App Hub</span>
+                </a>
+                <a href="../stitch/pastor_ia/code.html" class="glass p-4 rounded-2xl text-center hover:bg-gold-premium/10 transition-all group">
+                    <span class="material-symbols-outlined text-2xl group-hover:scale-110 transition-transform mb-2 block">robot_2</span>
+                    <span class="text-[10px] font-bold uppercase tracking-widest">Pastor</span>
+                </a>
+                <a href="../stitch/portal-biblia/code.html" class="glass p-4 rounded-2xl text-center hover:bg-gold-premium/10 transition-all group">
+                    <span class="material-symbols-outlined text-2xl group-hover:scale-110 transition-transform mb-2 block">menu_book</span>
+                    <span class="text-[10px] font-bold uppercase tracking-widest">Biblia</span>
+                </a>
+                <a href="../stitch/comunidade-v1.html" class="glass p-4 rounded-2xl text-center hover:bg-gold-premium/10 transition-all group">
+                    <span class="material-symbols-outlined text-2xl group-hover:scale-110 transition-transform mb-2 block">groups_3</span>
+                    <span class="text-[10px] font-bold uppercase tracking-widest">Social</span>
+                </a>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

@@ -1,37 +1,37 @@
 /* [🛡️] ARQUIVO DE EMERGÊNCIA: FIX TOTAL LOGO */
 
 .elite-heart-v2 {
-    position: relative;
-    display: inline-flex !important;
-    align-items: center;
-    justify-content: center;
-    
-    /* SEGURANÇA MÁXIMA: 40% de padding na base para que o texto nunca seja cortado */
-    padding: 10% 10% 40% 10% !important; 
-    box-sizing: border-box !important;
-    
-    background: linear-gradient(135deg, #FFE4A3 0%, #C8A951 45%, #8A6E2F 100%);
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5), 0 0 20px rgba(200, 169, 81, 0.3);
-    
-    /* Máscara de Coração Única no Container Pai */
-    -webkit-mask-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>');
-    mask-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>');
-    -webkit-mask-size: 100% 100%;
-    mask-size: 100% 100%;
-    -webkit-mask-repeat: no-repeat;
-    mask-repeat: no-repeat;
+  position: relative;
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+
+  /* SEGURANÇA MÁXIMA: 40% de padding na base para que o texto nunca seja cortado */
+  padding: 10% 10% 40% 10% !important;
+  box-sizing: border-box !important;
+
+  background: linear-gradient(135deg, #ffe4a3 0%, #c8a951 45%, #8a6e2f 100%);
+  box-shadow:
+    0 10px 40px rgba(0, 0, 0, 0.5),
+    0 0 20px rgba(200, 169, 81, 0.3);
+
+  /* Máscara de Coração Única no Container Pai */
+  -webkit-mask-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>');
+  mask-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>');
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+
+.elite-heart-v2 svg {
+  display: block !important;
+  width: 60% !important;
+  height: 60% !important;
+  position: relative;
+  z-index: 10;
 }
 
 .elite-heart-v2 img {
-    display: block !important;
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: contain !important;
-    background: #050B18 !important;
-    position: relative;
-    z-index: 10;
-    
-    /* REMOVIDO: Nenhuma máscara interna aqui para não conflitar */
-    -webkit-mask-image: none !important;
-    mask-image: none !important;
+  display: none !important;
 }
