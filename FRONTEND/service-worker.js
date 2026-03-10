@@ -1,4 +1,4 @@
-﻿const CACHE_NAME = 'amem-ungidos-v7-elite-final';
+﻿const CACHE_NAME = 'amem-ungidos-v8-final-boss';
 const ASSETS_TO_CACHE = [
     '/',
     '/index.html',
