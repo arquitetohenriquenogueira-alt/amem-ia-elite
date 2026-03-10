@@ -20,7 +20,8 @@
     <svg width="0" height="0" class="absolute">
         <defs>
             <clipPath id="heart-path" clipPathUnits="objectBoundingBox">
-                <path d="M0.5,0.2 C0.4,0,0,0,0,0.4 C0,0.75,0.3,0.85,0.5,1 C0.7,0.85,1,0.75,1,0.4 C1,0,0.6,0,0.5,0.2"></path>
+                <path d="M0.5,0.2 C0.4,0,0,0,0,0.4 C0,0.75,0.3,0.85,0.5,1 C0.7,0.85,1,0.75,1,0.4 C1,0,0.6,0,0.5,0.2">
+                </path>
             </clipPath>
         </defs>
     </svg>
@@ -33,16 +34,56 @@
             --soft-pastel-green: #F0F7F4;
             --soft-pastel-gold: #FAF7F0;
         }
-        body { background-color: #FAF7F0; color: #050B18; transition-property: color, background-color, border-color, text-decoration-color, fill, stroke; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 300ms; }
-        .dark body { background-color: #050B18; color: #ffffff; }
-        h1, h2, .serif-title { font-family: 'Poppins', sans-serif; }
-        .bento-card { background-color: rgb(255 255 255 / 0.6); border-width: 1px; border-color: rgb(200 169 81 / 0.2); border-radius: 1rem; padding: 1.25rem; transition-property: all; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 300ms; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); -webkit-backdrop-filter: blur(20px); backdrop-filter: blur(20px); }
-        .dark .bento-card { background-color: rgb(255 255 255 / 0.05); border-color: rgb(255 255 255 / 0.05); }
-        .bento-card:active { transform: scale(0.98); }
+
+        body {
+            background-color: #FAF7F0;
+            color: #050B18;
+            transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 300ms;
+        }
+
+        .dark body {
+            background-color: #050B18;
+            color: #ffffff;
+        }
+
+        h1,
+        h2,
+        .serif-title {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .bento-card {
+            background-color: rgb(255 255 255 / 0.6);
+            border-width: 1px;
+            border-color: rgb(200 169 81 / 0.2);
+            border-radius: 1rem;
+            padding: 1.25rem;
+            transition-property: all;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 300ms;
+            box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(20px);
+        }
+
+        .dark .bento-card {
+            background-color: rgb(255 255 255 / 0.05);
+            border-color: rgb(255 255 255 / 0.05);
+        }
+
+        .bento-card:active {
+            transform: scale(0.98);
+        }
+
         .material-symbols-outlined {
             font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
         }
-        .symbol-filled { font-variation-settings: 'FILL' 1; }
+
+        .symbol-filled {
+            font-variation-settings: 'FILL' 1;
+        }
     </style>
     <script id="tailwind-config">
         tailwind.config = {
@@ -58,13 +99,66 @@
         }
     </script>
     <style>
-        .calendar-modal { position: fixed; top: 0; right: 0; bottom: 0; left: 0; z-index: 100; display: hidden; align-items: center; justify-content: center; padding: 1.5rem; background-color: rgba(10, 37, 64, 0.9); -webkit-backdrop-filter: blur(24px); backdrop-filter: blur(24px); }
-        .calendar-modal.flex { display: flex; }
-        .verse-card { background-color: rgb(255 255 255 / 0.8); border-width: 1px; border-color: rgb(200 169 81 / 0.2); border-radius: 24px; padding: 1.5rem; position: relative; overflow: hidden; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); }
-        .dark .verse-card { background-color: rgb(255 255 255 / 0.05); border-color: rgb(255 255 255 / 0.1); }
-        .conquest-card { background-color: rgb(255 255 255); border-width: 1px; border-color: rgb(0 0 0 / 0.05); border-radius: 28px; padding: 1.5rem; display: flex; flex-direction: column; align-items: center; text-align: center; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); }
-        .dark .conquest-card { background-color: rgb(255 255 255 / 0.05); border-color: rgb(255 255 255 / 0.1); }
-        .spotify-iframe { border-radius: 12px; width: 100%; height: 380px; border: none; }
+        .calendar-modal {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 100;
+            display: hidden;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+            background-color: rgba(10, 37, 64, 0.9);
+            -webkit-backdrop-filter: blur(24px);
+            backdrop-filter: blur(24px);
+        }
+
+        .calendar-modal.flex {
+            display: flex;
+        }
+
+        .verse-card {
+            background-color: rgb(255 255 255 / 0.8);
+            border-width: 1px;
+            border-color: rgb(200 169 81 / 0.2);
+            border-radius: 24px;
+            padding: 1.5rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+        }
+
+        .dark .verse-card {
+            background-color: rgb(255 255 255 / 0.05);
+            border-color: rgb(255 255 255 / 0.1);
+        }
+
+        .conquest-card {
+            background-color: rgb(255 255 255);
+            border-width: 1px;
+            border-color: rgb(0 0 0 / 0.05);
+            border-radius: 28px;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+        }
+
+        .dark .conquest-card {
+            background-color: rgb(255 255 255 / 0.05);
+            border-color: rgb(255 255 255 / 0.1);
+        }
+
+        .spotify-iframe {
+            border-radius: 12px;
+            width: 100%;
+            height: 380px;
+            border: none;
+        }
     </style>
     <style>
         body {
@@ -85,12 +179,14 @@
                 </button>
                 <div class="flex flex-col items-center">
                     <div class="size-12 bg-premium-gold/10 heart-clip flex items-center justify-center mb-1">
-                        <span class="material-symbols-outlined text-premium-gold text-2xl font-black symbol-filled">cross</span>
+                        <span
+                            class="material-symbols-outlined text-premium-gold text-2xl font-black symbol-filled">cross</span>
                     </div>
                     <h1
                         class="text-3xl font-black tracking-tight text-[#050B18] dark:text-white drop-shadow-[0_2px_10px_rgba(200,169,81,0.3)] uppercase leading-none">
                         Amém</h1>
-                    <span class="text-[10px] font-black uppercase tracking-[0.4em] text-premium-gold mt-1">Jornada de Ungidos</span>
+                    <span class="text-[10px] font-black uppercase tracking-[0.4em] text-premium-gold mt-1">Jornada de
+                        Ungidos</span>
                 </div>
                 <div class="flex items-center gap-2">
                     <button onclick="toggleTheme()"
@@ -107,8 +203,10 @@
             </div>
             <div class="w-full flex items-center justify-between px-2">
                 <div class="flex flex-col">
-                    <h2 id="greeting-text" class="text-xl font-black text-[#050B18] dark:text-white leading-tight">Bom dia, Amado</h2>
-                    <p class="text-[10px] font-black text-premium-gold uppercase tracking-widest">Sua jornada começa aqui</p>
+                    <h2 id="greeting-text" class="text-xl font-black text-[#050B18] dark:text-white leading-tight">Bom
+                        dia, Amado</h2>
+                    <p class="text-[10px] font-black text-premium-gold uppercase tracking-widest">Sua jornada começa
+                        aqui</p>
                 </div>
                 <div class="flex items-center gap-3">
                     <!-- Faith Streak UI -->
@@ -141,13 +239,15 @@
                             class="text-[10px] font-black uppercase tracking-[0.2em] text-[#050B18]/60 dark:text-white/60">Palavra
                             de Hoje</span>
                     </div>
-                    <h3 class="text-2xl font-serif font-black text-navy dark:text-white leading-tight mb-3">O Renovo nas Águas Tranquilas</h3>
+                    <h3 class="text-2xl font-serif font-black text-navy dark:text-white leading-tight mb-3">O Renovo nas
+                        Águas Tranquilas</h3>
                     <p
                         class="text-sm font-bold text-navy/70 dark:text-white/70 leading-relaxed mb-4 italic line-clamp-3">
                         "A graça de Deus é como um rio que nunca seca. Mesmo em tempos de seca, suas raízes encontrarão
                         o sustento se você permanecer nEle..."</p>
                     <div class="flex items-center justify-between pt-2">
-                        <span class="text-[9px] font-black text-premium-gold uppercase tracking-[0.15em]">Ler completo</span>
+                        <span class="text-[9px] font-black text-premium-gold uppercase tracking-[0.15em]">Ler
+                            completo</span>
                         <button onclick="window.location.href='/stitch/am_m_ia_bible_portal/code.html'"
                             class="size-8 rounded-full bg-premium-gold text-white flex items-center justify-center shadow-lg transform active:scale-90 transition-all">
                             <span class="material-symbols-outlined text-sm">arrow_forward</span>
@@ -213,23 +313,32 @@
             <section class="space-y-4">
                 <div class="flex items-center gap-2">
                     <span class="material-symbols-outlined text-premium-gold font-black">verified</span>
-                    <h3 class="font-serif text-lg font-black text-[#050B18] dark:text-white uppercase tracking-tight">Decretos de Vitória</h3>
+                    <h3 class="font-serif text-lg font-black text-[#050B18] dark:text-white uppercase tracking-tight">
+                        Decretos de Vitória</h3>
                 </div>
                 <div class="flex gap-4 overflow-x-auto no-scrollbar">
-                    <div class="min-w-[160px] bento-card bg-gradient-to-br from-premium-gold/20 to-transparent p-4 flex flex-col items-center text-center gap-2">
+                    <div
+                        class="min-w-[160px] bento-card bg-gradient-to-br from-premium-gold/20 to-transparent p-4 flex flex-col items-center text-center gap-2">
                         <span class="text-2xl">🦁</span>
-                        <h4 class="text-[10px] font-black uppercase tracking-widest text-[#050B18] dark:text-white">Coragem</h4>
+                        <h4 class="text-[10px] font-black uppercase tracking-widest text-[#050B18] dark:text-white">
+                            Coragem</h4>
                         <p class="text-[8px] font-bold text-premium-gold uppercase">Eu sou forte em Deus!</p>
                     </div>
-                    <div class="min-w-[160px] bento-card bg-gradient-to-br from-green-500/10 to-transparent p-4 flex flex-col items-center text-center gap-2">
+                    <div
+                        class="min-w-[160px] bento-card bg-gradient-to-br from-green-500/10 to-transparent p-4 flex flex-col items-center text-center gap-2">
                         <span class="text-2xl">🌿</span>
-                        <h4 class="text-[10px] font-black uppercase tracking-widest text-[#050B18] dark:text-white">Paz</h4>
-                        <p class="text-[8px] font-bold text-green-600 dark:text-green-400 uppercase">Minha mente descansa nEle</p>
+                        <h4 class="text-[10px] font-black uppercase tracking-widest text-[#050B18] dark:text-white">Paz
+                        </h4>
+                        <p class="text-[8px] font-bold text-green-600 dark:text-green-400 uppercase">Minha mente
+                            descansa nEle</p>
                     </div>
-                    <div class="min-w-[160px] bento-card bg-gradient-to-br from-blue-500/10 to-transparent p-4 flex flex-col items-center text-center gap-2">
+                    <div
+                        class="min-w-[160px] bento-card bg-gradient-to-br from-blue-500/10 to-transparent p-4 flex flex-col items-center text-center gap-2">
                         <span class="text-2xl">💎</span>
-                        <h4 class="text-[10px] font-black uppercase tracking-widest text-[#050B18] dark:text-white">Valor</h4>
-                        <p class="text-[8px] font-bold text-blue-600 dark:text-blue-400 uppercase">Eu sou imagem do Criador</p>
+                        <h4 class="text-[10px] font-black uppercase tracking-widest text-[#050B18] dark:text-white">
+                            Valor</h4>
+                        <p class="text-[8px] font-bold text-blue-600 dark:text-blue-400 uppercase">Eu sou imagem do
+                            Criador</p>
                     </div>
                 </div>
             </section>
@@ -304,7 +413,7 @@
                         <span class="material-symbols-outlined font-black">child_care</span>
                     </div>
                     <h3 class="text-[10px] font-black text-premium-gold uppercase tracking-widest text-center">Modo
-                        Sementinha</h3>
+                        Ungidos</h3>
                 </a>
                 <a href="/stitch/am_m_ia_kids_quiz_s_bios/code.html"
                     class="col-span-1 bento-card border-premium-gold/40 bg-premium-gold/10 flex flex-col items-center justify-center p-4 active:scale-95 transition-all">
@@ -333,7 +442,8 @@
                         <div class="absolute inset-0 bg-premium-gold/20 rounded-full blur-xl animate-pulse"></div>
                         <div
                             class="relative size-16 rounded-full bg-gradient-to-tr from-premium-gold to-yellow-200 flex items-center justify-center border-2 border-white/50 shadow-md">
-                            <span class="material-symbols-outlined text-white font-black text-2xl symbol-filled">auto_awesome</span>
+                            <span
+                                class="material-symbols-outlined text-white font-black text-2xl symbol-filled">auto_awesome</span>
                         </div>
                     </div>
                     <h4 class="text-deep-navy dark:text-white font-black text-sm uppercase leading-tight mb-1">Guerreiro
@@ -346,7 +456,8 @@
                         <div class="absolute inset-0 bg-blue-400/20 rounded-full blur-xl"></div>
                         <div
                             class="relative size-16 rounded-full bg-gradient-to-tr from-blue-500 to-blue-200 flex items-center justify-center border-2 border-white/50 shadow-md">
-                            <span class="material-symbols-outlined text-white font-black text-2xl symbol-filled">devices</span>
+                            <span
+                                class="material-symbols-outlined text-white font-black text-2xl symbol-filled">devices</span>
                         </div>
                     </div>
                     <h4 class="text-deep-navy dark:text-white font-black text-sm uppercase leading-tight mb-1">Discípulo
@@ -437,8 +548,7 @@
             <div class="p-4 bg-royal-navy/50">
                 <iframe class="spotify-iframe"
                     src="https://open.spotify.com/embed/playlist/37i9dQZF1DWV7UaT9vS7S3?utm_source=generator&theme=0"
-                    title="Playlist de Louvores Spotify"
-                    allowfullscreen=""
+                    title="Playlist de Louvores Spotify" allowfullscreen=""
                     allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                     loading="lazy"></iframe>
             </div>
@@ -638,6 +748,3 @@
 </body>
 
 </html>
-
-
-
