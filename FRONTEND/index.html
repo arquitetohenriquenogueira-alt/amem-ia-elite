@@ -54,62 +54,6 @@
   </script>
   <link rel="stylesheet" href="/public/styles/global.css?v=ELITE_ULTRA_FIX_1000" />
   <style>
-    .logo-aura {
-      filter: drop-shadow(0 0 40px rgba(200, 169, 81, 0.5));
-      animation: pulse-led 4s infinite ease-in-out;
-    }
-
-    @keyframes pulse-led {
-
-      0%,
-      100% {
-        opacity: 0.8;
-        transform: scale(1);
-      }
-
-      50% {
-        opacity: 1;
-        transform: scale(1.05);
-      }
-    }
-
-    /* [⭐] ELITE ULTIMATE FIX: POSICIONAMENTO POR COORDENADAS */
-    .elite-heart-v2 {
-      position: relative !important;
-      display: flex !important;
-      align-items: center !important;
-      justify-content: center !important;
-      background: linear-gradient(135deg,
-          #ffe4a3 0%,
-          #c8a951 45%,
-          #8a6e2f 100%) !important;
-      overflow: hidden !important;
-      -webkit-mask-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>') !important;
-      mask-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>') !important;
-      -webkit-mask-size: 100% 100% !important;
-      mask-size: 100% 100% !important;
-      -webkit-mask-repeat: no-repeat !important;
-      mask-repeat: no-repeat !important;
-      -webkit-mask-position: center !important;
-      mask-position: center !important;
-    }
-
-    /* O SEGREDO: Logo MENOR (72%) dentro de Coração MAIOR */
-    .elite-heart-v2 img {
-      position: absolute !important;
-      width: 72% !important;
-      /* Reduzido de 95% para garantir que o A lateral não seja cortado */
-      height: auto !important;
-      top: 48% !important;
-      /* Centralizado verticalmente com bias superior leve */
-      left: 50% !important;
-      transform: translate(-50%, -50%) !important;
-      object-fit: contain !important;
-      background: #050b18 !important;
-      z-index: 10 !important;
-      -webkit-mask-image: none !important;
-      mask-image: none !important;
-    }
   </style>
 </head>
 
@@ -123,14 +67,17 @@
   </button>
 
   <div class="max-w-4xl w-full text-center space-y-12 animate-fade-in relative z-10">
-    <!-- Logo Section -->
-    <div class="relative inline-block mt-8">
+    <!-- Logo Section Purificada v12 -->
+    <div class="relative inline-block mt-8 section-logo-elite">
       <div class="absolute inset-0 bg-gold-premium opacity-10 blur-3xl rounded-full"></div>
-      <div class="elite-heart-v2 logo-aura relative z-10 mx-auto w-64 h-64 flex items-center justify-center">
-        <!-- SVG CROSS (UNGIDOS) -->
-        <svg viewBox="0 0 24 24" class="w-[50%] h-[50%] fill-[#050B18] drop-shadow-[0_2px_5px_rgba(0,0,0,0.5)]"
-          xmlns="http://www.w3.org/2000/svg">
-          <path d="M11 2h2v7h7v2h-7v11h-2v-11h-7v-2h7v-7z" />
+      <div class="logo-pura mx-auto w-64 h-64 flex items-center justify-center logo-aura">
+        <svg viewBox="0 0 24 24" class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+          <!-- Coração Premium -->
+          <path
+            d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+            fill="#C8A951" />
+          <!-- Cruz Minimalista Centrada -->
+          <path d="M11 6.5h2v4h4v2h-4v6h-2v-6h-4v-2h4v-4z" fill="#050B18" />
         </svg>
       </div>
     </div>
@@ -147,39 +94,21 @@
       </p>
     </header>
 
-    <!-- CTA Section -->
-    <div class="flex flex-col items-center gap-4">
-      <button onclick="scrollToSection('funnel-section')"
-        class="bg-gold-premium hover:bg-gold-hover text-navy-deep px-10 py-5 rounded-2xl text-lg font-black uppercase tracking-widest flex items-center gap-3 shadow-[0_10px_30px_rgba(200,169,81,0.2)] dark:shadow-[0_10px_40px_rgba(200,169,81,0.15)] transition-all active:scale-95">
+    <!-- Hero CTA Unitário -->
+    <div class="space-y-6">
+      <button onclick="startQuiz()"
+        class="bg-gold-premium hover:bg-gold-hover text-navy-deep px-12 py-6 rounded-2xl text-xl font-black uppercase tracking-widest flex items-center gap-3 mx-auto shadow-[0_15px_40px_rgba(200,169,81,0.25)] transition-all active:scale-95 shimmer-gold">
         <span class="material-symbols-outlined font-bold text-2xl">church</span>
-        Identificar Meu Momento
+        Começar Minha Jornada
       </button>
-      <p class="text-[10px] md:text-xs uppercase tracking-[0.2em] text-slate-400 dark:text-white/40 font-bold mt-2">
+      <p class="text-[10px] md:text-xs uppercase tracking-[0.3em] text-slate-400 dark:text-white/40 font-bold">
         Inicie sua jornada espiritual AIOS
       </p>
     </div>
 
-    <!-- Funnel Section (Quiz Integration) -->
-    <section id="funnel-section"
-      class="bg-white dark:bg-navy-surface/50 border border-slate-200 dark:border-white/5 shadow-xl dark:shadow-2xl rounded-[24px] p-8 md:p-12 space-y-8 mt-16 backdrop-blur-sm transition-colors">
-      <div class="space-y-4">
-        <h2 class="text-2xl md:text-3xl font-serif font-black text-slate-800 dark:text-white">
-          Mapeie seu
-          <span class="text-gold-premium italic">Nível de Intimidade</span>
-        </h2>
-        <p class="text-slate-500 dark:text-white/60 font-medium">
-          Responda ao diagnóstico para receber um plano de crescimento sob
-          medida para você.
-        </p>
-      </div>
-
-      <div id="quiz-container">
-        <button onclick="startQuiz()"
-          class="bg-slate-100 dark:bg-white/5 hover:bg-slate-200 dark:hover:bg-white/10 border border-slate-200 dark:border-white/10 text-slate-800 dark:text-white px-8 py-4 rounded-2xl font-black uppercase tracking-widest transition-all shadow-sm active:scale-95">
-          Começar Agora
-        </button>
-      </div>
-    </section>
+    <!-- Quiz Hub Area -->
+    <div id="quiz-container" class="mt-8 transition-all">
+    </div>
   </div>
 
   <!-- Scripts de Funcionalidade Ungidos -->

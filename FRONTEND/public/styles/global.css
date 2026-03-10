@@ -62,18 +62,22 @@ h4,
   font-size: 32px;
   font-weight: 700;
 }
+
 .text-24 {
   font-size: 24px;
   font-weight: 600;
 }
+
 .text-18 {
   font-size: 18px;
   font-weight: 500;
 }
+
 .text-16 {
   font-size: 16px;
   font-weight: 400;
 }
+
 .text-14 {
   font-size: 14px;
   font-weight: 400;
@@ -81,47 +85,59 @@ h4,
 
 /* Tipografia e Contraste Global */
 * {
-    font-family: 'Inter', sans-serif;
-    -webkit-tap-highlight-color: transparent;
+  font-family: 'Inter', sans-serif;
+  -webkit-tap-highlight-color: transparent;
 }
 
 /* Tailwind irá controlar as cores (removido override global) */
 
 /* Feedback Visual Global */
-button, a, .clickable, .premium-card[onclick] {
-    cursor: pointer;
-    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+button,
+a,
+.clickable,
+.premium-card[onclick] {
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-button:hover, a:hover, .premium-card[onclick]:hover {
-    transform: translateY(-2px);
-    filter: brightness(1.1);
+button:hover,
+a:hover,
+.premium-card[onclick]:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.1);
 }
 
-button:active, a:active, .premium-card[onclick]:active {
-    transform: translateY(0);
-    scale: 0.98;
+button:active,
+a:active,
+.premium-card[onclick]:active {
+  transform: translateY(0);
+  scale: 0.98;
 }
 
 /* Botão Premium Padronizado */
 .btn-premium {
-    background-color: var(--color-primary);
-    color: #111827;
-    padding: 12px 24px;
-    border-radius: 12px;
-    font-weight: 600;
-    border: none;
-    box-shadow: 0 4px 12px rgba(212, 175, 55, 0.2);
+  background-color: var(--color-primary);
+  color: #111827;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-weight: 600;
+  border: none;
+  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.2);
 }
 
 .btn-premium:hover {
-    box-shadow: 0 6px 16px rgba(212, 175, 55, 0.3);
+  box-shadow: 0 6px 16px rgba(212, 175, 55, 0.3);
 }
 
 /* Premium Animations */
 @keyframes shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
+  0% {
+    background-position: -200% 0;
+  }
+
+  100% {
+    background-position: 200% 0;
+  }
 }
 
 .shimmer-gold {
@@ -136,176 +152,143 @@ button:active, a:active, .premium-card[onclick]:active {
   left: 0;
   width: 200%;
   height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(212, 175, 55, 0.2),
-    transparent
-  );
+  background: linear-gradient(90deg,
+      transparent,
+      rgba(212, 175, 55, 0.2),
+      transparent);
   background-size: 50% 100%;
   animation: shimmer 3s infinite;
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .animate-fade-in {
   animation: fadeIn 0.8s ease-out forwards;
 }
+
 /* Navegação Inferior Premium */
 .tab-bar-premium {
-    position: absolute;
-    bottom: 24px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: calc(100% - 48px);
-    max-width: 382px;
-    height: 72px;
-    background: rgba(31, 41, 55, 0.85); /* var(--color-card) com transparência */
-    -webkit-backdrop-filter: blur(16px);
-    backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 24px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 0 16px;
-    z-index: 999;
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 48px);
+  max-width: 382px;
+  height: 72px;
+  background: rgba(31, 41, 55, 0.85);
+  /* var(--color-card) com transparência */
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0 16px;
+  z-index: 999;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
 }
 
 .tab-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 4px;
-    color: var(--color-text-secondary);
-    text-decoration: none;
-    transition: all 0.3s ease;
-    flex: 1;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  flex: 1;
+  align-items: center;
 }
 
 .tab-item span {
-    font-size: 24px;
+  font-size: 24px;
 }
 
 .tab-item p {
-    font-size: 10px;
-    font-weight: 600;
-    margin: 0;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+  font-size: 10px;
+  font-weight: 600;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .tab-item.active {
-    color: var(--color-primary);
+  color: var(--color-primary);
 }
 
 .tab-item.active span {
-    font-variation-settings: 'FILL' 1;
+  font-variation-settings: 'FILL' 1;
 }
 
 .tab-item:active {
-    scale: 0.9;
+  scale: 0.9;
 }
 
-/* Elite Heart v2 Branding (Premium Medallion) */
-.elite-heart-v2 {
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    
-    /* [🛡️] AREA DE SEGURANÇA ELITE */
-    padding: 15% 15% 35% 15%; /* Empurra o conteúdo 35% para cima, fugindo do corte da base */
-    box-sizing: border-box;
-    
-    background: linear-gradient(135deg, #FFE4A3 0%, #C8A951 45%, #8A6E2F 100%);
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5), 0 0 20px rgba(200, 169, 81, 0.3);
-    overflow: hidden;
-    
-    /* Máscara Principal do Medalhão - SVG Robusto */
-    -webkit-mask-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>');
-    mask-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>');
-    -webkit-mask-size: 100% 100%;
-    mask-size: 100% 100%;
-    -webkit-mask-repeat: no-repeat;
-    mask-repeat: no-repeat;
+/* Logo Pura v12 */
+.logo-pura {
+  filter: drop-shadow(0 0 30px rgba(200, 169, 81, 0.4));
+  animation: logo-pulse 4s infinite ease-in-out;
 }
 
-.elite-heart-v2::after {
-    content: "";
-    position: absolute;
-    top: -50%;
-    left: -150%;
-    width: 200%;
-    height: 200%;
-    background: linear-gradient(
-        45deg,
-        transparent 45%,
-        rgba(255, 255, 255, 0.6) 50%,
-        transparent 55%
-    );
-    z-index: 20;
-    pointer-events: none;
-    animation: shimmer-swipe 5s infinite ease-in-out;
-}
+@keyframes logo-pulse {
 
-@keyframes shimmer-swipe {
-    0% { left: -150%; opacity: 0; }
-    15% { opacity: 1; }
-    35% { left: 150%; opacity: 0; }
-    100% { left: 150%; opacity: 0; }
-}
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
 
-.elite-heart-v2 img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    background: #050B18; /* Fundo Navy Deep dentro do recorte */
-    position: relative;
-    z-index: 10;
+  50% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
 }
 
 /* Legacy Support (Redirecionando para o novo sistema) */
 .logo-heart-mask {
-    /* Repetindo os estilos básicos para compatibilidade sem composes */
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 3px;
-    background: linear-gradient(135deg, #FFE4A3 0%, #C8A951 45%, #8A6E2F 100%);
-    -webkit-mask-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>');
-    mask-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>');
-    -webkit-mask-size: 60%;
-    mask-size: 60%;
-    -webkit-mask-repeat: no-repeat;
-    mask-repeat: no-repeat;
-    -webkit-mask-position: center 25%;
-    mask-position: center 25%;
+  /* Repetindo os estilos básicos para compatibilidade sem composes */
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3px;
+  background: linear-gradient(135deg, #FFE4A3 0%, #C8A951 45%, #8A6E2F 100%);
+  -webkit-mask-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>');
+  mask-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>');
+  -webkit-mask-size: 60%;
+  mask-size: 60%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center 25%;
+  mask-position: center 25%;
 }
 
 /* Pre-existing Heart Clip */
 .heart-clip {
-    -webkit-clip-path: url(#heart-path);
-    clip-path: url(#heart-path);
+  -webkit-clip-path: url(#heart-path);
+  clip-path: url(#heart-path);
 }
 
 /* Contrast Utilities */
 .text-high-contrast {
-    color: #FFFFFF !important;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  color: #FFFFFF !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .bg-premium-glass {
-    background: rgba(255, 255, 255, 0.05);
-    -webkit-backdrop-filter: blur(20px);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.05);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
-
