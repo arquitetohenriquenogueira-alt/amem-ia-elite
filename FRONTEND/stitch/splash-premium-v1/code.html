@@ -46,6 +46,36 @@
             50% { opacity: 1; transform: scale(1.05); filter: drop-shadow(0 0 40px rgba(200, 169, 81, 0.6)); }
         }
 
+        /* [⭐] ELITE NUCLEAR FIX V10 */
+        .elite-heart-v2 {
+            position: relative !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            background: linear-gradient(135deg, #FFE4A3 0%, #C8A951 45%, #8A6E2F 100%) !important;
+            overflow: hidden !important;
+            -webkit-mask-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>') !important;
+            mask-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>') !important;
+            -webkit-mask-size: 100% 100% !important;
+            mask-size: 100% 100% !important;
+            -webkit-mask-repeat: no-repeat !important;
+            mask-repeat: no-repeat !important;
+        }
+
+        .elite-heart-v2 img {
+            position: absolute !important;
+            width: 60% !important; /* REDUZIDO PARA 60% - ESPAÇO TOTAL PARA "AMÉM IA" */
+            height: auto !important;
+            top: 45% !important; 
+            left: 50% !important;
+            transform: translate(-50%, -50%) !important;
+            object-fit: contain !important;
+            background: #050B18 !important;
+            z-index: 10 !important;
+            mask-image: none !important;
+            -webkit-mask-image: none !important;
+        }
+
         /* [⭐] ELITE ULTIMATE FIX: POSICIONAMENTO POR COORDENADAS */
         .elite-heart-v2 {
             position: relative !important;
@@ -95,7 +125,7 @@
         <!-- Minimalist Logo Section -->
         <div class="relative flex flex-col items-center justify-center">
              <div class="absolute inset-0 bg-gold-premium opacity-10 dark:opacity-20 blur-3xl rounded-full scale-150"></div>
-              <div class="elite-heart-v2 logo-aura relative z-10 w-64 h-64">
+              <div class="elite-heart-v2 logo-aura relative z-10 w-64 h-64 md:w-72 md:h-72">
                 <img src="/public/assets/logo-premium.png" alt="Amém Ungidos">
               </div>
         </div>
@@ -121,9 +151,17 @@
     </div>
 
     <script>
+        console.log("🛡️ [ELITE] NUCLEAR LOGO FIX V10 ACTIVATED");
         // Previne o loop no Hub adicionando um flag de "entrada real"
         function startApp() {
             window.location.href = '../../index.html?mode=app';
+        }
+
+        // Kill Service Worker to force fresh logo
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.getRegistrations().then(function(registrations) {
+                for(let registration of registrations) { registration.unregister(); }
+            });
         }
     </script>
 </body>
