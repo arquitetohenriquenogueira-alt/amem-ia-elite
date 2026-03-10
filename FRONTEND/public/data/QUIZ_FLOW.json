@@ -6,33 +6,60 @@
             "id": 1,
             "text": "Com que frequência você lê a Bíblia?",
             "options": [
-                { "text": "Raramente", "value": "sementinha" },
-                { "text": "Algumas vezes por semana", "value": "broto" },
-                { "text": "Todos os dias", "value": "arvore" }
+                {
+                    "text": "Raramente",
+                    "value": "ungidos"
+                },
+                {
+                    "text": "Algumas vezes por semana",
+                    "value": "broto"
+                },
+                {
+                    "text": "Todos os dias",
+                    "value": "arvore"
+                }
             ]
         },
         {
             "id": 2,
             "text": "Como está sua vida de oração?",
             "options": [
-                { "text": "Apenas quando preciso de algo", "value": "sementinha" },
-                { "text": "Tenho momentos constantes", "value": "broto" },
-                { "text": "Vivo em espírito de oração", "value": "arvore" }
+                {
+                    "text": "Apenas quando preciso de algo",
+                    "value": "ungidos"
+                },
+                {
+                    "text": "Tenho momentos constantes",
+                    "value": "broto"
+                },
+                {
+                    "text": "Vivo em espírito de oração",
+                    "value": "arvore"
+                }
             ]
         },
         {
             "id": 3,
             "text": "Você compartilha sua fé com outros?",
             "options": [
-                { "text": "Tenho vergonha/medo", "value": "sementinha" },
-                { "text": "Falo quando surge a oportunidade", "value": "broto" },
-                { "text": "Busco ativamente discipular", "value": "arvore" }
+                {
+                    "text": "Tenho vergonha/medo",
+                    "value": "ungidos"
+                },
+                {
+                    "text": "Falo quando surge a oportunidade",
+                    "value": "broto"
+                },
+                {
+                    "text": "Busco ativamente discipular",
+                    "value": "arvore"
+                }
             ]
         }
     ],
     "results": {
-        "sementinha": {
-            "title": "Nível Sementinha",
+        "ungidos": {
+            "title": "Nível Ungidos",
             "description": "Você está no início de uma jornada poderosa. O Amém IA vai te ajudar a criar raízes profundas.",
             "cta": "Começar Fundamentação"
         },

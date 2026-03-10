@@ -1,11 +1,15 @@
 ﻿<!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>Master Lobby - Amém IA Administration</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;700;800&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
     <link rel="stylesheet" href="public/styles/global.css">
     <script src="public/scripts/config_elite.js" type="module"></script>
     <style>
@@ -14,6 +18,7 @@
             color: white;
             padding: 40px 20px;
         }
+
         .lobby-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -21,6 +26,7 @@
             max-width: 1200px;
             margin: 40px auto;
         }
+
         .module-card {
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(212, 175, 55, 0.2);
@@ -34,58 +40,79 @@
             align-items: center;
             text-align: center;
         }
+
         .module-card:hover {
             background: rgba(212, 175, 55, 0.1);
             border-color: #D4AF37;
             transform: translateY(-5px);
         }
+
         .module-icon {
             font-size: 48px;
             color: #D4AF37;
             margin-bottom: 16px;
         }
+
         .module-title {
             font-weight: 800;
             text-transform: uppercase;
             letter-spacing: 1px;
             margin-bottom: 8px;
         }
+
         .module-desc {
             font-size: 14px;
             opacity: 0.6;
             line-height: 1.5;
         }
+
         .header {
             text-align: center;
             margin-bottom: 60px;
         }
+
         .header h1 {
             font-family: 'Playfair Display', serif;
             font-size: 48px;
             margin-bottom: 8px;
         }
+
         .header p {
             color: #D4AF37;
             text-transform: uppercase;
             letter-spacing: 4px;
             font-weight: 700;
         }
+
         .highlighted-card {
             border-width: 2px;
             border-color: #D4AF37;
             background: rgba(212, 175, 55, 0.1);
         }
+
         .highlighted-text {
             color: #D4AF37;
         }
+
         .admin-card {
             border-color: #D4AF37;
             opacity: 0.8;
         }
+
         @keyframes pulse-led {
-            0%, 100% { opacity: 0.8; transform: scale(1); }
-            50% { opacity: 1; transform: scale(1.05); }
+
+            0%,
+            100% {
+                opacity: 0.8;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1.05);
+            }
         }
+
         .logo-aura {
             filter: drop-shadow(0 0 30px rgba(212, 175, 55, 0.4));
             animation: pulse-led 4s infinite ease-in-out;
@@ -93,9 +120,11 @@
         }
     </style>
 </head>
+
 <body>
     <div class="header">
-        <div class="elite-heart-v2 logo-aura" style="width: 120px; height: 120px; display: inline-flex; margin-bottom: 20px;">
+        <div class="elite-heart-v2 logo-aura"
+            style="width: 120px; height: 120px; display: inline-flex; margin-bottom: 20px;">
             <img src="/public/assets/logo-premium.png" alt="Amém Ungidos">
         </div>
         <h1>MASTER LOBBY</h1>
@@ -131,7 +160,7 @@
 
         <a href="stitch/area-kids-sementinha/code.html" class="module-card">
             <span class="material-symbols-outlined module-icon">child_care</span>
-            <div class="module-title">Modo Sementinha (Kids)</div>
+            <div class="module-title">Modo Ungidos (Kids)</div>
             <div class="module-desc">Orações e ensinos lúdicos para crianças.</div>
         </a>
 
@@ -168,4 +197,5 @@
         </div>
     </div>
 </body>
+
 </html>

@@ -1,53 +1,58 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jornada Ungida - Amém</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="/public/styles/global.css?v=EliteHeart">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
-<body class="bg-[#0b0f19] text-white min-h-screen flex items-center justify-center p-6">
+
+<body class="bg-[#050B18] text-white min-h-screen flex items-center justify-center p-6 font-sans">
     <div class="w-full max-w-md bg-white/5 border border-white/10 p-8 rounded-[32px] backdrop-blur-xl animate-fade-in">
         <div class="text-center mb-10">
             <div class="elite-heart-v2 logo-aura mx-auto mb-6 w-24 h-24">
                 <svg viewBox="0 0 24 24" class="w-[60%] h-[60%] fill-[#050B18]" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M11 2h2v7h7v2h-7v11h-2v-11h-7v-2h7v-7z"/>
+                    <path d="M11 2h2v7h7v2h-7v11h-2v-11h-7v-2h7v-7z" />
                 </svg>
             </div>
-            <h1 class="text-32 font-black uppercase tracking-tight mb-2">Jornada <span class="text-premium-gold">Ungida</span></h1>
+            <h1 class="text-32 font-black uppercase tracking-tight mb-2">Jornada <span
+                    class="text-premium-gold">Ungida</span></h1>
             <p class="text-white/50 lowercase">Inicie sua jornada no Protocolo Sumaúma.</p>
         </div>
 
         <form id="signup-form" class="space-y-6">
             <div>
                 <label class="block text-12 uppercase tracking-widest text-white/50 mb-2">Nome Completo</label>
-                <input type="text" id="fullname" required 
-                       class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-premium-gold transition-all"
-                       placeholder="Seu Nome">
+                <input type="text" id="fullname" required
+                    class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-4 focus:outline-none focus:border-premium-gold transition-all text-white placeholder-white/30"
+                    placeholder="Digite seu nome">
             </div>
             <div>
                 <label class="block text-12 uppercase tracking-widest text-white/50 mb-2">E-mail</label>
-                <input type="email" id="email" required 
-                       class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-premium-gold transition-all"
-                       placeholder="exemplo@email.com">
+                <input type="email" id="email" required
+                    class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-4 focus:outline-none focus:border-premium-gold transition-all text-white placeholder-white/30"
+                    placeholder="Seu melhor e-mail">
             </div>
             <div>
                 <label class="block text-12 uppercase tracking-widest text-white/50 mb-2">Senha</label>
-                <input type="password" id="password" required 
-                       class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-premium-gold transition-all"
-                       placeholder="Mínimo 6 caracteres">
+                <input type="password" id="password" required
+                    class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-4 focus:outline-none focus:border-premium-gold transition-all text-white placeholder-white/30"
+                    placeholder="Mínimo 6 caracteres">
             </div>
-            
-            <button type="submit" 
-                    class="btn-premium shimmer-gold w-full h-14 rounded-xl font-black uppercase tracking-widest flex items-center justify-center">
+
+            <button type="submit"
+                class="btn-premium shimmer-gold w-full h-14 rounded-xl font-black uppercase tracking-widest flex items-center justify-center">
                 Criar Conta
             </button>
         </form>
 
         <div class="mt-8 text-center">
-            <p class="text-14 text-white/50">Já tem uma conta? <a href="/login.html" class="text-premium-gold font-bold">Entrar</a></p>
+            <p class="text-14 text-white/50">Já tem uma conta? <a href="/login.html"
+                    class="text-premium-gold font-bold">Entrar</a></p>
         </div>
     </div>
 
@@ -70,4 +75,5 @@
         });
     </script>
 </body>
+
 </html>

@@ -1,4 +1,4 @@
- // import { AuthService } from './auth_service.js'
+// import { AuthService } from './auth_service.js'
 // import { KonverteSync } from './konverte_sync.js'
 
 const QuizEngine = {
@@ -58,18 +58,18 @@ const QuizEngine = {
     renderLeadCapture() {
         const container = document.getElementById('quiz-container');
         container.innerHTML = `
-            <div class="animate-fade-in text-center">
+            <div class="animate-fade-in text-center max-w-sm mx-auto">
                 <span class="material-symbols-outlined text-premium-gold text-48 mb-4">mail</span>
-                <h2 class="text-24 font-black uppercase mb-4">Seu Plano de Crescimento está Pronto!</h2>
-                <p class="text-white/50 mb-8">Onde devemos enviar seu roteiro de intimidade com Deus?</p>
+                <h2 class="text-24 font-black uppercase mb-4 text-slate-900 dark:text-white">Seu Plano está Pronto!</h2>
+                <p class="text-slate-600 dark:text-white/50 mb-8">Receba seu roteiro de intimidade agora.</p>
                 
-                <form onsubmit="QuizEngine.handleLeadSubmit(event)" class="grid gap-4 max-w-sm mx-auto">
+                <form onsubmit="QuizEngine.handleLeadSubmit(event)" class="grid gap-4">
                     <input type="text" id="lead-name" placeholder="Seu Nome Completo" required 
-                           class="bg-white/5 border border-white/20 p-4 rounded-xl focus:border-premium-gold outline-none text-white">
+                           class="bg-slate-100 dark:bg-white/10 border border-slate-200 dark:border-white/20 p-5 rounded-xl focus:border-premium-gold outline-none text-slate-900 dark:text-white font-bold placeholder-slate-400 dark:placeholder-white/30">
                     <input type="email" id="lead-email" placeholder="Seu Melhor E-mail" required 
-                           class="bg-white/5 border border-white/20 p-4 rounded-xl focus:border-premium-gold outline-none text-white">
+                           class="bg-slate-100 dark:bg-white/10 border border-slate-200 dark:border-white/20 p-5 rounded-xl focus:border-premium-gold outline-none text-slate-900 dark:text-white font-bold placeholder-slate-400 dark:placeholder-white/30">
                     
-                    <button type="submit" class="btn-premium shimmer-gold py-4 rounded-xl font-black uppercase tracking-widest">
+                    <button type="submit" class="btn-premium shimmer-gold py-5 rounded-xl font-black uppercase tracking-widest text-navy-deep shadow-xl">
                         Ver Meu Resultado
                     </button>
                 </form>
@@ -81,7 +81,7 @@ const QuizEngine = {
         event.preventDefault();
         const name = document.getElementById('lead-name').value;
         const email = document.getElementById('lead-email').value;
-        
+
         // Bloquear botão
         const btn = event.target.querySelector('button');
         btn.disabled = true;
@@ -93,23 +93,18 @@ const QuizEngine = {
         // Capturar Nível para o Lead
         const counts = {};
         this.answers.forEach(val => counts[val] = (counts[val] || 0) + 1);
-        let resultKey = 'sementinha';
+        let resultKey = 'ungidos'; // [MÉTODO NOGUEIRA] Sementinha -> Ungidos
         if (counts['arvore'] >= 2) resultKey = 'arvore';
         else if (counts['broto'] >= 2 || (counts['arvore'] && counts['broto'])) resultKey = 'broto';
-
-        // PERSISTÊNCIA HOT LEAD (Opcional - Não bloqueante)
-        try {
-            // const { supabase } = await import('./supabase_client.js');
-            // ... logic ...
-            console.log(`[🚀] AMÉM IA: Processamento de lead (Simulado para Auditoria)`);
-        } catch (e) {
-            console.warn("[⚠️] Falha ao capturar Hot Lead:", e.message);
-        }
 
         this.showResult(resultKey);
     },
 
     async showResult(resultKey) {
+        if (!this.flow || !this.flow.results[resultKey]) {
+            console.error("[❌] Resultado não encontrado:", resultKey);
+            return;
+        }
         const result = this.flow.results[resultKey];
         const container = document.getElementById('quiz-container');
 
@@ -120,21 +115,21 @@ const QuizEngine = {
         container.innerHTML = `
             <div class="animate-fade-in text-center py-8">
                 <div class="mb-6 flex justify-center">
-                    <div class="p-4 rounded-full bg-premium-gold/10 ring-4 ring-premium-gold/5">
-                        <span class="material-symbols-outlined text-80 text-premium-gold">workspace_premium</span>
+                    <div class="p-5 rounded-full bg-premium-gold/20 ring-8 ring-premium-gold/5">
+                        <span class="material-symbols-outlined text-80 text-premium-gold symbol-filled">workspace_premium</span>
                     </div>
                 </div>
-                <h2 class="text-32 font-black uppercase mb-4 leading-none tracking-tighter">${result.title}</h2>
-                <div class="bg-white/5 border border-white/10 p-6 rounded-2xl mb-8">
-                    <p class="text-16 text-white/80 leading-relaxed font-medium capitalize italic">"${result.description}"</p>
+                <h2 class="text-32 font-black uppercase mb-4 leading-none tracking-tighter text-slate-900 dark:text-white">${result.title}</h2>
+                <div class="bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 p-8 rounded-3xl mb-8">
+                    <p class="text-18 text-slate-700 dark:text-white/80 leading-relaxed font-bold italic">"${result.description}"</p>
                 </div>
                 
                 <a href="${checkoutUrl}" 
-                   class="btn-premium shimmer-gold w-full h-20 rounded-2xl text-20 font-black uppercase tracking-widest flex items-center justify-center gap-4 shadow-2xl transition-transform active:scale-[0.98]">
-                    <span class="material-symbols-outlined">bolt</span>
+                   class="btn-premium shimmer-gold w-full h-24 rounded-[32px] text-24 font-black uppercase tracking-widest flex items-center justify-center gap-4 shadow-2xl transition-transform active:scale-[0.95]">
+                    <span class="material-symbols-outlined text-32">bolt</span>
                     ${result.cta}
                 </a>
-                <p class="mt-8 text-10 text-white/30 uppercase tracking-[0.3em] font-black">Acesso Imediato ao Ecossistema Ungidos</p>
+                <p class="mt-8 text-12 text-slate-400 dark:text-white/30 uppercase tracking-[0.4em] font-black">Liderança Espiritual Elite</p>
             </div>
         `;
 
